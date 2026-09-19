@@ -28,8 +28,6 @@ header {
     background-color: var(--cor-primaria);
     position: sticky;
     top: 0px;
-    left: 0px;
-    right: 0px;
     z-index: 1000;
 }
 
@@ -68,7 +66,7 @@ nav ul li {
 main {
     display: flex;
     align-items: center;
-    background-image: url(assets/images/female-shepherd-flock-sheep-lawn.jpg);
+    background-image: url(../assets/images/female-shepherd-flock-sheep-lawn.jpg);
     background-size: cover;
     height: 600px;
     color: white;
