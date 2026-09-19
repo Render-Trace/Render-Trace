@@ -9,15 +9,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 24px;
+    padding: 12px 36px;
     background-color: var(--cor-primaria);
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
 }
 
 nav ul {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
     color: white;
 }
 
@@ -27,22 +32,67 @@ nav ul li {
     font-size: 14px;
 }
 
-.nav-cadastro {
+.nav-button {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90px;
     height: 24px;
+    cursor: pointer;
+}
+
+.nav-cadastro {
     background-color: white;
     color: var(--cor-primaria);
 }
 
 .nav-entrar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90px;
-    height: 24px;
     border: solid 1px white;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    padding: 12px 36px;
+    background-image: url(assets/images/female-shepherd-flock-sheep-lawn.jpg);
+    background-size: cover;
+    height: 600px;
+    color: white;
+    position: relative;
+}
+
+.main-parceiras {   
+    display: flex;
+    width: auto;
+    font-weight: 700;
+    font-size: 12px;
+    border: solid 2px var(--cor-primaria);
+    border-radius: 50px;
+    padding: 4px 8px;
+}
+
+.main-logo {
+    width: 400px;
+}
+
+.main-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.main-icons img {
+    border: solid 2px var(--cor-primaria);
+    border-radius: 36px;
+    padding: 10px;
+    width: 40px;
+}
+
+.container-transicao {
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(1, 1, 1, 0), var(--cor-primaria));
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
