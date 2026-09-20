@@ -131,6 +131,7 @@ main {
     display: flex;
     justify-content: center;
     height: 350px;
+    width: 100%;
 }
 
 .sobre-info {
