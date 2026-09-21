@@ -34,7 +34,8 @@ header {
 .header-container {
     display: flex;
     justify-content: space-between;
-    min-width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     align-items: center;
 }
 
@@ -205,22 +206,20 @@ main {
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
 }
 
 .card {
-    width: 33%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
 }
 
 .card .image{
     margin-top: 20%;
     background-color: #164636;
-    width: 400px;
+    width: 100%;
     height: 500px;
     border-radius: 45px;
     padding: 5px;
@@ -289,5 +288,5 @@ main {
 }
 
 .card .text-card-color{
-    color: #7ED957;
+    color: var(--cor-secundária);
 }
