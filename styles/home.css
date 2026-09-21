@@ -192,3 +192,94 @@ main {
 .sobre-links img {
     width: 88px;
 }
+
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.card .image{
+    margin-top: 20%;
+    background-color: #164636;
+    width: 400px;
+    height: 500px;
+    border-radius: 45px;
+    padding: 5px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.card .image .background-image{
+    border-radius: 45px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(65%);
+}
+
+.card .image .icon-image-1{
+    width: 130px;
+    position: absolute;
+    left: 50%;
+    top: 35px;
+    transform: translateX(-50%);
+}
+
+.card .image .text-1{
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 280px;
+}
+
+.card .image .icon-image-2{
+    width: 115px;
+    position: absolute;
+    left: 52%;
+    transform: translateX(-50%);
+    top: 50px;
+}
+
+.card .image .icon-image-5{
+    width: 115px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+}
+
+.card .image .text-2{
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 350px;
+}
+
+.card .text-card{
+    width: 100%;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.card .text-card-color{
+    color: #7ED957;
+}
