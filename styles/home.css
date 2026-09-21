@@ -24,11 +24,18 @@ a {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: var(--cor-primaria);
     position: sticky;
     top: 0px;
     z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    min-width: 1440px;
+    align-items: center;
 }
 
 nav ul {
@@ -128,6 +135,7 @@ main {
 }
 
 .sobre-container {
+    max-width: 1440px;
     display: flex;
     justify-content: center;
     height: 350px;
@@ -152,7 +160,7 @@ main {
 
 .sobre-numero {
     padding: 0px;
-    font-size: 8vw;
+    font-size: 120px;
     margin-right: 12px;
     font-weight: 800;
     width: 25%;
