@@ -23,16 +23,35 @@ body {
 .lado-direito {
     flex: 6;
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: #164636;
+}
+
+span {
+    color: #7abf66;
+}
+
+#select_usuario {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 .formulario {
-    justify-content: center;
-    align-items: center;
+    width: 350px;
     text-align: center;
 }
 
 .formulario img {
-    width: 250px;
+    width: 200px;
 }
 
 .formulario h1 {
@@ -42,6 +61,7 @@ body {
     font-style: normal;
     line-height: 100%;
     letter-spacing: 0;
+    margin-left: -200px;
 }
 
 .formulario input {
@@ -50,7 +70,6 @@ body {
     margin-bottom: 15px;
     padding: 0 15px;
     border: 1px solid #ccc;
-    border-radius: 20px;
     font-size: 16px;
     outline: none;
 }
@@ -59,20 +78,22 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    color: #BEC3BF;
 }
 
 .campo label {
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: bold;
+    text-align: left;
 }
 
 .campo input {
     width: 350px;
-    height: 45px;
-    padding: 0 15px;
+    height: 35px;
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 .formulario button {
