@@ -211,7 +211,7 @@ main {
     width: 88px;
 }
 
-.container{
+.container-informacao {
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
