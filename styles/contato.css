@@ -1,0 +1,144 @@
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contato-secao {
+    width: 1440px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 60px 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.contato-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    width: 45%;
+    height: fit-content;
+    
+}
+
+.contato-info h1, 
+.contato-info p {
+    margin: 0;
+}
+
+.contato-titulo {
+    color: rgb(7, 66, 7);
+    margin-bottom: 15px;
+}
+
+.contato-conversar,
+.contato-redes {
+    margin-top: 35px;
+    color: rgb(7, 66, 7);
+}
+
+.contato-conversar p,
+.contato-info p {
+    margin-top: 8px;
+    font-style: italic;
+    color: #333;
+}
+
+.contato-conversar p .icon,
+.contato-info p .icon {
+    font-size: 18px;
+    color: rgb(7, 66, 7);
+}
+
+.contato-cadastro {
+    background-color: #eaf5e3 ;
+    display: flex;
+    flex-direction: column;
+
+    
+    padding: 20px;
+    width: 45%;
+    height: fit-content;
+
+    border-radius: 20px;
+    box-sizing: border-box;
+    
+}
+
+
+.contato-cadastro label {
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#l_nome {
+    color: rgb(122, 183, 31);
+}
+
+
+input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #7ab71f;
+    padding: 8px 0;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: rgb(7, 66, 7);
+    color: white;
+
+    display: flex;
+    align-self: flex-end;
+
+    border-radius: 20px;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+.footer {
+    background-color: rgb(7, 66, 7);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px 80px;
+    margin-top: 80px;
+    gap: 120px;
+}
+
+
+.footer-img img {
+    width: 80px;
+    height: auto;
+}
+
+.footer-explore,
+.footer-recursos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer h2{
+    color: white;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer p {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+}
+
