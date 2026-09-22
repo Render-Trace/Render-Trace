@@ -4,7 +4,8 @@ body {
 }
 
 .contato-secao {
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,21 +24,24 @@ body {
     height: fit-content;
     
 }
-
-.contato-info h1, 
+ 
 .contato-info p {
+    font-size: 16px;
     margin: 0;
 }
 
 .contato-titulo {
     color: rgb(7, 66, 7);
     margin-bottom: 15px;
+    margin: 0;
+    font-size: 64px;
 }
 
 .contato-conversar,
 .contato-redes {
     margin-top: 35px;
     color: rgb(7, 66, 7);
+    font-size: 48px;
 }
 
 .contato-conversar p,
@@ -45,6 +49,7 @@ body {
     margin-top: 8px;
     font-style: italic;
     color: #333;
+    font-size: 24px;
 }
 
 .contato-conversar p .icon,
