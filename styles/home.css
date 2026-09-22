@@ -238,9 +238,13 @@ main {
     width: 100%;
     height: 500px;
     border-radius: 45px;
-    padding: 5px;
     position: relative;
     margin-bottom: 20px;
+    overflow: hidden;
+    border: solid 5px #164636;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -251,7 +255,18 @@ main {
     height: 100%;
     object-fit: cover;
     filter: brightness(65%);
+    transition: 0.5s;
 }
+
+.card .image .background-image:hover{
+    border-radius: 45px;
+    width: 105%;
+    height: 105%;
+    object-fit: cover;
+    filter: brightness(80%);
+}
+
+
 
 .card .image .icon-image-1{
     width: 130px;
