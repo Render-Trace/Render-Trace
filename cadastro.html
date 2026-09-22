@@ -4,28 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/home.css">
-    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="styles/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Render Trace | Cadastro</title>
 </head>
 
 <body>
 
-    <div class="formulario">
-        <h1> CADASTRAR USUÁRIO </h1>
-        <label for="select_usuario">Tipo Usuário:</label>
-        <select id="select_usuario">
-            <option selected disabled> Selecione</option>
-            <option>Administrador</option>
-            <option>Gestor</option>
-        </select><br>
-        <input type="text" id="input_nome" placeholder="Nome completo"> <br>
-        <input type="email" id="input_email" placeholder="email"> <br>
-        <input type="password" id="input_senha" placeholder="Senha" oninput="verificar()"><br>
-        <input type="password" id="input_confirmarSenha" placeholder="Confirmar senha"><br>
+    <div class="container">
 
-        <div id="div_mensagem"></div>
-        <div id="div_mensagem2"></div>
-        <button onclick="cadastrarUsuario()">CADASTRAR</button>
+        <div class="lado-esquerdo">
+
+        </div>
+
+        <div class="lado-direito">
+
+            <div class="formulario">
+
+                <img src="assets/images/logo-cadastro.png" alt="Render Trace">
+                <h1>Cadastro</h1>
+                <p>Não tem uma conta? <span>Crie uma agora</span></p>
+                <label for="select_usuario">Tipo Usuário:</label>
+                <select id="select_usuario">
+                    <option selected disabled> Selecione</option>
+                    <option>Administrador</option>
+                    <option>Gestor</option>
+                </select><br>
+                <div class="campo">
+                    <label for="input_nome">Nome completo</label>
+                    <input type="text" id="input_nome">
+                </div>
+
+                <div class="campo">
+                    <label for="input_email">E-mail</label>
+                    <input type="email" id="input_email">
+                </div>
+
+                <div class="campo">
+                    <label for="input_senha">Senha</label>
+                    <input type="password" oninput="verificar()" id="input_senha">
+                </div>
+
+                <div class="campo">
+                    <label for="input_confirmarSenha">Confirmar senha</label>
+                    <input type="password" id="input_confirmarSenha">
+                </div>
+
+                <div id="div_mensagem"></div>
+                <div id="div_mensagem2"></div>
+                <button onclick="cadastrarUsuario()">Cadastrar</button>
+            </div>
+        </div>
+
     </div>
 
 </body>
@@ -60,7 +91,43 @@
     }
 
     function cadastrarUsuario() {
-        //Falta adicionar a função de cadastrar o usuário :)
+        let usuario = select_usuario.value;
+        let nome = input_nome.value;
+        let email = input_email.value;
+        let senha = input_senha.value;
+        let confirmarSenha = input_confirmarSenha.value;
+
+        if (usuario == 'Administrador' || usuario == 'Gestor') {
+
+            if (nome != '') {
+
+                if (email.includes('@')) {
+
+                    if (criterios == 3) {
+
+                        if (confirmarSenha == senha) {
+
+                            div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+
+                        } else {
+                            div_mensagem2.innerHTML = '<span class="erro">As senhas não são iguais!';
+                        }
+
+                    } else {
+                        div_mensagem2.innerHTML = '<span class="erro">A senha precisa ser forte!';
+                    }
+
+                } else {
+                    div_mensagem2.innerHTML = '<span class="erro">Digite um email válido!';
+                }
+
+            } else {
+                div_mensagem2.innerHTML = '<span class="erro">Digite o nome do usuário!';
+            }
+
+        } else {
+            div_mensagem2.innerHTML = '<span class="erro">Digite um tipo de usuário válido!';
+        }
     }
 
 </script>
