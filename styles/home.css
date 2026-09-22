@@ -72,8 +72,6 @@ nav ul li {
 }
 
 main {
-    display: flex;
-    align-items: center;
     background-image: url(../assets/images/female-shepherd-flock-sheep-lawn.jpg);
     background-size: cover;
     height: 600px;
@@ -91,8 +89,19 @@ main {
     padding: 4px 8px;
 }
 
+.main-info {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 350px;
+    margin: 0 auto;
+}
+
 .main-logo {
     width: 500px;
+    max-width: 100%;
 }
 
 .main-icons {
