@@ -5,6 +5,7 @@
     --cor-primaria: #1B4D3E;
     --cor-secundária: #7ED957;
     --cor-terciária: #F8FAFC;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -125,7 +126,7 @@ main {
 
 .container-transicao {
     width: 100%;
-    background: linear-gradient(to bottom, rgba(1, 1, 1, 0), var(--cor-primaria));
+    background: linear-gradient(to bottom, rg   ba(1, 1, 1, 0), var(--cor-primaria));
     height: 80px;
     position: absolute;
     bottom: 0;
