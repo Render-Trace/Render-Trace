@@ -1,3 +1,4 @@
+
 * {
     font-family: 'Poppins';
     margin: 0;
@@ -15,7 +16,7 @@ a {
 }
 
 .padding {
-    padding: 12px 36px;
+    padding: 64px 36px;
 }
 
 .destaque {
@@ -23,6 +24,7 @@ a {
 }
 
 header {
+    padding: 12px 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,7 +128,7 @@ main {
 
 .container-transicao {
     width: 100%;
-    background: linear-gradient(to bottom, rg   ba(1, 1, 1, 0), var(--cor-primaria));
+    background: linear-gradient(to bottom, rgba(1, 1, 1, 0), var(--cor-primaria));
     height: 80px;
     position: absolute;
     bottom: 0;
@@ -325,3 +327,153 @@ main {
 .card .text-card-color{
     color: var(--cor-secundária);
 }
+
+body {
+    margin: 0px;
+    font-family: 'Poppins';
+}
+
+.contato-secao {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 60px 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.contato-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    width: 45%;
+    height: fit-content;
+    
+}
+ 
+.contato-info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.contato-titulo {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+    margin: 0;
+    font-size: 64px;
+}
+
+.contato-conversar,
+.contato-redes {
+    margin-top: 35px;
+    color: var(--cor-primaria);
+    font-size: 48px;
+}
+
+.contato-conversar p,
+.contato-info p {
+    margin-top: 8px;
+    font-style: italic;
+    color: #333;
+    font-size: 24px;
+}
+
+.contato-conversar p .icon,
+.contato-info p .icon {
+    font-size: 18px;
+    color: var(--cor-primaria);
+}
+
+.contato-cadastro {
+    background-color: #eaf5e3 ;
+    display: flex;
+    flex-direction: column;
+
+    
+    padding: 20px;
+    width: 45%;
+    height: fit-content;
+
+    border-radius: 20px;
+    box-sizing: border-box;
+    
+}
+
+
+.contato-cadastro label {
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#l_nome {
+    color: var(--cor-primaria);
+}
+
+
+input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--cor-primaria);
+    padding: 8px 0;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: var(--cor-primaria);
+    color: white;
+
+    display: flex;
+    align-self: flex-end;
+
+    border-radius: 20px;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+.footer {
+    background-color: var(--cor-primaria);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px 80px;
+    margin-top: 80px;
+    gap: 120px;
+}
+
+
+.footer-img img {
+    width: 80px;
+    height: auto;
+}
+
+.footer-explore,
+.footer-recursos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer h2{
+    color: white;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer p {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+}
+
