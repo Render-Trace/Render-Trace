@@ -13,8 +13,10 @@ body {
     display: flex;
     width: 100%;
     height: 100vh;
-    position: relative; /* Necessário para posicionar as bolas */
-    overflow: hidden;   /* Impede que as bolas criem uma barra de rolagem na página */
+    position: relative;
+    /* Necessário para posicionar as bolas */
+    overflow: hidden;
+    /* Impede que as bolas criem uma barra de rolagem na página */
 }
 
 /* Criando as bolas com pseudoelementos */
@@ -52,7 +54,11 @@ body {
     justify-content: space-between;
 }
 
-.logo-esquerda img{
+.lado-esquerdo img {
+    border-radius: 15px;
+}
+
+.logo-esquerda img {
     width: 200px;
     margin: 15px;
 }
@@ -64,19 +70,42 @@ body {
     margin-bottom: 80px;
 }
 
+.container-imagem-destaque img {
+    width: 320px;
+    position: relative;
+    margin-top: -300px;
+}
+
 .tag-desconto {
     background-color: #fff;
     border-radius: 10px;
     position: relative;
-    margin-top: -20px;
+    margin-top: -30px;
+    margin-left: 70px;
+    padding: 5px;
 }
 
 .tag-desconto p {
-    color: white;
+    color: #164636;
+    font-weight: bold;
+    font-style: 14px;
+}
+
+.tag-desconto span {
+    font-size: 32px;
+}
+
+.tag-desconto img {
+    width: 27px;
+    height: 27px;
 }
 
 .imagem-fundo-destaque {
     width: 250px;
+}
+
+.texto-login {
+    color: white;
 }
 
 .lado-direito {
@@ -100,12 +129,12 @@ span {
 }
 
 #select_usuario {
-  padding: 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  color: #333;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 .formulario {
