@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Render Trace | Cadastro</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="lado-esquerdo">
+
+        </div>
+
+        <div class="lado-direito">
+
+            <div class="formulario">
+
+                <img src="assets/images/logo-cadastro.png" alt="Render Trace">
+                <h1>Cadastro</h1>
+                <p>Não tem uma conta? <span>Crie uma agora</span></p>
+                <label for="select_usuario">Tipo Usuário:</label>
+                <select id="select_usuario">
+                    <option selected disabled> Selecione</option>
+                    <option>Administrador</option>
+                    <option>Gestor</option>
+                </select><br>
+                <div class="campo">
+                    <label for="input_nome">Nome completo</label>
+                    <input type="text" id="input_nome">
+                </div>
+
+                <div class="campo">
+                    <label for="input_email">E-mail</label>
+                    <input type="email" id="input_email">
+                </div>
+
+                <div class="campo">
+                    <label for="input_senha">Senha</label>
+                    <input type="password" oninput="verificar()" id="input_senha">
+                </div>
+
+                <div class="campo">
+                    <label for="input_confirmarSenha">Confirmar senha</label>
+                    <input type="password" id="input_confirmarSenha">
+                </div>
+
+                <div id="div_mensagem"></div>
+                <div id="div_mensagem2"></div>
+                <button onclick="cadastrarUsuario()">Cadastrar</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    let criterios = 0;
+    function verificar() { // Para a senha ser forte, ela tem que cumprir 3 critérios 
+        let senha = input_senha.value; // ter letras Maiusculas, minuscula e ter pelo menos 8 caracteres
+        let tamanho = senha.length >= 8;
+        let maiusculas = senha != senha.toLowerCase();
+        let minusculas = senha != senha.toUpperCase();
+        criterios = 0;
+
+        if (tamanho) criterios++;
+        if (maiusculas) criterios++;
+        if (minusculas) criterios++;
+
+        if (criterios == 3) {
+            div_mensagem.innerHTML = `Senha Forte!`  // atingiu todos os critérios de segurança
+        } else if (criterios == 2 && senha.length > 4) {
+            div_mensagem.innerHTML = `Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+        } else if (criterios == 2) {
+            div_mensagem.innerHTML = `Senha Fraca. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+        } else if (criterios == 1) {
+            div_mensagem.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 1 critério de segurança
+        } else {
+            div_mensagem.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // não atingiu nenhum critério de segurança  
+        }
+    }
+
+    function cadastrarUsuario() {
+        let usuario = select_usuario.value;
+        let nome = input_nome.value;
+        let email = input_email.value;
+        let senha = input_senha.value;
+        let confirmarSenha = input_confirmarSenha.value;
+
+        if (usuario == 'Administrador' || usuario == 'Gestor') {
+
+            if (nome != '') {
+
+                if (email.includes('@')) {
+
+                    if (criterios == 3) {
+
+                        if (confirmarSenha == senha) {
+
+                            div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+
+                        } else {
+                            div_mensagem2.innerHTML = '<span class="erro">As senhas não são iguais!';
+                        }
+
+                    } else {
+                        div_mensagem2.innerHTML = '<span class="erro">A senha precisa ser forte!';
+                    }
+
+                } else {
+                    div_mensagem2.innerHTML = '<span class="erro">Digite um email válido!';
+                }
+
+            } else {
+                div_mensagem2.innerHTML = '<span class="erro">Digite o nome do usuário!';
+            }
+
+        } else {
+            div_mensagem2.innerHTML = '<span class="erro">Digite um tipo de usuário válido!';
+        }
+    }
+
+</script>

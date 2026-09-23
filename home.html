@@ -7,17 +7,22 @@
     <title>Home</title>
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="https://use.typekit.net/wgs2ohu.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="style_site.css" />
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+>>>>>>> b90b18033796f5de02467c25ef961bf0e11f70eb
 </head>
 
 <body>
 
-    <header class="padding">
+    <header>
         <div class="header-container">
             <img src="assets/images/logo-branca.svg" alt="Logo RenderTrace">
             <nav>
                 <ul>
-                    <li>Sobre nós</li>
+                    <li><a href="#sobre-section">Sobre nós</a></li>
                     <li>Contato</li>
                     <li>Soluções</li>
                     <li class="nav-button nav-entrar">Entrar</li>
@@ -28,26 +33,28 @@
     </header>
 
     <main class="padding">
-        <div class="main-info">
-            <div class="main-parceiras">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <span>Empresas parceiras</span>
-            </div>
+        <div class="main-container">
+            <div class="main-info">
+                <div class="main-parceiras">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <span>Empresas parceiras</span>
+                </div>
 
-            <img class="main-logo" src="assets/images/logo-branca.svg">
+                <img class="main-logo" src="assets/images/logo-branca.svg">
 
-            <div class="main-icons">
-                <img src="assets/images/green-economy.svg">
-                <img src="assets/images/cow.svg">
-                <img src="assets/images/factory.svg">
+                <div class="main-icons">
+                    <img src="assets/images/green-economy.svg">
+                    <img src="assets/images/cow.svg">
+                    <img src="assets/images/factory.svg">
+                </div>
             </div>
+            <div class="container-transicao"></div>
         </div>
-        <div class="container-transicao"></div>
     </main>
 
-    <section class="sobre-section padding">
+    <section class="sobre-section padding" id="sobre-section">
         <div class="sobre-logo"><img src="assets/images/logo-branca-2.svg"></div>
 
         <div class="sobre-container">
@@ -109,7 +116,7 @@
     </section>
 
     <section>
-        <div class="container">
+        <div class="container-informacao padding">
             <div class="card">
                 <div class="image">
                     <img class="background-image" src="assets/images/card-image-1.jpg">
@@ -187,6 +194,56 @@
 
 
 
+     <div class="contato-secao padding">
+         <div class="contato-info">
+            <h1 class="contato-titulo">Contato</h1>
+            <p>Vamos fechar <b class="destaque">negócio!</b></p>
+        
+            <h2 class="contato-conversar"><i>Vamos conversar</i></h2>
+            <p>renderTracerX@gmail.com</p>
+        
+            <h2 class="contato-redes">Veja nossas redes</h2>
+            <p>
+                <i class="fa-brands fa-linkedin icon"></i>
+                renderTracerX@gmail.com
+            </p>
+            <p>
+                <i class="fa-brands fa-github icon"></i>
+                renderTracerX@gmail.com
+                </p>
+        </div>
+    
+         <div class="contato-cadastro">
+            <label id="l_nome" for="input_nome">Nome:</label> <br>
+            <input type="text" id="input_nome"> <br><br>
+
+            <label for="input_mensagem">Mensagem:</label> <br>
+            <input type="text" id="input_mensagem"> <br><br>
+
+            <label for="input_telefone">Telefone:</label> <br>
+            <input type="text" id="input_telefone"> <br><br>
+
+            <button>Enviar</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-img">
+            <img src="https://github.com/guibenat/sprint01-renderTracerX/blob/main/assets/Render.png?raw=true" alt="logorendertrace">
+        </div>
+        <div class="footer-explore">
+            <h2>Explore</h2> 
+            <p>SpTech Av. Paulista</p> 
+            
+        </div>
+        <div class="footer-recursos">
+            <h2>Recursos</h2>
+            <p>Contato</p> 
+            <p>Soluções</p> 
+            <p>Calculadora</p> 
+            <p>Sobre nós</p>
+        </div>
+  </div>
 </body>
 
 </html>

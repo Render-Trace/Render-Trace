@@ -1,3 +1,4 @@
+
 * {
     font-family: 'Poppins';
     margin: 0;
@@ -5,6 +6,7 @@
     --cor-primaria: #1B4D3E;
     --cor-secundária: #7ED957;
     --cor-terciária: #F8FAFC;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -14,7 +16,7 @@ a {
 }
 
 .padding {
-    padding: 12px 36px;
+    padding: 64px 36px;
 }
 
 .destaque {
@@ -22,6 +24,7 @@ a {
 }
 
 header {
+    padding: 12px 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +37,8 @@ header {
 .header-container {
     display: flex;
     justify-content: space-between;
-    min-width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     align-items: center;
 }
 
@@ -71,13 +75,13 @@ nav ul li {
 }
 
 main {
-    display: flex;
-    align-items: center;
     background-image: url(../assets/images/female-shepherd-flock-sheep-lawn.jpg);
     background-size: cover;
     height: 600px;
     color: white;
     position: relative;
+    justify-content: center;
+    display: flex;
 }
 
 .main-parceiras {   
@@ -90,8 +94,24 @@ main {
     padding: 4px 8px;
 }
 
+.main-container {
+    display: flex;
+    align-items: center;
+    max-width: 1440px;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+}
+
 .main-logo {
     width: 500px;
+    max-width: 100%;
 }
 
 .main-icons {
@@ -109,7 +129,7 @@ main {
 .container-transicao {
     width: 100%;
     background: linear-gradient(to bottom, rgba(1, 1, 1, 0), var(--cor-primaria));
-    height: 200px;
+    height: 80px;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -201,32 +221,36 @@ main {
     width: 88px;
 }
 
-.container{
+.container-informacao {
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
 }
 
 .card {
-    width: 33%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
 }
 
 .card .image{
     margin-top: 20%;
     background-color: #164636;
-    width: 400px;
+    width: 100%;
     height: 500px;
     border-radius: 45px;
-    padding: 5px;
     position: relative;
     margin-bottom: 20px;
+    overflow: hidden;
+    border: solid 5px #164636;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
 .card .image .background-image{
     border-radius: 45px;
@@ -234,7 +258,18 @@ main {
     height: 100%;
     object-fit: cover;
     filter: brightness(65%);
+    transition: 0.5s;
 }
+
+.card .image .background-image:hover{
+    border-radius: 45px;
+    width: 105%;
+    height: 105%;
+    object-fit: cover;
+    filter: brightness(80%);
+}
+
+
 
 .card .image .icon-image-1{
     width: 130px;
@@ -286,8 +321,159 @@ main {
     width: 100%;
     font-weight: bold;
     font-size: 22px;
+    color: var(--cor-primaria);
 }
 
 .card .text-card-color{
-    color: #7ED957;
+    color: var(--cor-secundária);
 }
+
+body {
+    margin: 0px;
+    font-family: 'Poppins';
+}
+
+.contato-secao {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 60px 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.contato-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    width: 45%;
+    height: fit-content;
+    
+}
+ 
+.contato-info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.contato-titulo {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+    margin: 0;
+    font-size: 64px;
+}
+
+.contato-conversar,
+.contato-redes {
+    margin-top: 35px;
+    color: var(--cor-primaria);
+    font-size: 48px;
+}
+
+.contato-conversar p,
+.contato-info p {
+    margin-top: 8px;
+    font-style: italic;
+    color: #333;
+    font-size: 24px;
+}
+
+.contato-conversar p .icon,
+.contato-info p .icon {
+    font-size: 18px;
+    color: var(--cor-primaria);
+}
+
+.contato-cadastro {
+    background-color: #eaf5e3 ;
+    display: flex;
+    flex-direction: column;
+
+    
+    padding: 20px;
+    width: 45%;
+    height: fit-content;
+
+    border-radius: 20px;
+    box-sizing: border-box;
+    
+}
+
+
+.contato-cadastro label {
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#l_nome {
+    color: var(--cor-primaria);
+}
+
+
+input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--cor-primaria);
+    padding: 8px 0;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: var(--cor-primaria);
+    color: white;
+
+    display: flex;
+    align-self: flex-end;
+
+    border-radius: 20px;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+.footer {
+    background-color: var(--cor-primaria);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px 80px;
+    margin-top: 80px;
+    gap: 120px;
+}
+
+
+.footer-img img {
+    width: 80px;
+    height: auto;
+}
+
+.footer-explore,
+.footer-recursos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer h2{
+    color: white;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer p {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+}
+

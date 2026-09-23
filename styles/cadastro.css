@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.lado-esquerdo {
+    flex: 4;
+    background-color: #164f42;
+}
+
+.lado-direito {
+    flex: 6;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: #164636;
+}
+
+span {
+    color: #7abf66;
+}
+
+#select_usuario {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.formulario {
+    width: 350px;
+    text-align: center;
+}
+
+.formulario img {
+    width: 200px;
+}
+
+.formulario h1 {
+    color: #164636;
+    font-weight: 800;
+    font-size: 36px;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-left: -200px;
+}
+
+.formulario input {
+    width: 350px;
+    height: 45px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    color: #BEC3BF;
+}
+
+.campo label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.campo input {
+    width: 350px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.formulario button {
+    background-color: #1B4D3E;
+    color: white;
+    font-weight: 600;
+    font-size: 28px;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 0;
+    width: 350px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 28px;
+}
+
+.formulario input:focus {
+    border: 2px solid #275673;
+}
