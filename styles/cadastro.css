@@ -59,8 +59,20 @@ body {
 
 .container-imagem-destaque {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.tag-desconto {
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    margin-top: -20px;
+}
+
+.tag-desconto p {
+    color: white;
 }
 
 .imagem-fundo-destaque {
@@ -73,7 +85,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; 
+    position: relative;
     z-index: 1;
 }
 
