@@ -477,3 +477,108 @@ button {
     font-size: 14px;
 }
 
+
+
+.solucoes {
+    display: flex;
+    max-width: 1440px;
+    width: 100%;
+}
+
+.solucoes-container1 {
+    padding: 22px;
+    padding-bottom: 88px;
+    padding-top: 60px;
+    background-color: #164636;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.solucoes-titulo {
+    
+    color: aliceblue;
+    margin-bottom: 5px;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.solucoes-subtitulo {
+    
+    color: aliceblue;
+    margin-top: -12px;
+    margin-bottom: 80px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.solucoes-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.solucoes-card {
+    background: linear-gradient(180deg, #1B4D3E 0%, #7ED957 100%);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    
+}
+
+.solucoes-card h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.solucoes-container2 {
+    background-color: #ffffff;
+    width: 40%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Logo */
+.solucoes-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 100px;
+}
+
+.solucoes-logo img {
+    max-width: 160px;
+    height: auto;
+}
+
+
+.solucoes-calculadora {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.solucoes-img-calculadora {
+
+    width: 550px;
+    border-radius: 12px;
+
+}
+
+
+.solucoes-btn_calcular {
+    background-color: #0b3c2d;
+    color: #ffffff;
+    font-size: x-large;
+    font-weight: 80;
+    padding: 14px 45px;
+    border-radius: 30px;
+    size-adjust: 20px;
+}
