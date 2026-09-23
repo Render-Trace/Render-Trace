@@ -71,8 +71,9 @@ body {
 .solucoes-logo {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 10px;
+    height: 100px;
 }
 
 .solucoes-logo img {
