@@ -9,7 +9,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Atualize a classe container para ancorar as bolas e cortar o excesso */
 .container {
     display: flex;
     width: 100%;
@@ -24,42 +23,58 @@ body {
     content: '';
     position: absolute;
     border-radius: 50%;
-    /* Gradiente verde para dar o efeito visual da imagem */
     background: radial-gradient(circle, #2d6a4f 0%, #164f42 100%);
-    z-index: 10; /* Z-INDEX ALTO: coloca as bolas na frente de tudo */
-    pointer-events: none; /* CRUCIAL: permite que o usuário clique através das bolas nos inputs */
+    z-index: 10;
+    pointer-events: none;
 }
 
 /* Bola do canto superior direito (maior) */
 .container::before {
-    width: 350px;
-    height: 350px;
-    top: -175px;
-    right: -175px;
+    width: 450px;
+    height: 450px;
+    top: -250px;
+    right: -200px;
 }
 
 /* Bola do canto inferior direito (menor) */
 .container::after {
     width: 250px;
     height: 250px;
-    bottom: -100px;
-    right: -75px;
+    bottom: -125px;
+    right: -110px;
 }
 
 .lado-esquerdo {
     flex: 4;
     background-color: #164f42;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Atualize o lado-direito para garantir que ele fique atrás das bolas */
+.logo-esquerda img{
+    width: 200px;
+    margin: 15px;
+}
+
+.container-imagem-destaque {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imagem-fundo-destaque {
+    width: 250px;
+}
+
 .lado-direito {
     flex: 6;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Necessário para o z-index funcionar */
-    z-index: 1; /* Z-INDEX BAIXO: coloca o fundo branco e o formulário atrás das bolas */
+    position: relative; 
+    z-index: 1;
 }
 
 p {
