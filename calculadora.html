@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira - Grupo 10</title>
+</head>
+
+<body>
+    <h1>Calculadora Financeira</h1>
+
+    <label for="ipt_insumo_processado">Insumo Processado por mês: </label>
+    <input type="text" value="600000" id="ipt_insumo_processado"> <br>
+
+    <label for="ipt_rendimento">Rendimento(%): </label>
+    <input type="text" value="43.5" id="ipt_rendimento"> <br>
+
+    <label for="ipt_valor_produto">Valor do Produto Final: </label>
+    <input type="text" value="2.50" id="ipt_valor_produto"> <br>
+
+    <label for="ipt_perda_transbordo">Perda estimada por transbordo(%): </label>
+    <input type="text" value="5" id="ipt_perda_transbordo"> <br>
+
+    <label for="ipt_downtime">Tempo parado por tanque vazio: </label>
+    <input type="text" value="6" id="ipt_downtime"> <br>
+
+    <label for="ipt_custo_hora_parada">Custo da hora parada: </label>
+    <input type="text" value="1200" id="ipt_custo_hora_parada"> <br>
+
+    <button onclick="calcular()">Simular</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        let insumo_processado = Number(ipt_insumo_processado.value);
+        let rendimento = Number(ipt_rendimento.value);
+        let valor_produto = Number(ipt_valor_produto.value);
+        let perda_transbordo = Number(ipt_perda_transbordo.value);
+        let downtime = Number(ipt_downtime.value);
+        let custo_hora_parada = Number(ipt_custo_hora_parada.value);
+
+        if (insumo_processado <= 0) {
+            div_result.innerHTML += 'Insumo deve ser maior que 0'
+        } else if (rendimento < 0) {
+            div_result.innerHTML += ' Rendimento deve ser maior que 0'
+        } else if (rendimento > 100) {
+            div_result.innerHTML += ' Rendimento deve estar entre 0 e 100.'
+        } else if (perda_transbordo < 0) {
+            div_result.innerHTML += ' Valor de perda deve ser maior no minimo 0'
+        }
+
+        let massa_perdida = insumo_processado * perda_transbordo / 100;
+        let produto_nao_gerado = massa_perdida * rendimento / 100;
+        let prejuizo_transbordo = produto_nao_gerado * valor_produto;
+        let prejuizo_downtime = custo_hora_parada * downtime;
+
+        let prejuizo_por_mes = prejuizo_transbordo + prejuizo_downtime;
+        let prejuizo_por_ano = prejuizo_por_mes * 12;
+
+        // Assumindo 85% de eficiência na mitigação de falhas via Alertas Preditivos:
+        let valor_recuperado = prejuizo_por_ano * 0.85;
+        let projecao = valor_recuperado * 3;
+
+        div_result.innerHTML = `
+            <h2>FÓRMULAS UTILIZADAS</h2>
+            - O insumo perdido é igual o insumo processado vezes a perda do transbordo <br>
+            - O produto não gerado corresponde a porcentagem massa perdida vezes o rendimento  <br>
+            - O prejuizo transbordo corresponde ao produto não gerado vezes o valor do produto <br>
+            - O prejuizo por mês corresponde ao prejuizo do transbordo mais o prejuizo por hora passada <br>
+            - O prejuizo por ano corresponde ao mês vezes 12 <br>
+            - Sobre o cálculo das projeções corresponde a 85% valor do recuperado sobre o prejuizo por ano  <br>
+        
+        <h2>PREJUÍZO MENSAL</h2>
+            <p style="color:red;">${massa_perdida}kg de insumo perdido</p> 
+            <p style="color:red;">${produto_nao_gerado}kg de produto não gerado</p> 
+            <p style="color:red;"> ${prejuizo_transbordo} / mês de prejuizo </p>
+
+            <h2>PREJUIZO TOTAL ACUMULADO SEM MONITORAMENTO INTELIGENTE</h2>
+            <p style="color:red;"> Por mês: R$${prejuizo_por_mes} </p> 
+            <p style="color:red;"> Por ano: R$${prejuizo_por_ano} </p>
+
+            <h2>PROJEÇÃO ACUMULADA DE VALOR RECUPERADO:</h2>
+            <p style="color:green;"> Em 1 ano: R$${valor_recuperado}</p> 
+            <p style="color:green;">Em 3 anos: R$${projecao} </p> 
+            `
+    }
+</script>
+
+</html>
