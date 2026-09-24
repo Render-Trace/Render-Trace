@@ -23,6 +23,10 @@ a {
     color: var(--cor-secundária);
 }
 
+.primaria {
+    color: var(--cor-primaria);
+}
+
 header {
     padding: 12px 36px;
     display: flex;
@@ -410,11 +414,6 @@ body {
     margin-top: 10px;
 }
 
-#l_nome {
-    color: var(--cor-primaria);
-}
-
-
 input {
     width: 100%;
     background-color: transparent;
@@ -489,7 +488,7 @@ button {
     padding: 22px;
     padding-bottom: 88px;
     padding-top: 60px;
-    background-color: #164636;
+    background-color: var(--cor-primaria);
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -520,7 +519,8 @@ button {
 }
 
 .solucoes-card {
-    background: linear-gradient(180deg, #1B4D3E 0%, #7ED957 100%);
+    background: linear-gradient(120deg, var(--cor-primaria) 0%, var(--cor-secundária) 100%);
+    border: solid 4px var(--cor-secundária);
     border-radius: 16px;
     padding: 24px 20px;
     text-align: center;
@@ -543,7 +543,6 @@ button {
 
 }
 
-/* Logo */
 .solucoes-logo {
     width: 100%;
     display: flex;
@@ -574,7 +573,7 @@ button {
 
 
 .solucoes-btn_calcular {
-    background-color: #0b3c2d;
+    background-color: var(--cor-primaria);
     color: #ffffff;
     font-size: x-large;
     font-weight: 80;
