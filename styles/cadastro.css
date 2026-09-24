@@ -27,7 +27,7 @@ body {
     pointer-events: none;
 }
 
-/* Bola do canto superior direito (maior) */
+/* Bola de cima */
 .container::before {
     width: 450px;
     height: 450px;
@@ -35,7 +35,7 @@ body {
     right: -200px;
 }
 
-/* Bola do canto inferior direito (menor) */
+/* Bola de baixo */
 .container::after {
     width: 250px;
     height: 250px;
@@ -67,7 +67,7 @@ body {
     margin-bottom: 80px;
 }
 
-.container-imagem-destaque img {
+.imagem-fundo-destaque {
     width: 320px;
     position: relative;
     margin-top: -300px;
@@ -85,16 +85,28 @@ body {
 .tag-desconto p {
     color: #164636;
     font-weight: bold;
-    font-style: 14px;
+    font-size: 14px;
 }
 
 .tag-desconto span {
     font-size: 32px;
+    font-weight: bold;
+    color: #164636;
 }
 
-.tag-desconto img {
-    width: 27px;
-    height: 27px;
+.img-texto {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.img-texto img {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    position: static;
 }
 
 .imagem-fundo-destaque {
@@ -102,7 +114,16 @@ body {
 }
 
 .texto-login {
+    margin-top: 20px;
+}
+
+.texto-login a {
+    text-decoration: none;
+}
+
+.texto-login p {
     color: white;
+
 }
 
 .lado-direito {
