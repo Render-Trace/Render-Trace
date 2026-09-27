@@ -441,15 +441,25 @@ button {
 
 .footer {
     background-color: var(--cor-primaria);
+    margin-top: 80px;
+    width: 100%;
+}
+
+.footer-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 40px 80px;
-    margin-top: 80px;
-    gap: 120px;
-}
 
+    width: 100%;
+    max-width: 1440px;
+
+    margin: 0 auto;
+    padding: 40px 80px;
+
+    gap: 120px;
+    box-sizing: border-box;
+}
 
 .footer-img img {
     width: 80px;
