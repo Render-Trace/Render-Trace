@@ -435,6 +435,7 @@ button {
     padding: 10px 25px;
     font-weight: bold;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 
@@ -585,7 +586,7 @@ button {
 
 .solucoes-img-calculadora {
 
-    width: 550px;
+    width: 80%;
     border-radius: 12px;
 
 }
@@ -602,4 +603,10 @@ button {
     padding: 14px 45px;
     border-radius: 30px;
     size-adjust: 20px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: bold;
 }
