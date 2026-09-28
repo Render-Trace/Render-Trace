@@ -27,8 +27,8 @@
                 <div class="tag-desconto">
                     <p>Redução de prejuízos até</p>
                     <div class="img-texto">
-                    <img src="assets/images/money.png" alt="">
-                    <span>85%</span>
+                        <img src="assets/images/money.png" alt="">
+                        <span>85%</span>
                     </div>
                 </div>
                 <div class="texto-login">
@@ -50,7 +50,7 @@
                     <label for="select_usuario">Tipo Usuário:</label>
 
                     <select id="select_usuario">
-                        <option selected disabled>Selecione</option>
+                        <option selected disabled value="Selecione">Selecione</option>
                         <option>Administrador</option>
                         <option>Gestor</option>
                     </select>
@@ -69,18 +69,18 @@
                 <div class="campo">
                     <label for="input_senha">Senha</label>
                     <input type="password" oninput="verificar()" id="input_senha">
+                    <div class="mensagem-senha" id="div_mensagem_senha"></div>
                 </div>
+
+
 
                 <div class="campo">
                     <label for="input_confirmarSenha">Confirmar senha</label>
                     <input type="password" id="input_confirmarSenha">
                 </div>
 
-                <div id="div_mensagem"></div>
-
-                <div id="div_mensagem2"></div>
-
                 <button onclick="cadastrarUsuario()">Cadastrar</button>
+                <div id="div_mensagem2"></div>
 
             </div>
 
@@ -107,16 +107,17 @@
         if (minusculas) criterios++;
 
         if (criterios == 3) {
-            div_mensagem.innerHTML = `Senha Forte!`  // atingiu todos os critérios de segurança
+            div_mensagem_senha.innerHTML = `Senha Forte!`  // atingiu todos os critérios de segurança
         } else if (criterios == 2 && senha.length > 4) {
-            div_mensagem.innerHTML = `Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+            div_mensagem_senha.innerHTML = `Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
         } else if (criterios == 2) {
-            div_mensagem.innerHTML = `Senha Fraca. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+            div_mensagem_senha.innerHTML = `Senha Fraca. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
         } else if (criterios == 1) {
-            div_mensagem.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 1 critério de segurança
+            div_mensagem_senha.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 1 critério de segurança
         } else {
-            div_mensagem.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // não atingiu nenhum critério de segurança  
+            div_mensagem_senha.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // não atingiu nenhum critério de segurança  
         }
+
     }
 
     function cadastrarUsuario() {
@@ -137,6 +138,13 @@
                         if (confirmarSenha == senha) {
 
                             div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+                            div_mensagem_senha.innerHTML = ''
+
+                            select_usuario.value = 'Selecione'
+                            input_nome.value = '' 
+                            input_email.value = ''
+                            input_senha.value = ''
+                            input_confirmarSenha.value = ''
 
                         } else {
                             div_mensagem2.innerHTML = '<span class="erro">As senhas não são iguais!';
@@ -155,7 +163,7 @@
             }
 
         } else {
-            div_mensagem2.innerHTML = '<span class="erro">Digite um tipo de usuário válido!';
+            div_mensagem2.innerHTML = '<span class="erro">Selecione um tipo de usuário válido!';
         }
     }
 

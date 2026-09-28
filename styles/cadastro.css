@@ -158,6 +158,9 @@ span {
 .formulario {
     width: 350px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
 }
 
 .formulario img {
@@ -172,13 +175,11 @@ span {
     line-height: 100%;
     letter-spacing: 0;
     margin-left: -200px;
-    margin-bottom: 24px;
 }
 
 .formulario input {
     width: 350px;
     height: 45px;
-    margin-bottom: 10px;
     padding: 0 15px;
     border: 1px solid #ccc;
     font-size: 16px;
@@ -193,7 +194,6 @@ span {
 }
 
 .campo label {
-    margin-bottom: 10px;
     font-size: 14px;
     font-weight: bold;
     text-align: left;
@@ -230,8 +230,25 @@ span {
     font-size: 28px;
     margin-top: 24px;
     border: none;
+    cursor: pointer;
 }
 
 .formulario input:focus {
     border: 2px solid #275673;
+}
+
+.mensagem-senha {
+    font-weight: 300;
+    opacity: 0.9;
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: #164636;
+}
+
+.acerto {
+    color: #7abf66;
+}
+
+.erro {
+    color: red;
 }
