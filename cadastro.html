@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/cadastro.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
     <title>Render Trace | Cadastro</title>
 </head>
 
@@ -52,7 +52,7 @@
                     <select id="select_usuario">
                         <option selected disabled value="Selecione">Selecione</option>
                         <option>Administrador</option>
-                        <option>Gestor</option>
+                        <option>Operador</option>
                     </select>
                 </div>
 
@@ -95,8 +95,8 @@
 <script>
 
     let criterios = 0;
-    function verificar() { // Para a senha ser forte, ela tem que cumprir 3 critérios 
-        let senha = input_senha.value; // ter letras Maiusculas, minuscula e ter pelo menos 8 caracteres
+    function verificar() {
+        let senha = input_senha.value;
         let tamanho = senha.length >= 8;
         let maiusculas = senha != senha.toLowerCase();
         let minusculas = senha != senha.toUpperCase();
@@ -107,7 +107,7 @@
         if (minusculas) criterios++;
 
         if (criterios == 3) {
-            div_mensagem_senha.innerHTML = `Senha Forte!`  // atingiu todos os critérios de segurança
+            div_mensagem_senha.innerHTML = `Senha Forte!`
         } else if (criterios == 2 && senha.length > 4) {
             div_mensagem_senha.innerHTML = `Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
         } else if (criterios == 2) {
@@ -141,7 +141,7 @@
                             div_mensagem_senha.innerHTML = ''
 
                             select_usuario.value = 'Selecione'
-                            input_nome.value = '' 
+                            input_nome.value = ''
                             input_email.value = ''
                             input_senha.value = ''
                             input_confirmarSenha.value = ''
