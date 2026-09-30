@@ -1,3 +1,7 @@
+/* ==============================
+   RESET
+============================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,65 +9,337 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
 }
 
+
+/* ==============================
+   CONTAINER
+============================== */
+
 .container {
-    display: flex;
     width: 100%;
     height: 100vh;
-    position: relative;
+
+    display: flex;
     overflow: hidden;
 }
 
+
+/* ==============================
+   LADO ESQUERDO
+============================== */
+
 .lado-esquerdo {
-    background-color:white;
+    width: 50%;
     height: 100vh;
-    width: 45%;
+
+    background-color: #ffffff;
+
     display: flex;
     flex-direction: column;
+
+    padding: 45px 8%;
+}
+
+
+/* ==============================
+   LOGO
+============================== */
+
+.logo-esquerda {
+    width: 120px;
 }
 
 .logo-esquerda img {
-    width: 200px;
-    margin: 10px;
-    
+    width: 100%;
+    height: auto;
 }
+
+
+/* ==============================
+   FORMULÁRIO
+============================== */
 
 .formulario {
-    width: 350px;
-    text-align: center;
+    width: 100%;
+    max-width: 450px;
+
+    margin: auto;
 }
 
-.formulario h2 {
-    color: #164636;
-    font-weight: 800;
-    font-size: 32px;
-    font-style: normal;
-    line-height: 100%;
-    letter-spacing: 0;
 
+/* ==============================
+   TEXTOS
+============================== */
+
+.login-textos {
+    margin-bottom: 45px;
+}
+
+.login-textos h2 {
+    color: #1B4D3E;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
 }
 
 .login-textos p {
-    color: #164636;
-    text-align: left;
-    padding: 5px;
-    
+    color: #9b9b9b;
+
+    font-size: 13px;
 }
 
 .login-textos span {
-    color: #7abf66;
+    color: #1B4D3E;
+
+    font-weight: 600;
+
+    cursor: pointer;
 }
+
+
+/* ==============================
+   INPUTS
+============================== */
+
+.login-inputs {
+    width: 100%;
+}
+
+.campo {
+    width: 100%;
+
+    margin-bottom: 32px;
+}
+
+.campo label {
+    display: block;
+
+    color: #666;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    margin-bottom: 7px;
+}
+
+.campo input {
+    width: 100%;
+    height: 35px;
+
+    border: none;
+    border-bottom: 1px solid #d4d4d4;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #333;
+
+    background-color: transparent;
+
+    transition: 0.3s;
+}
+
+.campo input:focus {
+    border-bottom: 1px solid #1B4D3E;
+}
+
+
+/* ==============================
+   LEMBRE-SE / ESQUECEU
+============================== */
 
 .login-campo {
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    margin-top: -5px;
 }
+
+.login-campo > div {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.login-campo label {
+    color: #777;
+
+    font-size: 11px;
+}
+
+.login-campo input {
+    width: 13px;
+    height: 13px;
+
+    accent-color: #1B4D3E;
+
+    cursor: pointer;
+}
+
+.login-campo p {
+    color: #1B4D3E;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   BOTÃO
+============================== */
+
+.login-div-botao {
+    width: 100%;
+
+    margin-top: 45px;
+}
+
+.login-div-botao button {
+    width: 100%;
+    height: 45px;
+
+    border: none;
+    border-radius: 25px;
+
+    background-color: #1B4D3E;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.login-div-botao button:hover {
+    background-color:#1B4D3E;
+}
+
+.login-div-botao button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==============================
+   LADO DIREITO
+============================== */
 
 .lado-direito {
-    background-color: #1b4d3e;
+    width: 50%;
     height: 100vh;
-    width: 55%;
+
+    background-color: #1B4D3E;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
+
+/* ==============================
+   DECORAÇÕES DO LADO DIREITO
+============================== */
+
+.lado-direito::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background-color: rgba(190, 225, 202, 0.25);
+
+    top: -150px;
+    right: -80px;
+}
+
+.lado-direito::after {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background-color: rgba(190, 225, 202, 0.25);
+
+    bottom: -150px;
+    right: -80px;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 900px) {
+
+    .lado-esquerdo {
+        padding: 40px 6%;
+    }
+
+    .formulario {
+        max-width: 400px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .container {
+        display: block;
+    }
+
+    .lado-esquerdo {
+        width: 100%;
+        height: 100vh;
+
+        padding: 35px 10%;
+    }
+
+    .lado-direito {
+        display: none;
+    }
+
+    .formulario {
+        max-width: 500px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .lado-esquerdo {
+        padding: 30px 25px;
+    }
+
+    .logo-esquerda {
+        width: 100px;
+    }
+
+    .login-textos h2 {
+        font-size: 30px;
+    }
+
+    .login-textos {
+        margin-bottom: 35px;
+    }
+}
