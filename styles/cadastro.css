@@ -44,11 +44,14 @@ body {
 }
 
 .lado-esquerdo {
-    flex: 4;
     background-color: #164f42;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    width: 50%;
+}
+
+.logo-esquerda {
+    height: 10%;
 }
 
 .lado-esquerdo img {
@@ -63,23 +66,18 @@ body {
 .container-imagem-destaque {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 80px;
-}
-
-.imagem-fundo-destaque {
-    width: 320px;
-    position: relative;
-    margin-top: -300px;
+    height: 90%;
 }
 
 .tag-desconto {
     background-color: #fff;
     border-radius: 10px;
-    position: relative;
-    margin-top: -30px;
-    margin-left: 70px;
     padding: 5px;
+    position: absolute;
+    margin-left: 200px;
+    margin-top: 180px;
 }
 
 .tag-desconto p {
@@ -110,11 +108,11 @@ body {
 }
 
 .imagem-fundo-destaque {
-    width: 250px;
+    width: 500px;
 }
 
 .texto-login {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .texto-login a {
