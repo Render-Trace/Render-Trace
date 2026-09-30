@@ -5,55 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
-    <title>Render Trace | Login</title>
+    <title>Render Trace | Cadastro</title>
 </head>
 
 <body>
+
     <div class="container">
 
-        <div class="lado-esquerdo">
+
+        <div class="lado-direito">
+
             <div class="logo-esquerda">
-                <img src="assets/images/logo-branca.svg" alt="">
+                <a href="home.html"><img src="assets/images/logo-verde.svg" alt="Render Trace Logo"></a>
             </div>
 
             <div class="formulario">
-                <div class="login-textos">
-                    <h2>Entre</h2>
-                    <p>Não possui cadastro? <span>crie agora</span></p>
+
+                <h1>Entre</h1>
+
+                <div class="campo">
+                    <label for="input_email">E-mail</label>
+                    <input type="email" id="input_email">
                 </div>
 
-                <div class="login-inputs">
-                    <div class="campo">
-                        <label for="ipt_email">E-mail</label>
-                        <input type="text" id="ipt_email">
-                    </div>
-                    <div class="campo">
-                        <label for="ipt_senha">Senha</label>
-                        <input type="text" id="ipt_senha">
-                    </div>
-
-                    <div class="login-campo">
-                        <div>
-                            <label for="ipt_lembre">Lembre-se</label>
-                            <input type="checkbox">
-                        </div>
-
-                        <p>Esqueceu a senha?</p>
-                    </div>
+                <div class="campo">
+                    <label for="input_senha">Senha</label>
+                    <input type="password" oninput="verificar()" id="input_senha">
+                    <div class="mensagem-senha" id="div_mensagem_senha"></div>
                 </div>
 
-                <div class="login-div-botao">
-                    <button onclick="logar()">Entrar</button>
+                <div class="login-campo">
+                    <div>
+                        <label for="ipt_lembre">Lembre-se</label>
+                        <input type="checkbox">
+                    </div>
+
+                    <p>Esqueceu a senha?</p>
+                </div>
+
+                <button onclick="login()">Entrar</button>
+                <div id="div_mensagem2"></div>
+
+            </div>
+
+        </div>
+        <div class="lado-esquerdo">
+            <div class="container-imagem-destaque">
+
+                <img src="assets/images/home.png" alt="imagem home" class="imagem-fundo-destaque">
+
+                <div class="tag-desconto">
+                    <p>Redução de prejuízos até</p>
+                    <div class="img-texto">
+                        <img src="assets/images/money.png" alt="">
+                        <span>85%</span>
+                    </div>
+                </div>
+                <div class="texto-login">
+                    <p>Não possui cadastro? <a href="cadastro.html"><span>Crie agora</span></p></a>
                 </div>
 
             </div>
 
         </div>
-
-        <div class="lado-direito"></div>
-
     </div>
+
 </body>
 
 </html>
+
+<script>
+    function login() {
+
+    }
+</script>

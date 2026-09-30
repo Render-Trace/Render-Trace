@@ -1,7 +1,3 @@
-/* ==============================
-   RESET
-============================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -9,150 +5,254 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
-
-/* ==============================
-   CONTAINER
-============================== */
-
 .container {
+    display: flex;
     width: 100%;
     height: 100vh;
-
-    display: flex;
+    position: relative;
     overflow: hidden;
 }
 
-
-/* ==============================
-   LADO ESQUERDO
-============================== */
-
-.lado-esquerdo {
-    width: 50%;
-    height: 100vh;
-
-    background-color: #ffffff;
-
-    display: flex;
-    flex-direction: column;
-
-    padding: 45px 8%;
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2d6a4f 0%, #164f42 100%);
+    z-index: 10;
+    pointer-events: none;
 }
 
+/* Bola de cima */
+.container::before {
+    width: 450px;
+    height: 450px;
+    top: -250px;
+    right: -200px;
+}
 
-/* ==============================
-   LOGO
-============================== */
+/* Bola de baixo */
+.container::after {
+    width: 250px;
+    height: 250px;
+    bottom: -125px;
+    right: -110px;
+}
+
+.lado-esquerdo {
+    background-color: #164f42;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
 
 .logo-esquerda {
-    width: 120px;
+    height: 10%;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.lado-esquerdo img {
+    border-radius: 15px;
 }
 
 .logo-esquerda img {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    margin: 15px;
 }
 
+.container-imagem-destaque {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
 
-/* ==============================
-   FORMULÁRIO
-============================== */
+.tag-desconto {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    position: absolute;
+    margin-left: 200px;
+    margin-top: 180px;
+}
+
+.tag-desconto p {
+    color: #164636;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tag-desconto span {
+    font-size: 32px;
+    font-weight: bold;
+    color: #164636;
+}
+
+.img-texto {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.img-texto img {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    position: static;
+}
+
+.imagem-fundo-destaque {
+    width: 500px;
+}
+
+.texto-login {
+    margin-top: 50px;
+}
+
+.texto-login a {
+    text-decoration: none;
+}
+
+.texto-login p {
+    color: white;
+
+}
+
+.lado-direito {
+    width: 50%;
+    flex-direction: column;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+p {
+    color: #164636;
+    text-align: left;
+    padding: 5px;
+}
+
+span {
+    color: #7abf66;
+}
+
+#select_usuario {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+}
 
 .formulario {
-    width: 100%;
-    max-width: 450px;
-
-    margin: auto;
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    margin-top: 210px;
 }
 
-
-/* ==============================
-   TEXTOS
-============================== */
-
-.login-textos {
-    margin-bottom: 45px;
+.formulario img {
+    width: 200px;
 }
 
-.login-textos h2 {
-    color: #1B4D3E;
-
-    font-size: 34px;
-    font-weight: 700;
-
-    margin-bottom: 7px;
+.formulario h1 {
+    color: #164636;
+    font-weight: 800;
+    font-size: 32px;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 0;
+    align-self: flex-start;
 }
 
-.login-textos p {
-    color: #9b9b9b;
-
-    font-size: 13px;
-}
-
-.login-textos span {
-    color: #1B4D3E;
-
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-
-/* ==============================
-   INPUTS
-============================== */
-
-.login-inputs {
-    width: 100%;
+.formulario input {
+    width: 350px;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
 }
 
 .campo {
-    width: 100%;
-
-    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2px;
+    color: #BEC3BF;
 }
 
 .campo label {
-    display: block;
-
-    color: #666;
-
-    font-size: 12px;
-    font-weight: 500;
-
-    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
 }
 
 .campo input {
-    width: 100%;
+    width: 350px;
     height: 35px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
 
+.campo select {
+    width: 350px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-bottom: 6px;
+}
+
+.formulario button {
+    background-color: #1B4D3E;
+    color: white;
+    font-weight: 600;
+    font-size: 28px;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 0;
+    width: 350px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 28px;
+    margin-top: 14px;
     border: none;
-    border-bottom: 1px solid #d4d4d4;
-
-    outline: none;
-
-    font-size: 14px;
-
-    color: #333;
-
-    background-color: transparent;
-
-    transition: 0.3s;
+    cursor: pointer;
 }
 
-.campo input:focus {
-    border-bottom: 1px solid #1B4D3E;
+.formulario input:focus {
+    border: 2px solid #275673;
 }
 
+.mensagem-senha {
+    font-weight: 300;
+    opacity: 0.9;
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: #164636;
+}
 
-/* ==============================
-   LEMBRE-SE / ESQUECEU
-============================== */
+.acerto {
+    color: #7abf66;
+}
+
+.erro {
+    color: red;
+}
 
 .login-campo {
     width: 100%;
@@ -192,95 +292,4 @@ body {
     font-size: 11px;
 
     cursor: pointer;
-}
-
-
-/* ==============================
-   BOTÃO
-============================== */
-
-.login-div-botao {
-    width: 100%;
-
-    margin-top: 45px;
-}
-
-.login-div-botao button {
-    width: 100%;
-    height: 45px;
-
-    border: none;
-    border-radius: 25px;
-
-    background-color: #1B4D3E;
-
-    color: #ffffff;
-
-    font-size: 17px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.login-div-botao button:hover {
-    background-color:#1B4D3E;
-}
-
-.login-div-botao button:active {
-    transform: scale(0.98);
-}
-
-
-/* ==============================
-   LADO DIREITO
-============================== */
-
-.lado-direito {
-    width: 50%;
-    height: 100vh;
-
-    background-color: #1B4D3E;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-/* ==============================
-   DECORAÇÕES DO LADO DIREITO
-============================== */
-
-.lado-direito::before {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 50%;
-
-    background-color: rgba(190, 225, 202, 0.25);
-
-    top: -150px;
-    right: -80px;
-}
-
-.lado-direito::after {
-    content: "";
-
-    position: absolute;
-
-    width: 280px;
-    height: 280px;
-
-    border-radius: 50%;
-
-    background-color: rgba(190, 225, 202, 0.25);
-
-    bottom: -150px;
-    right: -80px;
 }
