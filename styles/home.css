@@ -88,9 +88,8 @@ main {
     display: flex;
 }
 
-.main-parceiras {   
+.main-subtitulo {   
     display: flex;
-    flex-grow: 0;
     font-weight: 700;
     font-size: 12px;
     border: solid 2px var(--cor-secundária);
