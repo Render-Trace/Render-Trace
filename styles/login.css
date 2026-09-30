@@ -43,24 +43,24 @@ body {
     right: -110px;
 }
 
-.lado-esquerdo {
+.lado-direito {
     background-color: #164f42;
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.logo-esquerda {
+.logo-direita {
     height: 10%;
     align-self: flex-start;
     justify-self: flex-start;
 }
 
-.lado-esquerdo img {
+.lado-direito img {
     border-radius: 15px;
 }
 
-.logo-esquerda img {
+.logo-direita img {
     width: 200px;
     margin: 15px;
 }
@@ -70,7 +70,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 100%;
 }
 
 .tag-desconto {
@@ -126,7 +126,7 @@ body {
 
 }
 
-.lado-direito {
+.lado-esquerdo {
     width: 50%;
     flex-direction: column;
     background-color: #fff;
@@ -161,7 +161,7 @@ span {
     display: flex;
     flex-direction: column;
     row-gap: 12px;
-    margin-top: 210px;
+    margin-top: 180px;
 }
 
 .formulario img {

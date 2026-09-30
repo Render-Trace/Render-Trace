@@ -48,13 +48,8 @@
                 <h1>Cadastro</h1>
 
                 <div class="campo">
-                    <label for="select_usuario">Tipo Usuário:</label>
-
-                    <select id="select_usuario">
-                        <option selected disabled value="Selecione">Selecione</option>
-                        <option>Administrador</option>
-                        <option>Operador</option>
-                    </select>
+                    <label for="input_nome">Cód da Empresa</label>
+                    <input type="text" id="input_nome">
                 </div>
 
                 <div class="campo">
@@ -122,50 +117,45 @@
     }
 
     function cadastrarUsuario() {
-        let usuario = select_usuario.value;
         let nome = input_nome.value;
         let email = input_email.value;
         let senha = input_senha.value;
         let confirmarSenha = input_confirmarSenha.value;
 
-        if (usuario == 'Administrador' || usuario == 'Gestor') {
 
-            if (nome != '') {
+        if (nome != '') {
 
-                if (email.includes('@')) {
+            if (email.includes('@')) {
 
-                    if (criterios == 3) {
+                if (criterios == 3) {
 
-                        if (confirmarSenha == senha) {
+                    if (confirmarSenha == senha) {
 
-                            div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
-                            div_mensagem_senha.innerHTML = ''
+                        div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+                        div_mensagem_senha.innerHTML = ''
 
-                            select_usuario.value = 'Selecione'
-                            input_nome.value = ''
-                            input_email.value = ''
-                            input_senha.value = ''
-                            input_confirmarSenha.value = ''
-
-                        } else {
-                            div_mensagem2.innerHTML = '<span class="erro">As senhas não são iguais!';
-                        }
+                        select_usuario.value = 'Selecione'
+                        input_nome.value = ''
+                        input_email.value = ''
+                        input_senha.value = ''
+                        input_confirmarSenha.value = ''
 
                     } else {
-                        div_mensagem2.innerHTML = '<span class="erro">A senha precisa ser forte!';
+                        div_mensagem2.innerHTML = '<span class="erro">As senhas não são iguais!';
                     }
 
                 } else {
-                    div_mensagem2.innerHTML = '<span class="erro">Digite um email válido!';
+                    div_mensagem2.innerHTML = '<span class="erro">A senha precisa ser forte!';
                 }
 
             } else {
-                div_mensagem2.innerHTML = '<span class="erro">Digite o nome do usuário!';
+                div_mensagem2.innerHTML = '<span class="erro">Digite um email válido!';
             }
 
         } else {
-            div_mensagem2.innerHTML = '<span class="erro">Selecione um tipo de usuário válido!';
+            div_mensagem2.innerHTML = '<span class="erro">Digite o nome do usuário!';
         }
     }
+    
 
 </script>
