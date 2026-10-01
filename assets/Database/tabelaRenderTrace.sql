@@ -4,7 +4,8 @@ USE rendertrace;
 
 CREATE TABLE empresa(
 id INT PRIMARY KEY AUTO_INCREMENT,
-cod_acesso CHAR(5) UNIQUE,
+cod_acesso_adm CHAR(5) UNIQUE,
+cod_acesso_op CHAR(5) UNIQUE,
 nome VARCHAR(45) NOT NULL,
 cnpj CHAR(14) NOT NULL UNIQUE,
 numero INT,
@@ -40,8 +41,8 @@ CREATE TABLE alerta(
 id INT PRIMARY KEY AUTO_INCREMENT,
 dt_inicio DATETIME NOT NULL,
 dt_fim DATETIME,
-tipo_alerta VARCHAR(10) NOT NULL,
-CONSTRAINT chk_alerta CHECK (tipo_alerta IN('Sobrecarga','Ocioso')),
+tipo VARCHAR(10) NOT NULL,
+CONSTRAINT chk_tipo CHECK (tipo IN('Sobrecarga','Ocioso')),
 fk_tolva INT NOT NULL, CONSTRAINT fk_tolva_alerta
 					   FOREIGN KEY (fk_tolva) REFERENCES tolva(id)
 );
