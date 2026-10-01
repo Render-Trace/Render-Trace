@@ -265,10 +265,7 @@ main {
 }
 
 .card .image .background-image:hover{
-    border-radius: 45px;
-    width: 105%;
-    height: 105%;
-    object-fit: cover;
+   transform: scale(1.05);
     filter: brightness(80%);
 }
 
@@ -422,7 +419,7 @@ input {
     margin-bottom: 15px;
 }
 
-button {
+.contato-cadastro button {
     background-color: var(--cor-primaria);
     color: white;
 
@@ -435,6 +432,10 @@ button {
     font-weight: bold;
     margin-top: 10px;
     cursor: pointer;
+    transition: 0.2s;
+}
+.contato-cadastro button:hover {
+transform: scale(1.05);
 }
 
 
@@ -604,6 +605,11 @@ button {
     size-adjust: 20px;
     align-self: center;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.solucoes-btn_calcular:hover {
+    transform: scale(1.05);
 }
 
 .bold {
