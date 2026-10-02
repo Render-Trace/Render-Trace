@@ -228,10 +228,16 @@ span {
     width: 350px;
     height: 45px;
     border-radius: 20px;
-    font-size: 28px;
+    font-size: 20px;
     margin-top: 14px;
     border: none;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.formulario button:hover{
+    transform: scale(1.02);
+    background-color: #174235;
 }
 
 .formulario input:focus {
@@ -300,4 +306,21 @@ span {
     font-size: 11px;
 
     cursor: pointer;
+
+    position: relative;
+}
+
+.login-campo p::after{
+    content:'';
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1B4D3E;
+    transition: 0.3s;
+    position: absolute;
+}
+
+.login-campo p:hover::after{
+    width: 100%;
 }

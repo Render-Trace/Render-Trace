@@ -225,10 +225,16 @@ span {
     width: 350px;
     height: 45px;
     border-radius: 20px;
-    font-size: 28px;
+    font-size: 20px;
     margin-top: 24px;
     border: none;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.formulario button:hover{
+    transform: scale(1.02);
+    background-color: #174235;
 }
 
 .formulario input:focus {
