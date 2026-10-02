@@ -255,6 +255,17 @@ main {
     align-items: center;
 }
 
+.card .image {
+    transition: 0.3s;
+}
+
+.card .image:hover {
+    transform: scale(1.02);
+    box-shadow:0px 0px 10px rgba(1, 1, 1, 0.4) ;
+}
+
+
+
 
 
 .card .image .background-image{
@@ -263,15 +274,12 @@ main {
     height: 100%;
     object-fit: cover;
     filter: brightness(65%);
-    transition: 0.5s;
+    transition: 0.4s ease-in-out;
 }
 
-.card .image .background-image:hover{
-   transform: scale(1.05);
+.card .image:hover .background-image {
     filter: brightness(80%);
 }
-
-
 
 .card .image .icon-image-1{
     width: 130px;
@@ -437,7 +445,8 @@ input {
     transition: 0.2s;
 }
 .contato-cadastro button:hover {
-transform: scale(1.05);
+    transform: scale(1.05);
+    background-color: #174235;
 }
 
 
@@ -608,7 +617,8 @@ transform: scale(1.05);
 }
 
 .solucoes-btn_calcular:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
+    background-color: #174235;
 }
 
 .bold {
