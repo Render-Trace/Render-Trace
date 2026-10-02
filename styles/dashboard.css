@@ -5,6 +5,7 @@
     --cor-primaria: #1B4D3E;
     --cor-secundária: #7ED957;
     --cor-terciária: #F8FAFC;
+    --cor-branca: #fff;
     scroll-behavior: smooth;
 }
 
@@ -36,9 +37,62 @@ header {
 }
 
 .lado-esquerdo {
-    background-color: var(--cor-primaria);
     display: flex;
+    background-color: var(--cor-primaria);
     width: 20%;
     flex-direction: column;
     height: 100%;
+}
+
+.conteudo-esquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--cor-branca);
+}
+
+.itens-usuario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.itens-informacao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.itens-usuario img {
+    width: 160px;
+}
+
+.itens-usuario h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--cor-branca);
+}
+
+.itens-usuario h2 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.itens-usuario h3 {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+
+
+
+
+
+.lado-direito {
+    display: flex;
+    background-color: var(--cor-terciária);
+    width: 80%;
 }
