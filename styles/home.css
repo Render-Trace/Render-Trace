@@ -493,6 +493,8 @@ transform: scale(1.05);
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 52px;
+    margin-bottom: 64px;
 }
 
 
@@ -566,16 +568,10 @@ transform: scale(1.05);
 }
 
 .solucoes-logo {
-    width: 100%;
     display: flex;
     justify-content: center;
     padding: 10px;
     height: 100px;
-}
-
-.solucoes-logo img {
-    max-width: 160px;
-    height: auto;
 }
 
 
