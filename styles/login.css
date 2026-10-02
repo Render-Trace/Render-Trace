@@ -50,18 +50,19 @@ body {
     width: 50%;
 }
 
-.logo-direita {
+.logo-esquerda {
     height: 10%;
-    align-self: flex-start;
-    justify-self: flex-start;
+    position: absolute;
+    top: -6px;
+    left: -10px;
 }
 
 .lado-direito img {
     border-radius: 15px;
 }
 
-.logo-direita img {
-    width: 200px;
+.logo-esquerda img {
+    width: 220px;
     margin: 15px;
 }
 
@@ -132,6 +133,7 @@ body {
     background-color: #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
@@ -161,7 +163,6 @@ span {
     display: flex;
     flex-direction: column;
     row-gap: 12px;
-    margin-top: 180px;
 }
 
 .formulario img {

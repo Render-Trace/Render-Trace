@@ -72,10 +72,12 @@ nav ul li {
 .nav-cadastro {
     background-color: white;
     color: var(--cor-primaria);
+    padding-top: 2px;
 }
 
 .nav-entrar {
     border: solid 1px white;
+    padding-top: 2px;
 }
 
 main {
@@ -606,6 +608,7 @@ transform: scale(1.05);
     align-self: center;
     cursor: pointer;
     transition: 0.2s;
+    border: none;
 }
 
 .solucoes-btn_calcular:hover {
