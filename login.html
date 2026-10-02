@@ -79,6 +79,18 @@
 
 <script>
     function login() {
+        let email = input_email.value
+        let senha = input_senha.value
 
+        if (email == 'emailteste@sptech.school' && senha == 'Senha123') {
+            div_mensagem2.innerHTML = `Usuário logado com sucesso!<br>Redirecionando para a tela de dashboards...`
+
+            setTimeout(() => {
+                window.location = './dashboard.html'
+            }, 3000)
+
+        } else if (email != 'emailteste@sptech.school' || senha != 'Senha123') {
+            div_mensagem2.innerHTML = `Usuário ou senha inválidos, tente novamente!`
+        }
     }
 </script>
