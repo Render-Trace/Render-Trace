@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render Trace | Calculadora</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
+</head>
+
+<body>
+    <h1>Calculadora Financeira</h1>
+    <!-- Quantidade de resíduos processados pela fábrica por mês. -->
+    <label for="ipt_insumo_processado">Insumo Processado por mês: </label>
+    <input type="text" value="600000" id="ipt_insumo_processado"> <br>
+
+    <!-- Quantidade média de horas em que a linha fica parada -->
+    <label for="ipt_downtime">Tempo medio tanque vazio: </label>
+    <input type="text" value="6" id="ipt_downtime"> <br>
+
+    <!-- <label for="ipt_rendimento">Rendimento(%): </label>
+    <input type="text" value="43.5" id="ipt_rendimento"> <br> -->
+
+
+    <!-- deixar fixo em 2.50 pois e um valor que normalmente o diretor não tem de facil acesso -->
+    <!-- <label for="ipt_valor_produto">Valor do Produto Final: </label>
+    <input type="text" value="2.50" id="ipt_valor_produto"> <br> -->
+
+    <!-- <label for="ipt_perda_transbordo">Perda estimada por transbordo(%): </label>
+    <input type="text" value="5" id="ipt_perda_transbordo"> <br> -->
+
+    <!-- Quantidade média de horas em que a linha fica parada -->
+
+
+    <!-- <label for="ipt_custo_hora_parada">Custo da hora parada: </label>
+    <input type="text" value="1200" id="ipt_custo_hora_parada"> <br> -->
+
+    <button onclick="calcular()">Simular</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        // Quantidade de resíduos processados pela fábrica por mês.
+        let insumo_processado = Number(ipt_insumo_processado.value);
+
+        //    de acordo com a inernet os diretores das empresas tam facil acesso a residuos processados por mes e tempo de downtime da empresa
+        let downtime = Number(ipt_downtime.value);
+
+
+        //  deixar fixo em 2.50 pois e um valor que normalmente o diretor não tem de facil acesso 
+        let valor_produto = 2.50;
+
+
+        let rendimento = 43.5
+        // esse número pode ser deixado sem ser uma input pois quase todo rendimento dos protudos são um pouco mais 
+        // da metade pois grande parte e composta por água onde evapora e não se torno um protudo util
+
+        let perda_transbordo = 5;
+        // A taxa de 5% é uma estimativa industrial conservadora, baseada em métricas OEE, que representa as 
+        // perdas físicas e por deterioração causadas por falhas no monitoramento manual Noemalmente usado o olhômetro.
+
+        // de acordo com a abra juntando tudo com energia caminhões parados tem uma perde 20 reias por minuto 1 hora == 1200
+        let custo_hora_parada = Number(1200);
+
+        if (insumo_processado <= 0) {
+            div_result.innerHTML += 'Insumo deve ser maior que 0'
+
+        } else if (downtime <= 0) {
+            div_result.innerHTML += ' media de downtime deve ser maior que  0'
+        } else {
+
+            let massa_perdida = insumo_processado * perda_transbordo / 100;
+            let produto_nao_gerado = massa_perdida * rendimento / 100;
+            let prejuizo_transbordo = produto_nao_gerado * valor_produto;
+            let prejuizo_downtime = custo_hora_parada * downtime;
+
+            let prejuizo_material = produto_nao_gerado * valor_produto;
+            let recuperacao_direta = prejuizo_material * 0.25;
+            let ganho_indireto = prejuizo_downtime * 0.25;
+
+            let prejuizo_por_mes = prejuizo_transbordo + prejuizo_downtime;
+            let prejuizo_por_ano = prejuizo_por_mes * 12;
+
+            // Assumindo 25% novo de eficiência na mitigação de falhas via Alertas Preditivos:
+            let valor_recuperado = prejuizo_por_ano * 0.25;
+            let projecao = valor_recuperado * 3;
+
+            div_result.innerHTML = `
+            <h2>FÓRMULAS UTILIZADAS</h2>
+            - O insumo perdido é igual o insumo processado vezes a perda do transbordo <br>
+            - O produto não gerado corresponde a porcentagem massa perdida vezes o rendimento  <br>
+            - O prejuizo transbordo corresponde ao produto não gerado vezes o valor do produto <br>
+            - O prejuizo por mês corresponde ao prejuizo do transbordo mais o prejuizo por hora passada <br>
+            - O prejuizo por ano corresponde ao mês vezes 12 <br>
+            - Sobre o cálculo das projeções corresponde a 25% valor do recuperado sobre o prejuizo por ano  <br>
+        
+        <h2>PREJUÍZO MENSAL</h2>
+              PREJUIZO ESTIMADO SEM NOSSOS SERVIÇOS 
+            <p style="color:red;"> Por ano: R$${prejuizo_por_ano} </p>
+            
+            DETALHAMENTO DAS PERDAS ATUAIS <br>
+             <p style="color:red;">${massa_perdida}kg de insumo perdido</p> 
+            <p style="color:red;">${produto_nao_gerado}kg de produto não gerado</p> 
+            <p style="color:red;"> ${prejuizo_transbordo}R$ / mês de prejuizo </p>
+            <p> ${prejuizo_downtime}R$ down time </p>
+
+            <h2>PREJUIZO TOTAL ACUMULADO SEM MONITORAMENTO INTELIGENTE</h2>
+            <p style="color:red;"> Por mês: R$${prejuizo_por_mes} </p> 
+
+            <p> RETORNO COM A RENDER TRACE CO. </p>
+                                                                                    // recuperação de produto
+            <p> RECUPERAÇÃO DIRETA : ${recuperacao_direta} </p>
+                                                                                    // diminuição do down time
+            <p> GANHO INDIRETO : ${ganho_indireto} </p> 
+            
+
+            <h2>VALOR RECUPERADO POR ANO</h2>
+            <p style="color:green;"> Em 1 ano: R$${valor_recuperado}</p> 
+
+            PROJEÇÃO DE ECONOMIA:
+            <p style="color:green;">Em 3 anos: R$${projecao} </p> `
+
+        }
+
+             
+        }
+</script>
+
+</html>

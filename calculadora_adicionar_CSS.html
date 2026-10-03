@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render Trace | Calculadora</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
+</head>
+
+<body>
+    <h1>Calculadora Financeira</h1>
+    <!-- Quantidade de resíduos processados pela fábrica por mês. -->
+    <label for="ipt_insumo_processado">Insumo Processado por mês: </label>
+    <input type="text" value="600000" id="ipt_insumo_processado"> <br>
+
+    <!-- Quantidade média de horas em que a linha fica parada -->
+    <label for="ipt_downtime">Tempo medio tanque vazio: </label>
+    <input type="text" value="6" id="ipt_downtime"> <br>
+
+   
+
+    <button onclick="calcular()">Simular</button>
+
+    <div id="div_result"></div>
+</body>
+<script>
+    function calcular() {
+        
+        let insumo_processado = Number(ipt_insumo_processado.value);
+        let downtime = Number(ipt_downtime.value);
+        let valor_produto = 2.50;
+        let rendimento = 43.5
+        let perda_transbordo = 5;
+        let custo_hora_parada = Number(1200);
+
+        if (insumo_processado <= 0) {
+            div_result.innerHTML += 'Insumo deve ser maior que 0'
+
+        } else if (downtime <= 0) {
+            div_result.innerHTML += ' media de downtime deve ser maior que  0'
+        } else {
+
+            let massa_perdida = insumo_processado * perda_transbordo / 100;
+            let produto_nao_gerado = massa_perdida * rendimento / 100;
+            let prejuizo_transbordo = produto_nao_gerado * valor_produto;
+            let prejuizo_downtime = custo_hora_parada * downtime;
+
+            let prejuizo_material = produto_nao_gerado * valor_produto;
+            let recuperacao_direta = prejuizo_material * 0.25;
+            let ganho_indireto = prejuizo_downtime * 0.25;
+
+            let prejuizo_por_mes = prejuizo_transbordo + prejuizo_downtime;
+            let prejuizo_por_ano = prejuizo_por_mes * 12;
+
+            
+            let valor_recuperado = prejuizo_por_ano * 0.25;
+            let projecao = valor_recuperado * 3;
+
+            div_result.innerHTML = `
+    
+        <h2>PREJUÍZO MENSAL</h2>
+              PREJUIZO ESTIMADO SEM NOSSOS SERVIÇOS 
+            <p style="color:red;"> Por ano: R$${prejuizo_por_ano} </p>
+            
+            DETALHAMENTO DAS PERDAS ATUAIS <br>
+             <p style="color:red;">${massa_perdida}kg de insumo perdido</p> 
+            <p style="color:red;">${produto_nao_gerado}kg de produto não gerado</p> 
+            <p style="color:red;"> ${prejuizo_transbordo}R$ / mês de prejuizo </p>
+            <p> ${prejuizo_downtime}R$ down time </p>
+
+            <h2>PREJUIZO TOTAL ACUMULADO SEM MONITORAMENTO INTELIGENTE</h2>
+            <p style="color:red;"> Por mês: R$${prejuizo_por_mes} </p> 
+
+            <p> RETORNO COM A RENDER TRACE CO. </p>
+                                                                                    // recuperação de produto
+            <p> RECUPERAÇÃO DIRETA : ${recuperacao_direta} </p>
+                                                                                    // diminuição do down time
+            <p> GANHO INDIRETO : ${ganho_indireto} </p> 
+            
+
+            <h2>VALOR RECUPERADO POR ANO</h2>
+            <p style="color:green;"> Em 1 ano: R$${valor_recuperado}</p> 
+
+            PROJEÇÃO DE ECONOMIA:
+            <p style="color:green;">Em 3 anos: R$${projecao} </p> `
+
+        }
+
+             
+        }
+</script>
+
+</html>
