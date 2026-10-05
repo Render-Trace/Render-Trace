@@ -10,15 +10,28 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="header-content">
-            <h2>Diagnóstico Financeiro</h2>
-            <img src="assets/images/logo-branca.svg" alt="logo-branca">
+
+     <header>
+        <div class="header-container">
+            <a href="home.html"><img src="assets/images/logo-branca.svg" alt="Logo RenderTrace"></a>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-section">Sobre nós</a></li>
+                    <li><a href="#solucoes-section">Soluções</a></li>
+                    <li><a href="#contato-section">Contato</a></li>
+                    <li><a href="">Calculadora</a></li>
+                    <li class="nav-button nav-entrar"><a href="login.html">Entrar</a></li>
+                    <li class="nav-button nav-cadastro"><a href="cadastro.html" class="primaria">Cadastro</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+
     </div>
 
     <div class="container">
         <div class="container-informacao">
+             <h2>Diagnóstico Financeiro</h2>
             <!-- Quantidade de resíduos processados pela fábrica por mês. -->
             <label for="ipt_insumo_processado">Insumo Processado por mês: </label>
             <input type="text" value="600000" id="ipt_insumo_processado"> <br>
@@ -69,6 +82,11 @@
                 <h3>RETORNO COM A RENDER TRACE CO.</h3>
             </div>
 
+            <div class="container-valorrecuperado">
+                <h2>VALOR RECUPERADO EM ATÉ UM ANO</h2>
+                <h3>R$ <span id="spn_valorrecuperado">X</span></h3>
+            </div>
+
             <div class="container-retorno">
                 <div class="card-retorno">
                     <h4>RECUPERAÇÃO DIRETA</h4>
@@ -80,10 +98,6 @@
                 </div>
             </div>
 
-            <div class="container-valorrecuperado">
-                <h2>VALOR RECUPERADO EM ATÉ UM ANO</h2>
-                <h3>R$ <span id="spn_valorrecuperado">X</span></h3>
-            </div>
             <div class="container-projecao">
                 <h2>PROJEÇÃO ECONÔMICA</h2>
                 <p>R$ <span id="spn_projecao">X</span> em até 3 anos</p>
@@ -135,8 +149,8 @@
             spn_prejuizototal.innerHTML = `${prejuizo_por_ano}`;
 
             spn_valorrecuperado.innerHTML = `${valor_recuperado}`;
-            spn_recuperacaodireta = `${recuperacao_direta}`;
-            spn_recuperacaoindireta = `${ganho_indireto}`;
+            spn_recuperacaodireta.innerHTML = `${recuperacao_direta}`;
+            spn_recuperacaoindireta.innerHTML = `${ganho_indireto}`;
             spn_projecao.innerHTML = `${projecao}`;
 
         }
