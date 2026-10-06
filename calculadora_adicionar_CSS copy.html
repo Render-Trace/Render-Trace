@@ -41,30 +41,69 @@
             <label for="ipt_downtime">Tempo medio tanque vazio: </label>
             <input type="text" value="6" id="ipt_downtime"> <br>
 
-            <button onclick="calcular()">SIMULAR DIAGNÓSTICO</button>
+            <button onclick="calcular()">Simular</button>
         </div>
 
         <div class="container-calculo">
-
-            <div class="container-prejuizototal">
-                <h2>Prejuízo Anual Estimado </h2>
-                <h3 id="h3_prejuizototal"></h3>
+            <div class="container-prejuizo">
+                <h2>PREJUÍZO MENSAL</h2>
+                <p>PREJUIZO ESTIMADO SEM NOSSOS SERVIÇOS </p>
+                <p>R$<span id="spn_prejuizo">prejuizo</span>/mês</p>
             </div>
 
+            <div class="container-prejuizototal">
+                <h2>PREJUÍZO TOTAL ACUMULADO </h2>
+                <h3>R$ <span id="spn_prejuizototal">X</span>/ano</h3>
+            </div>
+
+            <!--<div class="container-detalhamentoatuais">
+                <h3>DETALHAMENTO DAS PERDAS ATUAIS</h3>
+            </div>
+            <div class="container-detalhamento">
+
+                <div class="card-perda">
+                    <h4>PERDA POR PARADA(DOWNTIME):</h4>
+                    <p>R$ <span id="spn_downtime">X</span> down time</p>
+                </div>
+                <div class="card-perda">
+                    <h4>MASSA PERDIDA</h4>
+                    <p><span id="spn_massa">X</span>kg de insumo perdido</p>
+                </div>
+                <div class="card-perda">
+                    <h4>PRODUTO NÃO GERADO</h4>
+                    <p><span id="spn_naogerado">X</span>kg de produto não gerado</p>
+                </div>
+                <div class="card-perda">
+                    <h4>PERDA POR TRANSBORDO</h4>
+                    <p>R$ <span id="spn_transbordo">X</span>/ mês de prejuizo</p>
+                </div>
+            </div>-->
+
             <div class="container-render">
-                <h3> </h3>
+                <h3>RETORNO COM A RENDER TRACE CO.</h3>
             </div>
 
             <div class="container-valorrecuperado">
-                <h2>Economia Anual Estimada com a RenderTrace</h2>
-                <h3 id="h3_valorrecuperado"></h3>
+                <h2>VALOR RECUPERADO EM ATÉ UM ANO</h2>
+                <h3>R$ <span id="spn_valorrecuperado">X</span></h3>
             </div>
 
-            <div class="container-contato">
-                <button>ENTRE EM CONTATO AGORA!</button>
+            <!--<div class="container-retorno">
+                <div class="card-retorno">
+                    <h4>RECUPERAÇÃO DIRETA</h4>
+                    <p>R$ <span id="spn_recuperacaodireta">X</span> por evitar as perdas de produtos.</p>
+                </div>
+                <div class="card-retorno">
+                    <h4>RECUPERAÇÂO INDIRETA</h4>
+                    <p>R$ <span id="spn_recuperacaoindireta">X</span> por diminuir o tempo de parada(downtime).</p>
+                </div>
+            </div>-->
+
+            <div class="container-projecao">
+                <h2>PROJEÇÃO ECONÔMICA</h2>
+                <p>R$ <span id="spn_projecao">X</span> em até 3 anos</p>
             </div>
         </div>
-
     </div>
 
 </body>
@@ -99,11 +138,21 @@
 
 
             let valor_recuperado = prejuizo_por_ano * 0.25;
+            let projecao = valor_recuperado * 3;
 
+            spn_prejuizo.innerHTML = `${prejuizo_por_mes}`;
 
-            h3_prejuizototal.innerHTML = `${prejuizo_por_ano.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) } /ANO`;
+            spn_downtime.innerHTML = `${prejuizo_downtime}`;
+            spn_massa.innerHTML = `${massa_perdida}`;
+            spn_naogerado.innerHTML = `${produto_nao_gerado}`;
+            spn_transbordo.innerHTML = `${prejuizo_transbordo}`;
 
-            h3_valorrecuperado.innerHTML = `${valor_recuperado.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} /ANO`;
+            spn_prejuizototal.innerHTML = `${prejuizo_por_ano}`;
+
+            spn_valorrecuperado.innerHTML = `${valor_recuperado}`;
+            spn_recuperacaodireta.innerHTML = `${recuperacao_direta}`;
+            spn_recuperacaoindireta.innerHTML = `${ganho_indireto}`;
+            spn_projecao.innerHTML = `${projecao}`;
 
         }
 
