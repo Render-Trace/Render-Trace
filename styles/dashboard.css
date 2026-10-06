@@ -57,7 +57,11 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: var(--cor-branca);
+    padding: 24px 0px;
+    width: 100%;
+    gap: 10px;
 }
 
 .itens-usuario {
@@ -65,13 +69,13 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 24px;
 }
 
 .itens-informacao {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 24px;
 }
 
 .itens-usuario img {
@@ -80,13 +84,13 @@ header {
 
 .itens-usuario h1 {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
     color: var(--cor-branca);
 }
 
 .itens-usuario h2 {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 
@@ -101,6 +105,7 @@ header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    width: 100%;
 }
 
 .img-texto {
@@ -108,11 +113,15 @@ header {
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    padding: 8px 30px; 
-    gap: 8px;
+    padding: 8px 25px;
+    gap: 5px;
     cursor: pointer;
     color: var(--cor-branca);
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.img-texto span {
+    font-weight: 600;
 }
 
 .img-texto:hover,
@@ -121,20 +130,25 @@ header {
     color: #6bd45c;
 }
 
+.img-texto:hover img,
+.img-texto.ativo img {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(57%) saturate(395%) hue-rotate(65deg) brightness(96%) contrast(92%);
+}
+
 .itens-botao {
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 40px;
 }
 
 .itens-botao button {
     border-radius: 35px;
-    margin: 10px;
     padding: 2px;
     width: 160px;
     color: var(--cor-verde-escuro);
     font-size: 18px;
     font-weight: 600;
+    border: none;
 }
 
 

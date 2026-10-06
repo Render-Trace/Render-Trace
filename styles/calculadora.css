@@ -19,7 +19,7 @@ body {
     font-family: 'Poppins';
     display: flex;
     flex-direction: column;
-    background-color: #ddf5d3;
+    background-color: var(--cor-terciária);
 
 }
 
@@ -80,11 +80,6 @@ nav ul li {
 }
 
 
-
-.header h2 {
-    color: white;
-}
-
 .container {
     display: flex;
     max-width: 1440px;
@@ -93,10 +88,14 @@ nav ul li {
 
 .container-informacao {
     width: 300px;
+    top: 75px;
+    bottom: 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    z-index: 1000;
 
     padding: 30px;
     box-sizing: border-box;
@@ -106,21 +105,25 @@ nav ul li {
 
 .container-informacao h2 {
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: larger;
 }
 
 .container-informacao input {
-
     border: 1px solid #ccc;
     padding: 10px;
+
     font-size: 16px;
     outline: none;
     border-radius: 20px;
-
+    
+    width: 200px;
 }
 
 .container-informacao label {
     color: white;
+    font-weight: bold;
+    font-size: small;
 }
 
 
@@ -129,7 +132,7 @@ nav ul li {
     color: white;
 
     display: flex;
-    align-self: flex-end;
+    align-self: center;
 
     border-radius: 20px;
     border: none;
@@ -154,9 +157,20 @@ nav ul li {
     padding: 30px;
     gap: 30px;
 
+    margin-left: 300px;
 }
 
-.container-prejuizo {}
+.container-prejuizo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+}
+
+.container-prejuizo h2 {
+    margin-bottom: 10px;
+}
+
 
 .container-detalhamento {
     display: flex;
@@ -176,7 +190,7 @@ nav ul li {
     height: 100;
     background-color: #e5bbb9;
     border: solid 2px #FD1005;
-    padding: 40px;
+    padding: 15px;
 
     display: flex;
     flex-direction: column;
@@ -189,7 +203,7 @@ nav ul li {
 
 
 .container-prejuizototal {
-    background-color: #FD1005;
+    background-color: #B74143;
 
     width: 500px;
     height: 100;
@@ -214,6 +228,7 @@ nav ul li {
 
 .container-render {
     display: flex;
+    align-items: flex-start;
     justify-content: flex-start;
 }
 
@@ -260,6 +275,7 @@ nav ul li {
 .container-valorrecuperado h3 {
     color: var(--cor-terciária);
 }
+
 
 .container-projecao {
     width: 75%;
