@@ -1,4 +1,5 @@
 * {
+    box-sizing: border-box;
     font-family: 'Poppins';
     margin: 0;
     padding: 0;
@@ -98,17 +99,26 @@ header {
 .itens-selecao {
     display: flex;
     flex-direction: column;
-    align-items: left;
-    margin-left: 20px;
+    align-items: flex-start;
     gap: 12px;
 }
 
 .img-texto {
     display: flex;
     width: 100%;
-    justify-content: left;
+    justify-content: flex-start;
     align-items: center;
-    padding: 5px;
+    padding: 8px 30px; 
+    gap: 8px;
+    cursor: pointer;
+    color: var(--cor-branca);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.img-texto:hover,
+.img-texto.ativo {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #6bd45c;
 }
 
 .itens-botao {
