@@ -8,6 +8,12 @@
     scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+    font-style: none;
+    color: white;
+}
+
 
 body {
     font-family: 'Poppins';
@@ -61,8 +67,11 @@ nav ul li {
 
 .nav-cadastro {
     background-color: white;
-    color: var(--cor-primaria);
     padding-top: 2px;
+}
+
+.nav-cadastro a{
+    color: var(--cor-primaria);
 }
 
 .nav-entrar {
@@ -265,4 +274,8 @@ nav ul li {
     align-items: center;
 
     border-radius: 20px;
+}
+
+.selected {
+    color: var(--cor-secundária);
 }
