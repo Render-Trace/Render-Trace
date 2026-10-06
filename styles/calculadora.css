@@ -82,12 +82,12 @@ nav ul li {
 
 .container {
     display: flex;
-    max-width: 1440px;
+    align-self: center;
     width: 100%;
 }
 
 .container-informacao {
-    width: 300px;
+    width: 20%;
     top: 75px;
     bottom: 0;
 
@@ -157,7 +157,8 @@ nav ul li {
     padding: 30px;
     gap: 30px;
 
-    margin-left: 300px;
+    margin-left: 20%;
+    width: 80%;
 }
 
 .container-prejuizo {
