@@ -170,9 +170,9 @@ nav ul li {
     background-color: #B74143;
 
     width: 500px;
-    height: 100;
-    border: solid 2px black;
-    padding: 40px;
+    height: fit-content;
+    border: solid 2px #B74143;
+    padding: 30px;
 
     display: flex;
     flex-direction: column;
@@ -186,24 +186,23 @@ nav ul li {
     color: var(--cor-terciária)
 }
 
-.container-prejuizototal h3 {
+.container-prejuizototal h1 {
     color: var(--cor-terciária);
+    font-size: xx-large;
 }
 
-.container-render {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+.container-prejuizototal span {
+    font-size: medium;
 }
 
 
 .container-valorrecuperado {
     width: 500px;
-    height: 100;
-    background-color: var(--cor-primaria);
-    border: solid 2px #1B4D3E;
+    height: fit-content;
+    background-color: var(--cor-secundária);
+    border: solid 2px var(--cor-secundária);
 
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -212,33 +211,38 @@ nav ul li {
 }
 
 .container-valorrecuperado h2 {
-    color: var(--cor-terciária)
-
-}
-
-.container-valorrecuperado h3 {
     color: var(--cor-terciária);
+    font-size: medium;
+}
+
+.container-valorrecuperado h1 {
+    color: var(--cor-terciária);
+    font-size: xx-large;
+}
+
+.container-valorrecuperado span {
+    font-size: medium;
 }
 
 
-.container-projecao {
-    width: 75%;
-    height: 100;
-    background-color: #cbf4b9;
-    border: solid 2px #7ED957;
-    margin: 20px;
-    padding: 40px;
-
+.container-economia {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
-    border-radius: 20px;
+.container-economia p {
+    font-size: larger;
+}
+
+.container-economia span {
+    color: var(--cor-secundária);
+    font-weight: bold;
 }
 
 .container-contato button{
 
-    background-color: var(--cor-secundária);
+    background-color: var(--cor-primaria);
     color: white;
 
     display: flex;
@@ -246,18 +250,20 @@ nav ul li {
 
     size: 20px;
 
-    border-radius: 20px;
+    border-radius: 25px;
     border: none;
     padding: 10px 25px;
     font-weight: bold;
     margin-top: 10px;
     cursor: pointer;
     transition: 0.2s;
+
+    font-size: xx-large;
 }
 
 .container-contato button:hover {
     transform: scale(1.05);
-    background-color: #174235;
+    background-color: var(--cor-secundária);
 }
 
 .selected {
