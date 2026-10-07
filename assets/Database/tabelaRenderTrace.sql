@@ -37,16 +37,6 @@ fk_empresa INT NOT NULL, CONSTRAINT fk_tolva_empresa
 				FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
-CREATE TABLE alerta(
-id INT PRIMARY KEY AUTO_INCREMENT,
-dt_inicio DATETIME NOT NULL,
-dt_fim DATETIME,
-tipo VARCHAR(10) NOT NULL,
-CONSTRAINT chk_tipo CHECK (tipo IN('Sobrecarga','Ocioso')),
-fk_tolva INT NOT NULL, CONSTRAINT fk_tolva_alerta
-					   FOREIGN KEY (fk_tolva) REFERENCES tolva(id)
-);
-
 CREATE TABLE sensor(
 id INT PRIMARY KEY AUTO_INCREMENT,
 codigo VARCHAR(45) NOT NULL,
@@ -62,6 +52,8 @@ CREATE TABLE leitura(
 id INT PRIMARY KEY AUTO_INCREMENT,
 distancia INT NOT NULL,
 dt_leitura DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+tipo VARCHAR(10), CONSTRAINT chk_tipo CHECK (tipo IN('Sobrecarga','Ocioso')),
+alerta TINYINT NOT NULL, CONSTRAINT chk_alerta CHECK(alerta IN(0,1)),
 fk_sensor INT NOT NULL, CONSTRAINT fk_sensor
 			   FOREIGN KEY (fk_sensor) REFERENCES sensor(id)
 );
