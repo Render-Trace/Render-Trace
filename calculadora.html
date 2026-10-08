@@ -8,9 +8,6 @@
     <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
     <link rel="stylesheet" href="https://use.typekit.net/wgs2ohu.css">
     <link rel="stylesheet" href="styles/calculadora.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-
 <body>
 
     <header>
@@ -36,11 +33,11 @@
             <div class="container-inputs">
                 <!-- Quantidade de resíduos processados pela fábrica por mês. -->
                 <label for="ipt_insumo_processado">Insumo processado (kg/mês): </label>
-                <input type="text" value="600000" id="ipt_insumo_processado"> <br>
+                <input type="text" id="ipt_insumo_processado" placeholder="ex: 600000"> <br>
 
                 <!-- Quantidade média de horas em que a linha fica parada -->
                 <label for="ipt_downtime">Horas paradas/mês: </label>
-                <input type="text" value="6" id="ipt_downtime"> <br>
+                <input type="text" id="ipt_downtime" placeholder="ex: 6"> <br>
             </div>
             <button onclick="calcular()">SIMULAR DIAGNÓSTICO</button>
         </div>
@@ -48,18 +45,19 @@
         <div class="container-calculo">
             <div class="container-prejuizototal">
                 <h2>Prejuízo Anual Estimado sem a RenderTrace</h2>
-                <h1 id="h1_prejuizototal"></h1>
+                <h1 id="h1_prejuizototal">R$00.00<span>/ANO</span></h1>
             </div>
 
             <div class="container-valorrecuperado">
                 <h2>Economia Anual Estimada com a RenderTrace</h2>
-                <h1 id="h1_valorrecuperado"></h1>
+                <h1 id="h1_valorrecuperado">R$00.00<span>/ANO</span></h1>
             </div>
             <div class="container-economia">
-                <p id="p_diminuicao"></p>
-                <p id="p_eficiencia"></p>
+                <p id="p_diminuicao"><img src="assets/images/seta-baixo.svg" alt=""> <span>00%</span> de <span>DIMINUIÇÃO</span> no prejuízo</p>
+                <p id="p_eficiencia"><img src="assets/images/seta-cima.svg" alt=""> <span>00%</span> de <span>EFICIÊNCIA</span></p>
             </div>
             <div class="container-contato" id="container_contato">
+                <button>ENTRE EM CONTATO AGORA!</button>
             </div>
         </div>
 
@@ -82,9 +80,8 @@
         validacao = true
         validar()
         if (validacao) {
-            h1_prejuizototal.innerHTML = '<img src="assets/images/loading.gif" width="80">'
-            h1_valorrecuperado.innerHTML = '<img src="assets/images/loading.gif" width="80">'
-            setTimeout(() => {
+           
+            
                 let massa_perdida = insumo_processado * perda_transbordo / 100;
                 let produto_nao_gerado = massa_perdida * rendimento / 100;
                 let prejuizo_transbordo = produto_nao_gerado * valor_produto;
@@ -106,10 +103,10 @@
 
                 h1_valorrecuperado.innerHTML = `${valor_recuperado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} <span>/ANO</span>`;
 
-                p_diminuicao.innerHTML = `<i class="fa fa-caret-down" aria-hidden="true"></i> <span>${diminuicao}%</span> de <span>DIMINUIÇÃO</span> no prejuízo`;
-                p_eficiencia.innerHTML = `<i class="fa fa-caret-up" aria-hidden="true"></i> <span>${eficiencia}%</span> de <span>EFICIÊNCIA</span>`;
+                p_diminuicao.innerHTML = `<img src="assets/images/seta-baixo.svg" alt=""> <span>${diminuicao}%</span> de <span>DIMINUIÇÃO</span> no prejuízo`;
+                p_eficiencia.innerHTML = `<img src="assets/images/seta-cima.svg" alt=""> <span>${eficiencia}%</span> de <span>EFICIÊNCIA</span>`;
                 container_contato.innerHTML = '<button>ENTRE EM CONTATO AGORA!</button>'
-            }, 1000)
+            
         }
     }
 

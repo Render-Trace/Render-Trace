@@ -173,11 +173,11 @@ nav ul li {
 
 
 .container-prejuizototal {
-    background-color: #B74143;
+    background-color: white;
+    border-bottom: solid 3px #B74143;
 
     width: 400px;
-    height: fit-content;
-    border: solid 2px #B74143;
+    height: 80px;
     padding: 30px;
 
     display: flex;
@@ -189,13 +189,13 @@ nav ul li {
 }
 
 .container-prejuizototal h2 {
-    color: var(--cor-terciária);
+    color: #B74143;
     font-size: medium;
     font-weight: 600;
 }
 
 .container-prejuizototal h1 {
-    color: var(--cor-terciária);
+    color: #B74143;
     font-size: 36px;
     font-weight: 700;
 }
@@ -207,10 +207,9 @@ nav ul li {
 
 .container-valorrecuperado {
     width: 700px;
-    height: fit-content;
-    max-height: 150px;
+    height: 120px;
     background-color: var(--cor-secundária);
-    border: solid 2px var(--cor-secundária);
+    border: solid 3px var(--cor-secundária);
 
     padding: 30px;
     display: flex;
@@ -221,13 +220,13 @@ nav ul li {
 }
 
 .container-valorrecuperado h2 {
-    color: var(--cor-terciária);
+    color: white;
     font-size: 20px;
     font-weight: 600;
 }
 
 .container-valorrecuperado h1 {
-    color: var(--cor-terciária);
+    color: white;
     font-size: 55px;
     font-weight: 700;
 }
@@ -241,6 +240,8 @@ nav ul li {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #ccc;
+    font-weight: 600;
 }
 
 .container-economia p {
@@ -262,15 +263,15 @@ nav ul li {
 
     size: 20px;
 
-    border-radius: 25px;
+    border-radius: 100px;
     border: none;
-    padding: 10px 25px;
-    font-weight: bold;
+    padding: 6px 60px;
+    font-weight: 650;
     margin-top: 25px;
     cursor: pointer;
     transition: 0.2s;
 
-    font-size: xx-large;
+    font-size: 32px;
 }
 
 .container-contato button:hover {
