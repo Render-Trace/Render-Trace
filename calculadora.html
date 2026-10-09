@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
     <link rel="stylesheet" href="https://use.typekit.net/wgs2ohu.css">
     <link rel="stylesheet" href="styles/calculadora.css">
+
 <body>
 
     <header>
@@ -38,7 +39,29 @@
                 <!-- Quantidade média de horas em que a linha fica parada -->
                 <label for="ipt_downtime">Horas paradas/mês: </label>
                 <input type="text" id="ipt_downtime" placeholder="ex: 6"> <br>
+                <details>
+                <summary class="botao-fontes">Ver Fontes de dados</summary>
+                <div class="container-escondido">
+                    <h2>Valores pré-definidos: </h2>
+                    <p>
+                        Rendimento Industrial = 43,5% <br>
+                        Perda por Transbordo/Degradação = 5% <br>
+                        Valor do Produto Final = R$ 2,50 / kg <br>
+                        Taxa de Recuperação / Eficiência = 25% <br>
+                    </p>
+                    <h2>Fontes: </h2>
+                    <p>
+                        <a href="https://abra.ind.br/">abra.ind.br</a> <br>
+                        <a href="https://tractian.com/blog/custo-de-downtime">tractian.com</a> <br>
+                        <a href="https://www.cepea.esalq.usp.br/">esalq.usp.br</a> <br>
+                        <a href="https://www.mckinsey.com/capabilities/operations/our-insights">mckinsey.com</a> <br>
+                    </p>
+                </div>
+            </details>
             </div>
+
+            
+
             <button onclick="calcular()">SIMULAR DIAGNÓSTICO</button>
         </div>
 
@@ -53,11 +76,15 @@
                 <h1 id="h1_valorrecuperado">R$00.00<span>/ANO</span></h1>
             </div>
             <div class="container-economia">
-                <p id="p_diminuicao"><img src="assets/images/seta-baixo.svg" alt=""> <span>00%</span> de <span>DIMINUIÇÃO</span> no prejuízo</p>
-                <p id="p_eficiencia"><img src="assets/images/seta-cima.svg" alt=""> <span>00%</span> de <span>EFICIÊNCIA</span></p>
+                <p id="p_diminuicao"><img src="assets/images/seta-baixo.svg" alt=""> <span>00%</span> de
+                    <span>DIMINUIÇÃO</span> no prejuízo
+                </p>
+                <p id="p_eficiencia"><img src="assets/images/seta-cima.svg" alt=""> <span>00%</span> de
+                    <span>EFICIÊNCIA</span>
+                </p>
             </div>
             <div class="container-contato" id="container_contato">
-                <button>ENTRE EM CONTATO AGORA!</button>
+                <button onclick="window.location = 'home.html#contato-section'">ENTRE EM CONTATO AGORA!</button>
             </div>
         </div>
 
@@ -75,38 +102,38 @@
         let valor_produto = 2.50;
         let rendimento = 43.5
         let perda_transbordo = 5;
-        let custo_hora_parada = Number(1200);
+        let custo_hora_parada = 1200;
 
         validacao = true
         validar()
         if (validacao) {
-           
-            
-                let massa_perdida = insumo_processado * perda_transbordo / 100;
-                let produto_nao_gerado = massa_perdida * rendimento / 100;
-                let prejuizo_transbordo = produto_nao_gerado * valor_produto;
-                let prejuizo_downtime = custo_hora_parada * downtime;
+
+
+            let massa_perdida = insumo_processado * perda_transbordo / 100;
+            let produto_nao_gerado = massa_perdida * rendimento / 100;
+            let prejuizo_transbordo = produto_nao_gerado * valor_produto;
+            let prejuizo_downtime = custo_hora_parada * downtime;
 
 
 
-                let prejuizo_por_mes = prejuizo_transbordo + prejuizo_downtime;
-                let prejuizo_por_ano = prejuizo_por_mes * 12;
+            let prejuizo_por_mes = prejuizo_transbordo + prejuizo_downtime;
+            let prejuizo_por_ano = prejuizo_por_mes * 12;
 
 
-                let valor_recuperado = prejuizo_por_ano * 0.25;
+            let valor_recuperado = prejuizo_por_ano * 0.25;
 
-                let diminuicao = (valor_recuperado * 100) / prejuizo_por_ano;
-                let eficiencia = diminuicao
+            let diminuicao = (valor_recuperado * 100) / prejuizo_por_ano;
+            let eficiencia = diminuicao
 
 
-                h1_prejuizototal.innerHTML = `${prejuizo_por_ano.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} <span>/ANO</span>`;
+            h1_prejuizototal.innerHTML = `${prejuizo_por_ano.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} <span>/ANO</span>`;
 
-                h1_valorrecuperado.innerHTML = `${valor_recuperado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} <span>/ANO</span>`;
+            h1_valorrecuperado.innerHTML = `${valor_recuperado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} <span>/ANO</span>`;
 
-                p_diminuicao.innerHTML = `<img src="assets/images/seta-baixo.svg" alt=""> <span>${diminuicao}%</span> de <span>DIMINUIÇÃO</span> no prejuízo`;
-                p_eficiencia.innerHTML = `<img src="assets/images/seta-cima.svg" alt=""> <span>${eficiencia}%</span> de <span>EFICIÊNCIA</span>`;
-                container_contato.innerHTML = '<button>ENTRE EM CONTATO AGORA!</button>'
-            
+            p_diminuicao.innerHTML = `<img src="assets/images/seta-baixo.svg" alt=""> <span>${diminuicao}%</span> de <span>DIMINUIÇÃO</span> no prejuízo`;
+            p_eficiencia.innerHTML = `<img src="assets/images/seta-cima.svg" alt=""> <span>${eficiencia}%</span> de <span>EFICIÊNCIA</span>`;
+            container_contato.innerHTML = '<button>ENTRE EM CONTATO AGORA!</button>'
+
         }
     }
 
@@ -116,7 +143,7 @@
         let valor_produto = 2.50;
         let rendimento = 43.5
         let perda_transbordo = 5;
-        let custo_hora_parada = Number(1200);
+        let custo_hora_parada = 1200;
 
         if (insumo_processado <= 0) {
             alert('Insumo deve ser maior que 0')
