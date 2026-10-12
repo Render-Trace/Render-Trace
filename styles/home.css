@@ -80,6 +80,12 @@ nav ul li {
     padding-top: 2px;
 }
 
+
+nav ul a:hover{
+    transform: scale(1.02);
+    color: var(--cor-secundária);
+}
+
 main {
     background-image: url(../assets/images/female-shepherd-flock-sheep-lawn.jpg);
     background-size: cover;
