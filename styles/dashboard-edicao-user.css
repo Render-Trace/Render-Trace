@@ -156,7 +156,8 @@ header {
     display: flex;
     background-color: var(--cor-terciária);
     width: 80%;
-    justify-content: flex-end;
+    margin-left: 20%;
+    justify-content: center;
 }
 
 .informacao-usuario h1 {
