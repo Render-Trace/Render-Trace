@@ -177,6 +177,7 @@ header {
     font-weight: bold;
     text-align: left;
     color: #ccc;
+    margin: 13.2px;
 }
 
 .informacao-usuario input, select{
@@ -187,7 +188,6 @@ header {
     border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 16px;
-    
 
     outline: none;
     background-color: #f9f9f9;
@@ -195,6 +195,10 @@ header {
 
     font-weight: bold;
     color: #777;
+}
+
+select {
+    appearance: none;
 }
 
 .btn-info {
@@ -223,5 +227,6 @@ header {
 
 #btn_confirmar {
     background-color: var(--cor-primaria);
+    font-size: 15px;
 }
 
