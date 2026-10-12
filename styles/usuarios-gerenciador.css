@@ -235,3 +235,8 @@ header {
     cursor: pointer;
     transition: 0.2s;
 }
+
+.user-btn button:hover{
+    transform: scale(1.02);
+    background-color: #174235;
+}

@@ -222,9 +222,16 @@ select {
     transition: 0.2s;
 }
 
+.informacao-usuario button:hover{
+    transform: scale(1.02);
+    background-color: #174235;
+}
+
 #btn_cancelar {
    background-color: #ccc; 
 }
+
+
 
 #btn_confirmar {
     background-color: var(--cor-primaria);
