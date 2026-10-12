@@ -176,13 +176,14 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
-    width: 900px;
+    width: 1043px;
     height: 136px;
 
     background-color: var(--cor-primaria);
     border-bottom: solid 7px var(--cor-secundária);
-    border-radius: 20px;
+    border-radius: 30px;
 
     padding: 30px;
     margin: 13px;
@@ -190,23 +191,33 @@ header {
 
 .usuario-card h3 {
     color: var(--cor-branca);
+    margin-bottom: -5px;
 }
 
 .usuario-card p {
     color: #ccc;
 }
 
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 #btn_editar {
     background-color: var(--cor-primaria);
-    border: solid 4px var(--cor-branca);
+    border: solid 3px var(--cor-branca);
     border-radius: 27px;
 
-    font-size: 16px;
+    font-size: 15px;
     color: var(--cor-branca);
     font-weight: bold;
     
     width: 175px;
     padding: 10px 20px;
+
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 #btn_excluir {
@@ -214,11 +225,13 @@ header {
     border: solid 4px var(--cor-primaria);
     border-radius: 27px;
 
-    font-size: 16px;
+    font-size: 15px;
     color: var(--cor-primaria);
     font-weight: bold;
     
     width: 175px;
     padding: 10px 20px;
 
+    cursor: pointer;
+    transition: 0.2s;
 }
