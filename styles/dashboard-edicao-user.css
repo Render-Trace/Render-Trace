@@ -200,7 +200,14 @@ header {
 
 select {
     appearance: none;
+    background-image: url("../assets/images/Sort-Down.svg");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 30px;
+
+    padding: 10px 40px 10px 15px;
 }
+
 
 .btn-info {
     display: flex;
@@ -230,7 +237,6 @@ select {
 #btn_cancelar {
    background-color: #ccc; 
 }
-
 
 
 #btn_confirmar {
