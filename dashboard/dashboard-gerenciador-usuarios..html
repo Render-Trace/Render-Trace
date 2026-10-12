@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/dashboard-gerenciador.css">
     <title>Render Trace | Dashboard</title>
 </head>
 
@@ -57,32 +58,7 @@
                 </div>
             </div>
 
-            <div class="lado-direito">
 
-                <div class="conteudo-direta">
-
-                    <div class="conteudo-titulo">
-                        <h1>Editar Usuário</h1>
-                    </div>
-
-                    <div class="informacao-usuario">
-                        <label for="input_nome">Nome:</label><br>
-                        <input type="text" id="input_nome"><br>
-                        
-                        <label for="input_email">Email:</label><br>
-                        <input type="text" id="input_email"><br>
-
-                        <label for="input_senha">Senha</label><br>
-                        <input type="text" id="input_senha"><br>
-
-                        <label for="select_cargo">Cargo no Sistema</label><br>
-                        <select id="select_cargo">
-                            <option>Administrador</option>
-                            <option>Operador</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
 
 
 
@@ -98,7 +74,37 @@
     <main>
         <section class="container">
 
-            <div class="lado-direito"></div>
+            <div class="lado-direito">
+
+                <div class="conteudo-direta">
+
+                    <div class="informacao-usuario">
+                        <h1>Editar Usuário</h1>
+
+                        <label for="input_nome">Nome:</label><br>
+                        <input type="text" id="input_nome" value="Leonardo Dias" disabled><br>
+
+                        <label for="input_email">Email:</label><br>
+                        <input type="text" id="input_email" value="leonardodias@email.com"><br>
+
+                        <label for="input_senha">Senha</label><br>
+                        <input type="text" id="input_senha" value="●●●●●●●●●●●" disabled><br>
+
+                        <label for="select_cargo">Cargo no Sistema</label><br>
+                        <select id="select_cargo">
+                            <option>Administrador</option>
+                            <option>Operador</option>
+                        </select> <br>
+
+                        <div class="btn-info">
+                            <button id="btn_confirmar">Confirmar Edição</button>
+                            <button id="btn_cancelar">Cancelar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
