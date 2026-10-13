@@ -1,0 +1,52 @@
+* {
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+    --cor-primaria: #1B4D3E;
+    --cor-secundária: #7ED957;
+    --cor-terciária: #F8FAFC;
+    scroll-behavior: smooth;
+}
+
+.lado-direito{
+    margin-left: 20%;
+    padding: 20px;
+}
+
+.kpi-row{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.kpi {
+    background-color:var(--cor-primaria);
+    width: 360px;
+    height: 150px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 15px;
+}
+
+.kpi-titulo {
+    color: var(--cor-secundária);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.kpi-info-1 {
+    font-size: 40px;
+    color: var(--cor-secundária);
+    font-weight: bold;
+}
+
+.kpi-info-2 {
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+}
+
+.kpi-descricao {
+    font-size: 12px;
+    color: white;
+}
