@@ -11,6 +11,9 @@
 .lado-direito{
     margin-left: 20%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .kpi-row{
@@ -54,4 +57,34 @@
 
 .tamanho-reduzido {
     font-size: 30px;
+}
+
+.selecao-tolva select {
+    width: 190px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.visao-ampla{
+    display: flex;
+    align-items: center;
+}
+
+.topo-dashboard {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.text-atualizacao {
+    margin-top: 10px;
+    font-size: 15px;
+    margin-left: 5px;
 }
