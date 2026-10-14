@@ -58,6 +58,7 @@ nav ul li {
     border-radius: 36px;
     font-weight: 600;
     font-size: 14px;
+    transition: 0.2s;
 }
 
 .nav-button {
@@ -80,9 +81,17 @@ nav ul li {
     padding-top: 2px;
 }
 
+nav ul a {
+    transition: 0.2s;
+}
+
+
+nav ul li:hover {
+    transform: translateY(-2px);
+}
 
 nav ul a:hover{
-    transform: scale(1.02);
+    transform: translateY(-2px);
     color: var(--cor-secundária);
 }
 

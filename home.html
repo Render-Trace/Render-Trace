@@ -183,8 +183,9 @@
                 </div>
 
 
-                <button class="solucoes-btn_calcular">Calcular agora</button>
-        </div>
+                <button class="solucoes-btn_calcular" onclick="window.location.href = 'calculadora.html'">Calcular
+                    agora</button>
+            </div>
     </section>
 
 
@@ -221,7 +222,7 @@
             <label for="input_telefone">Telefone:</label> <br>
             <input type="text" id="input_telefone"> <br><br>
 
-            <button>Enviar</button>
+            <button onclick="limpaCampos()">Enviar</button>
         </div>
     </div>
 
@@ -247,3 +248,17 @@
 </body>
 
 </html>
+
+<script>
+    function limpaCampos() {
+        let nome = input_nome.value
+        let mensagem = input_mensagem.value
+        let telefone = input_telefone.value
+
+        if (nome != '' && mensagem != '' && telefone != '') {
+            input_nome.value = ''
+            input_mensagem.value = ''
+            input_telefone.value = ''
+        }
+    }
+</script>

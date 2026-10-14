@@ -14,13 +14,16 @@ a {
     color: white;
 }
 
+.padding {
+    padding: 64px 36px;
+}
 
-body {
-    font-family: 'Poppins';
-    display: flex;
-    flex-direction: column;
-    background-color: var(--cor-terciária);
+.destaque {
+    color: var(--cor-secundária);
+}
 
+.primaria {
+    color: var(--cor-primaria);
 }
 
 header {
@@ -54,6 +57,7 @@ nav ul li {
     border-radius: 36px;
     font-weight: 600;
     font-size: 14px;
+    transition: 0.2s;
 }
 
 .nav-button {
@@ -67,16 +71,27 @@ nav ul li {
 
 .nav-cadastro {
     background-color: white;
-    padding-top: 2px;
-}
-
-.nav-cadastro a{
     color: var(--cor-primaria);
+    padding-top: 2px;
 }
 
 .nav-entrar {
     border: solid 1px white;
     padding-top: 2px;
+}
+
+nav ul a {
+    transition: 0.2s;
+}
+
+
+nav ul li:hover {
+    transform: translateY(-2px);
+}
+
+nav ul a:hover{
+    transform: translateY(-2px);
+    color: var(--cor-secundária);
 }
 
 
