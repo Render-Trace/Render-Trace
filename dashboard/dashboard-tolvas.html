@@ -12,7 +12,7 @@
 </head>
 
 <body>
- <header>
+    <header>
         <div class="header-container">
             <img src="../assets/images/logo-branca.svg" alt="Logo RenderTrace">
         </div>
@@ -77,27 +77,52 @@
                             <h1>Cadastrar Nova Tolva</h1>
                         </div>
 
-                        <label for="ipt_tolva"> <p> Descreva os dados da (Imutável) :</p></label> <br>
+                        <label for="ipt_tolva">
+                            <p> Descreva os dados da (Imutável) :</p>
+                        </label> <br>
                         <input type="text" id="ipt_tolva" value="Tolva 5" disabled> <br>
 
                         <label for="ipt_sensor">sensor:</label> <br>
                         <select id="ipt_sensor">
-                            <option value="" disabled selected> <p>Selecione o Sensor associado</p></option>
+                            <option value="" disabled selected>
+                                <p>Selecione o Sensor associado</p>
+                            </option>
                             <option value="1">Sensor 1</option>
                             <option value="2">Sensor 2</option>
                         </select><br>
-                        <label for="ipt_altura"> <p> Altura da tolva (m):  </p></label> <br>
-                        <input type="number" id="ipt_altura"> <br>
+                        <label for="ipt_altura">
+                            <p> Altura da tolva (m): </p>
+                        </label> <br>
+                        <input id="ipt_altura"> <br>
 
-                        <label for="ipt_capacidade"><p>Capacidade máxima de Volume da tolva (m3):</p></label> <br>
-                        <input type="number" id="ipt_capacidade"> <br>
+                        <label for="ipt_capacidade">
+                            <p>Capacidade máxima de Volume da tolva (m3):</p>
+                        </label> <br>
+                        <input id="ipt_capacidade"> <br>
 
-                        <div class="btn-confirmar">
+                        <div class="btn-gustavo">
                             <button>Confirmar Cadastro</button>
                         </div>
+
+
+                         <div class="card-tolva">
+                    <div class="info-tolva">
+                        <p>ID: 4</p>
+                        <p>Sensor: 2</p>
+                        <p>Altura: 12m</p>
+                        <p>Volume máx: 60m3</p>
+                    </div>
+                    <div class="acoes-tolva">
+                        <button class="btn-editar">Editar</button>
+                        <button class="btn-excluir">Excluir</button>
                     </div>
                 </div>
+                    </div>
 
+
+
+                </div>
+               
 
 
             </div>

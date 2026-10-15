@@ -182,17 +182,73 @@ font-family: 'Poppins';
 }
 
 select {
-    padding: 10px 400px 10px 15px;
+    padding: 10px 389px 10px 15px;
     border-radius: 20px;
 }
+input {
+    padding: 10px 400px 10px 15px;
+    border-radius: 20px;
 
-.btn-confirmar {
-    background-color: var(--cor-principal);
-    color: rgb(30, 253, 0);
-    border: none;
+
+}
+
+.btn-gustavo {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btn-gustavo button {
+    background-color: var(--cor-verde-escuro);
+    color: #F8FAFC;                  
     padding: 12px 40px;
     border-radius: 25px;
-    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    font-size: medium;
+     transition: 0.2s;
+}
+
+.btn-gustavo button:hover {
+    background-color: var(--cor-primaria);
+     transform: scale(1.02);
+}
+
+.card-tolva {
+    background-color: var(--cor-verde-escuro);
+    padding: 20px 30px;
+    border-radius: 20px;
+    display: flex;
+   justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 25px;
+}
+
+.info-tolva p {
+    color: #fff;
+    margin: 6px 0;
+}
+.btn-editar, 
+.btn-excluir {
+    padding: 8px 30px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    align-items: end;
+}
+
+.btn-editar {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+.btn-editar button:hover {
+ transform: scale(2.02);
+
+}
+
+.btn-excluir {
+    background-color: #fff;
+    border: none;
+    color: var(--cor-verde-escuro);
 }
