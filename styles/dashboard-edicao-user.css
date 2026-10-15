@@ -198,6 +198,10 @@ header {
     color: #777;
 }
 
+#input_nome, #input_senha {
+    color: #cccccc9d;
+}
+
 select {
     appearance: none;
     background-image: url("../assets/images/Sort-Down.svg");
