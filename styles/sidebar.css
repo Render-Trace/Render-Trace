@@ -152,7 +152,47 @@ header {
 }
 
 .lado-direito {
-    display: flex;
+   display: flex;
     background-color: var(--cor-terciária);
     width: 80%;
+    margin-left: 20%;
+    justify-content: center;
+}
+
+.informacao-tolva{
+align-self: center;
+}
+
+.titulo h1 {
+    text-align: center;
+    color: var(--cor-primaria);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+.cadastro-tolva{
+  display: flex;
+    flex-direction: column;
+}
+
+p {
+color: rgb(121, 121, 116);
+font-family: 'Poppins';
+}
+
+select {
+    padding: 10px 400px 10px 15px;
+    border-radius: 20px;
+}
+
+.btn-confirmar {
+    background-color: var(--cor-principal);
+    color: rgb(30, 253, 0);
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
 }
