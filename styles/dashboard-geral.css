@@ -88,3 +88,13 @@
     font-size: 15px;
     margin-left: 5px;
 }
+
+.grafico-container{
+    border: solid;
+    border-color: var(--cor-primaria);
+    border-width: 4px;
+    background-color: white;
+    width: 700px;
+    height: 320px;
+    border-radius: 20px;
+}
