@@ -12,6 +12,8 @@
     <title>Render Trace | Dashboard</title>
 </head>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <body>
 
     <header>
@@ -88,8 +90,6 @@
                                 <option value="4">Tolva 4</option>
                                 <option value="5">Tolva 5</option>
                             </select>
-                            <p class="text-atualizacao"><b>Última atualização:</b> 18:10 - 30/09/2026</p>
-                        </div>
 
                     </section>
 
@@ -123,9 +123,11 @@
 
                     <div class="grafico-container">
 
-                        <p>Gráfico da ocupação atual das tolvas</p>
-
                         <div class="area-grafico">
+
+                            <div>
+                                <canvas id="myChart"></canvas>
+                            </div>
 
                         </div>
 
@@ -148,18 +150,18 @@
                             <p class="kpi-descricao">Custo Estimado de Ineficiência</p>
                             <p class="kpi-info">R$ 2400,00</p>
                             <p class="kpi-descricao">Nas últimas 24 horas</p>
-                            
+
                         </div>
 
                         <div class="kpi-periodo">
 
                             <span class="kpi-periodo-item"><span class="kpi-titulo">Tempo em Alerta</span>
-                            <span class="kpi-info tamanho-reduzido">120min</span>
-                            <span class="kpi-descricao">Downtime operacional acumulado geral</span></span>
+                                <span class="kpi-info tamanho-reduzido">120min</span>
+                                <span class="kpi-descricao">Downtime operacional acumulado geral</span></span>
 
                             <span class="kpi-periodo-item"><span class="kpi-titulo">Mais crítica</span>
-                            <span class="kpi-info tamanho-reduzido">Tolva 1</span>
-                            <span class="kpi-descricao">Maior gargalo do período</span></span>
+                                <span class="kpi-info tamanho-reduzido">Tolva 1</span>
+                                <span class="kpi-descricao">Maior gargalo do período</span></span>
 
                         </div>
 
@@ -174,3 +176,32 @@
 </body>
 
 </html>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
+      datasets: [{
+        label: 'Ocupação atual das tolvas',
+        data: [50, 84, 65, 8],
+        borderWidth: 0,
+        backgroundColor: [
+      'rgba(0, 255, 0, 1.0)',
+      'rgba(114, 47, 55, 1.0)',
+      'rgba(0, 255, 0, 1.0)',
+      'rgba(91, 91, 88, 1.0)',
+    ],
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
