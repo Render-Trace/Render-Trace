@@ -60,7 +60,7 @@
 }
 
 .selecao-tolva select {
-    width: 190px;
+    width: 230px;
     padding: 8px 15px;
     border: none;
     border-radius: 25px;
@@ -89,7 +89,11 @@
     margin-left: 5px;
 }
 
-.grafico-container{
+.analise-operacional{
+    display: flex;
+}
+
+.area-grafico{
     border: solid;
     border-color: var(--cor-primaria);
     border-width: 4px;
@@ -97,4 +101,44 @@
     width: 700px;
     height: 320px;
     border-radius: 20px;
+}
+
+.kpi-alert{
+    padding-top: 30px;
+    padding-left: 30px;
+    width: 480px;
+    height: 340px;
+}
+
+.kpi-custo{
+    background-color:#B74143;
+    width: 445px;
+    height: 100px;
+    border-radius: 15px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px;
+    align-items: center;
+}
+
+.kpi-periodo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 30px;
+    margin-top: 22px;
+}
+
+.kpi-periodo-item{
+    background-color:var(--cor-primaria);
+    width: 280px;
+    height: 150px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 15px;
 }
