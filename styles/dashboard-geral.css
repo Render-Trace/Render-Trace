@@ -102,11 +102,11 @@
     height: 350px;
     border-radius: 20px;
     padding-bottom: 20px;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 .kpi-alert{
-    padding-top: 30px;
+    padding-top: 15px;
     padding-left: 30px;
     width: 480px;
     height: 340px;
@@ -115,7 +115,7 @@
 .kpi-custo{
     background-color:#B74143;
     width: 445px;
-    height: 100px;
+    height: 120px;
     border-radius: 15px;
     margin-top: 15px;
     display: flex;
@@ -151,4 +151,10 @@
 
 .background-color-gray{
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-grafico{
+    margin-top: 10px;
+    width: 348px;
+    height: 35px;
 }
