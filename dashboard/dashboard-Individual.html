@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles/sidebar.css">
     <link rel="stylesheet" href="../styles/dashboard-individual.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
     <title>Render Trace | Dashboard</title>
 </head>
 
@@ -115,7 +116,7 @@
 
                         <div class="selecao-tolva">
                             <select id="select_tolva">
-                                <option value="1">Tolva 1</option>
+                                <option value="1">Últimas 24 horas</option>
                                 <option value="2">Tolva 2</option>
                                 <option value="3">Tolva 3</option>
                                 <option value="4">Tolva 4</option>
@@ -190,12 +191,54 @@
 
     });
 
+    const legendaPersonalizada = {
+        id: 'legendaPersonalizada',
+
+        afterDraw(chart) {
+            const { ctx, chartArea } = chart;
+
+            if (!chartArea) {
+                return;
+            }
+
+            const itens = [
+                { texto: '80% Estado Crítico', cor: '#FF0004' },
+                { texto: '75% Estado Alerta', cor: '#FF8000' },
+                { texto: '10% Limite Aceitável', cor: '#7ED957' },
+                { texto: 'Leitura Capturada', cor: 'red' }
+            ];
+
+            ctx.save();
+
+            ctx.font = '12px Poppins';
+            ctx.textBaseline = 'middle';
+
+            let x = chartArea.left + 10;
+            const y = chartArea.top + 15;
+
+            itens.forEach(item => {
+                ctx.fillStyle = item.cor;
+                ctx.fillRect(x, y - 4, 16, 3);
+
+                x += 22;
+
+                ctx.fillStyle = '#000000';
+                ctx.fillText(item.texto, x, y);
+
+                x += ctx.measureText(item.texto).width + 12;
+            });
+
+            ctx.restore();
+        }
+    };
+
     const ctxLinha = document.getElementById('graficoOcupacao');
 
     new Chart(ctxLinha, {
         type: 'line',
+
         data: {
-            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            labels: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
             datasets: [{
                 label: 'Temperatura (°C)',
                 data: [30, 29, 28, 25, 22, 23],
@@ -204,15 +247,66 @@
                 borderWidth: 2
             }]
         },
+
         options: {
             responsive: true,
             maintainAspectRatio: false,
+
             scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    min: 0,
+                    max: 100,
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        callback: function (value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            },
+
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+                annotation: {
+                    annotations: {
+                        linhaAceitavel: {
+                            type: 'line',
+                            yMin: 10,
+                            yMax: 10,
+                            borderColor: '#7ED957',
+                            borderWidth: 2
+                        },
+
+                        linhaAlerta: {
+                            type: 'line',
+                            yMin: 75,
+                            yMax: 75,
+                            borderColor: '#FF8000',
+                            borderWidth: 1
+                        },
+
+                        linhaCritica: {
+                            type: 'line',
+                            yMin: 80,
+                            yMax: 80,
+                            borderColor: '#FF0004',
+                            borderWidth: 1
+                        }
+                    }
                 }
             }
-        }
+        },
+        plugins: [legendaPersonalizada]
     });
 
 
