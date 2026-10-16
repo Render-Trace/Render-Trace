@@ -215,6 +215,39 @@
         }
     });
 
+
+
+
+    const textoCentro = {
+        id: 'textoCentro',
+
+        afterDraw(chart) {
+            const { ctx, chartArea } = chart;
+
+            if (!chartArea) {
+                return;
+            }
+
+            const centroX = (chartArea.left + chartArea.right) / 2;
+            const centroY = chartArea.bottom - 35;
+
+            ctx.save();
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            ctx.font = 'bold 38px Poppins';
+            ctx.fillStyle = '#7ED957';
+            ctx.fillText('50%', centroX, centroY - 15);
+
+            ctx.font = 'Bold 22px Poppins';
+            ctx.fillStyle = '#164636';
+            ctx.fillText('Ocupação total', centroX, centroY + 25);
+
+            ctx.restore();
+        }
+    };
+
     const ctxDoughnut = document.getElementById('grafico-doughnut');
 
     new Chart(ctxDoughnut, {
@@ -223,24 +256,25 @@
         data: {
             labels: ['Ocupado', 'Disponível'],
             datasets: [{
-                data: [75, 25],
-                backgroundColor: ['#36A2EB', '#E0E0E0'],
-                borderWidth: 0,
-                circumference: 180,
-                rotation: 270
+                data: [50, 50],
+                backgroundColor: ['#7ED957', '#D9D9D9'],
+                borderWidth: 0
             }]
         },
 
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            cutout: '70%',
+            cutout: '75%',
+            rotation: -90,
+            circumference: 180,
             plugins: {
                 legend: {
                     display: false
                 }
             }
-        }
+        },
+
+        plugins: [textoCentro]
     });
 </script>
-
