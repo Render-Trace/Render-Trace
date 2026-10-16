@@ -135,7 +135,7 @@
 }
 
 .kpi-periodo-item{
-    background-color:var(--cor-primaria);
+    background-color:var(--cor-primaria);    
     width: 280px;
     height: 150px;
     border-radius: 15px;
@@ -156,7 +156,7 @@
 
 .input-grafico{
     margin-top: 10px;
-    width: 348px;
+    width: 345px;
     height: 35px;
     border-radius: 20px;
     border: 1px solid #ccc;
