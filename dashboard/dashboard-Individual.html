@@ -78,7 +78,7 @@
                 <div class="dashboard-cabecalho">
 
                     <div class="selecao-tolva">
-                        <select id="select_tolva">
+                        <select id="select_tolva" aria-label="Selecionar tolva">
                             <option value="1">Tolva 1</option>
                             <option value="2">Tolva 2</option>
                             <option value="3">Tolva 3</option>
@@ -114,27 +114,17 @@
                             </div>
                         </div>
 
-                        <div class="selecao-tolva">
-                            <select id="select_tolva">
-                                <option value="1">Últimas 24 horas</option>
-                                <option value="2">Tolva 2</option>
-                                <option value="3">Tolva 3</option>
-                                <option value="4">Tolva 4</option>
-                                <option value="5">Tolva 5</option>
-                            </select>
-                        </div>
-
-                        <div class="status-operacao">
-                            <label class="toggle-switch">
-                                <input type="checkbox" id="toggle_operacao" checked>
-                                <span class="slider"></span>
+                        <div class="grafico-cabecalho">
+                            <label class="selecao-periodo" for="select_periodo">
+                                <span class="visualmente-oculto">Período do gráfico</span>
+                                <select id="select_periodo">
+                                    <option value="24h">Últimas 24 horas</option>
+                                </select>
                             </label>
-
-                            <p id="texto_status">Em operação</p>
+                            <h3>Gráfico da variação de ocupação</h3>
                         </div>
 
                         <div class="card-grafico">
-                            <h3>Gráfico da variação de ocupação</h3>
                             <canvas id="graficoOcupacao"></canvas>
                         </div>
 
@@ -151,20 +141,28 @@
                             <h2>R$ 2.400,00</h2>
                         </div>
 
-                        <div class="card-alertas">
-                            <h3>Alertas</h3>
-                            <h2>2</h2>
-                            <p>1 Sobrecargas | 1 Ociosidades</p>
-                        </div>
+                        <div class="resumo-alertas">
+                            <div class="card-alertas">
+                                <h3>Alertas</h3>
+                                <h2>2</h2>
+                                <p>1 Sobrecargas | 1 Ociosidades</p>
+                            </div>
 
-                        <div class="card-tempo-alerta">
-                            <h3>Tempo em Alerta</h3>
-                            <h2>120min</h2>
-                            <p>Downtime operacional acumulado</p>
+                            <div class="card-tempo-alerta">
+                                <h3>Tempo em Alerta</h3>
+                                <h2>120min</h2>
+                                <p>Downtime operacional acumulado</p>
+                            </div>
                         </div>
 
                         <div class="card-relatorio">
                             <h3>Relatório de alertas</h3>
+                            <div class="linha-relatorio"><strong>04:30</strong><span>Sobrecarga</span><strong>60min</strong></div>
+                            <div class="linha-relatorio"><strong>11:50</strong><span>Ociosidade</span><strong>60min</strong></div>
+                            <div class="linha-relatorio"></div>
+                            <div class="linha-relatorio"></div>
+                            <div class="linha-relatorio"></div>
+                            <div class="linha-relatorio"></div>
                         </div>
 
                     </div>
