@@ -198,8 +198,8 @@ header {
     color: #777;
 }
 
-#input_nome, #input_senha {
-    color: #cccccc9d;
+#input_email, #select_cargo {
+    color: black;
 }
 
 select {
