@@ -152,15 +152,25 @@ header {
 }
 
 .lado-direito {
-   display: flex;
+    display: flex;
     background-color: var(--cor-terciária);
     width: 80%;
     margin-left: 20%;
     justify-content: center;
 }
 
-.informacao-tolva{
-align-self: center;
+.informacao-tolva {
+    align-self: center;
+}
+
+.informacao-tolva label {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 13.2px;
+    color: rgb(143, 143, 143);
+     display: block;
+    margin-bottom: 8px;
+    
 }
 
 .titulo h1 {
@@ -171,49 +181,55 @@ align-self: center;
 }
 
 
-.cadastro-tolva{
-  display: flex;
+.cadastro-tolva {
+    display: flex;
     flex-direction: column;
+    padding-top: 40px;
 }
 
-p {
-color: rgb(121, 121, 116);
-font-family: 'Poppins';
-}
+
 
 select {
-  width: 100%;                 
-    padding: 12px 16px;          
-    border-radius: 20px;         
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 20px;
+    border: solid;
+    border-color: rgb(114, 114, 114);
+    margin-bottom: 22px;
+
 }
+
 input {
-    width: 100%;                 
-    padding: 12px 16px;          
-    border-radius: 20px;         
-
-
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 20px;
+    border: solid;
+    border-color: rgb(114, 114, 114);
+    margin-bottom: 22px;
 }
 
 .btn-gustavo {
     display: flex;
     justify-content: center;
     margin-top: 25px;
+    padding: 30px;
 }
 
 .btn-gustavo button {
     background-color: var(--cor-verde-escuro);
-    color: #F8FAFC;                  
+    color: #F8FAFC;
     padding: 12px 40px;
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
     font-size: medium;
-     transition: 0.2s;
+    transition: 0.2s;
+    border: solid;
 }
 
 .btn-gustavo button:hover {
     background-color: var(--cor-primaria);
-     transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 .card-tolva {
@@ -221,16 +237,17 @@ input {
     padding: 20px 30px;
     border-radius: 20px;
     display: flex;
-   justify-content: space-between;
+    justify-content: space-between;
     align-items: flex-end;
-    margin-top: 25px;
+    border-bottom: solid 7px var(--cor-secundária);
 }
 
 .info-tolva p {
     color: #fff;
     margin: 6px 0;
+    
 }
-.btn-editar, 
+.btn-editar,
 .btn-excluir {
     padding: 8px 30px;
     border-radius: 20px;
@@ -244,8 +261,9 @@ input {
     border: 2px solid #fff;
     color: #fff;
 }
+
 .btn-editar button:hover {
- transform: scale(2.02);
+    transform: scale(2.02);
 
 }
 
@@ -254,7 +272,9 @@ input {
     border: none;
     color: var(--cor-verde-escuro);
 }
-.informacao-tolva{
-width: 900px;
+
+.informacao-tolva  {
+    width: 900px;
 
 }
+
