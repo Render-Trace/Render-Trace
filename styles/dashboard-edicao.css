@@ -198,7 +198,7 @@ header {
     color: #777;
 }
 
-#input_email, #select_cargo {
+#input_email, #select_cargo, #input_altura, #select_sensor, #input_capacidade {
     color: black;
 }
 

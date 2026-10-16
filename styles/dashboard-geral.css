@@ -159,7 +159,7 @@
     width: 348px;
     height: 35px;
     border-radius: 20px;
-    border: solid 2px lightgray;
+    border: 1px solid #ccc;
     padding: 15px;
 }
 
