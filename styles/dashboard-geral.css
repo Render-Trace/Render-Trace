@@ -237,7 +237,7 @@
 .button-tolva{
     border: solid 2px;
     border-color: rgb(163, 163, 163);
-    width: 80px;
+    width: 130px;
     height: 50px;
     border-radius: 30px;   
     cursor: pointer;
@@ -264,4 +264,12 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.container-button p{
+    font-weight: bold;
+}
+
+.destaque-titulo-botao{
+    color: rgba(121, 2, 2, 0.959);
 }
