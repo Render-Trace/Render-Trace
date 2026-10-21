@@ -18,7 +18,7 @@
 
     <header>
         <div class="header-container">
-            <img src="../assets/images/logo-branca.svg" alt="Logo RenderTrace">
+            <a href="../home.html"><img src="../assets/images/logo-branca.svg" alt="Logo RenderTrace"></a>
         </div>
     </header>
     <div class="lado-esquerdo">
@@ -36,7 +36,8 @@
 
 
             <div class="itens-selecao">
-                <div class="img-texto">
+                <div class="img-texto cor-sidebar background-color-gray"
+                    onclick="window.location.href='dashboard-geral.html'">
                     <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M28.413 5.33001C26.404 6.15001 26.24 7.21601 26.24 20.5C26.24 33.907 26.363 34.604 28.495 35.588C30.832 36.654 33.661 35.916 34.686 33.989C35.588 32.226 35.547 8.69201 34.645 6.92901C33.661 5.08401 30.832 4.34601 28.413 5.33001Z"
@@ -50,11 +51,11 @@
                     </svg>
                     <span>Dashboards</span>
                 </div>
-                <div class="img-texto">
+                <div class="img-texto" onclick="window.location.href='dashboard-tolvas.html'">
                     <img src="../assets/images/Box.svg" alt="">
                     <span>Tolvas</span>
                 </div>
-                <div class="img-texto">
+                <div class="img-texto" onclick="window.location.href='dashboard-usuarios.html'">
                     <img src="../assets/images/User.svg" alt="">
                     <span>Usuários</span>
                 </div>
@@ -78,12 +79,12 @@
                 <div class="dashboard-cabecalho">
 
                     <div class="selecao-tolva">
-                        <select id="select_tolva" aria-label="Selecionar tolva">
-                            <option value="1">Tolva 1</option>
+                        <select id="select_tolva" aria-label="Selecionar tolva" onchange="mudarDashboard()">
+                            <option value="visao_ampla">Visão ampla</option>
+                            <option value="1" selected>Tolva 1</option>
                             <option value="2">Tolva 2</option>
                             <option value="3">Tolva 3</option>
                             <option value="4">Tolva 4</option>
-                            <option value="5">Tolva 5</option>
                         </select>
                     </div>
 
@@ -179,6 +180,16 @@
 
 </html>
 <script>
+    function mudarDashboard() {
+        let tolva = select_tolva.value
+
+        if (tolva == 'visao_ampla') {
+            window.location = 'dashboard-geral.html'
+        } else if (tolva == 1) {
+            window.location = 'dashboard-individual.html'
+        }
+    }
+
     function logout() {
         window.location.href='../login.html'
     }

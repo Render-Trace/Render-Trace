@@ -143,11 +143,15 @@
                             div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
                             div_mensagem_senha.innerHTML = ''
 
-                            select_usuario.value = 'Selecione'
+                            input_cod.value = ''
                             input_nome.value = ''
                             input_email.value = ''
                             input_senha.value = ''
                             input_confirmarSenha.value = ''
+
+                            setTimeout(() => {
+                                window.location.href = 'login.html'
+                            }, 3000)
 
                         } else {
                             div_mensagem2.innerHTML = 'As senhas não são iguais!';
