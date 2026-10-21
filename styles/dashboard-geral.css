@@ -14,13 +14,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
 }
 
 .kpi-row {
     display: flex;
     justify-content: flex-start;
     column-gap: 20px;
+    margin-bottom: 16px;
 }
 
 .kpi {
@@ -71,6 +71,10 @@
     font-weight: 600;
     cursor: pointer;
     outline: none;
+}
+
+.selecao-tolva p{
+    margin-top: 10px;
 }
 
 .visao-ampla {
@@ -198,6 +202,7 @@
     display: flex;
     width: 1170px;
     height: 340px;
+    margin-top: 3px;
 }
 
 .kpi-alert-esquerdo {
@@ -227,4 +232,36 @@
 .container-grafico-2 {
     display: flex;
     flex-direction: column;
+}
+
+.button-tolva{
+    border: solid 2px;
+    border-color: rgb(163, 163, 163);
+    width: 80px;
+    height: 50px;
+    border-radius: 30px;   
+    cursor: pointer;
+}
+
+.btn-liga{
+    background-color: rgb(102, 101, 101);
+    color: white;
+}
+
+.btn-desliga{
+    background-color: rgb(202, 202, 202);
+    color: black;
+}
+
+.selecao-tolva{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1170px;
+}
+
+.container-button{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
