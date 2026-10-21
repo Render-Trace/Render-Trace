@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/cadastro.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
     <title>Render Trace | Cadastro</title>
 </head>
@@ -48,7 +49,7 @@
 
                 <div class="campo">
                     <label for="input_nome">Cód da Empresa</label>
-                    <input type="text" id="input_nome">
+                    <input type="text" id="input_cod">
                 </div>
 
                 <div class="campo">
@@ -116,45 +117,57 @@
     }
 
     function cadastrarUsuario() {
+        let cod = input_cod.value
         let nome = input_nome.value;
         let email = input_email.value;
         let senha = input_senha.value;
         let confirmarSenha = input_confirmarSenha.value;
 
+        if (cod == '28TSA' ||
+            cod == 'ZUI09' ||
+            cod == 'M60CA' ||
+            cod == 'HE7DN' ||
+            cod == 'B9II0' ||
+            cod == 'CQAJ4' ||
+            cod == '058AA' ||
+            cod == '1MP83') {
 
-        if (nome != '') {
+            if (nome != '') {
 
-            if (email.includes('@')) {
+                if (email.includes('@')) {
 
-                if (criterios == 3) {
+                    if (criterios == 3) {
 
-                    if (confirmarSenha == senha) {
+                        if (confirmarSenha == senha) {
 
-                        div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
-                        div_mensagem_senha.innerHTML = ''
+                            div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+                            div_mensagem_senha.innerHTML = ''
 
-                        select_usuario.value = 'Selecione'
-                        input_nome.value = ''
-                        input_email.value = ''
-                        input_senha.value = ''
-                        input_confirmarSenha.value = ''
+                            select_usuario.value = 'Selecione'
+                            input_nome.value = ''
+                            input_email.value = ''
+                            input_senha.value = ''
+                            input_confirmarSenha.value = ''
+
+                        } else {
+                            div_mensagem2.innerHTML = 'As senhas não são iguais!';
+                        }
 
                     } else {
-                        div_mensagem2.innerHTML = 'As senhas não são iguais!';
+                        div_mensagem2.innerHTML = 'A senha precisa ser forte!';
                     }
 
                 } else {
-                    div_mensagem2.innerHTML = 'A senha precisa ser forte!';
+                    div_mensagem2.innerHTML = 'Digite um email válido!';
                 }
 
             } else {
-                div_mensagem2.innerHTML = 'Digite um email válido!';
+                div_mensagem2.innerHTML = 'Digite o nome do usuário!';
             }
-
         } else {
-            div_mensagem2.innerHTML = 'Digite o nome do usuário!';
+            div_mensagem2.innerHTML = 'Digite um código válido!';
         }
     }
-    
+
 
 </script>
