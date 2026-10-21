@@ -312,7 +312,18 @@ main {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    top: 280px;
+    top: 350px;
+}
+
+.card .image .text-3{
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 350px;
 }
 
 .card .image .icon-image-2{
@@ -332,7 +343,7 @@ main {
 }
 
 .card .image .text-2{
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
     color: white;
     position: absolute;
