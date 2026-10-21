@@ -241,6 +241,11 @@
     height: 50px;
     border-radius: 30px;   
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.button-tolva:hover{
+    transform: scale(1.02);
 }
 
 .btn-liga{
@@ -273,3 +278,4 @@
 .destaque-titulo-botao{
     color: rgba(121, 2, 2, 0.959);
 }
+
