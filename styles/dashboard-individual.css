@@ -33,8 +33,21 @@
     background-size: 14px 10px;
 }
 
-.selecao-periodo select { width: 167px; }
-.visualmente-oculto { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.selecao-periodo select {
+    width: 167px;
+}
+
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
 .status-operacao {
     display: flex;
@@ -82,15 +95,15 @@
     transition: 0.3s;
 }
 
-.toggle-switch input:checked + .slider {
+.toggle-switch input:checked+.slider {
     background-color: var(--cor-secundária);
 }
 
-.toggle-switch input:checked + .slider::before {
+.toggle-switch input:checked+.slider::before {
     transform: translateX(24px);
 }
 
-.toggle-switch input:focus-visible + .slider {
+.toggle-switch input:focus-visible+.slider {
     outline: 2px solid var(--cor-primaria);
     outline-offset: 3px;
 }
@@ -155,9 +168,24 @@
     overflow: hidden;
 }
 
-.grafico-cabecalho { display: flex; align-items: center; gap: 14px; }
-.grafico-cabecalho h3 { flex: 1; text-align: center; font-size: 12px; color: #444; }
-.card-grafico { height: 320px; border-color: var(--cor-primaria); padding: 8px; }
+.grafico-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.grafico-cabecalho h3 {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #444;
+}
+
+.card-grafico {
+    height: 320px;
+    border-color: var(--cor-primaria);
+    padding: 8px;
+}
 
 .card-grafico canvas {
     min-height: 0;
@@ -208,22 +236,94 @@
     overflow: hidden;
 }
 
-.card-custo { grid-column: 1 / -1; padding: 10px; }
-.card-custo h3, .card-alertas h3, .card-tempo-alerta h3, .card-relatorio h3 { font-size: 11px; }
-.card-custo h2 { font-size: 24px; line-height: 1.2; }
-.resumo-alertas { grid-column: 1; grid-row: 3; display: flex; flex-direction: column; gap: 12px; }
-.card-alertas, .card-tempo-alerta { min-height: 95px; padding: 10px 6px; border-radius: 12px; color: var(--cor-branca); text-align: center; }
-.card-alertas { background: var(--cor-verde-escuro); }
-.card-tempo-alerta { background: #BC3F43; }
-.card-alertas h3, .card-tempo-alerta h3 { color: var(--cor-secundÃ¡ria); }
-.card-alertas h2, .card-tempo-alerta h2 { font-size: 27px; line-height: 1.15; }
-.card-alertas p, .card-tempo-alerta p { font-size: 7px; }
-.card-relatorio h3 { width: 100%; padding: 6px 2px; color: var(--cor-secundÃ¡ria); background: var(--cor-verde-escuro); }
-.linha-relatorio { display: flex; align-items: center; justify-content: space-around; width: 100%; min-height: 25px; border-bottom: 1px solid var(--cor-primaria); font-size: 9px; white-space: nowrap;
+.card-custo {
+    grid-column: 1 / -1;
+    padding: 10px;
+}
+
+.card-custo h3,
+.card-alertas h3,
+.card-tempo-alerta h3,
+.card-relatorio h3 {
+    font-size: 11px;
+}
+
+.card-custo h2 {
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.resumo-alertas {
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-alertas,
+.card-tempo-alerta {
+    min-height: 95px;
+    padding: 10px 6px;
+    border-radius: 12px;
+    color: var(--cor-branca);
+    text-align: center;
+}
+
+.card-alertas {
+    background: var(--cor-verde-escuro);
+}
+
+.card-tempo-alerta {
+    background: #BC3F43;
+}
+
+.card-alertas h3,
+.card-tempo-alerta h3 {
+    color: var(--cor-secundÃ¡ria);
+}
+
+.card-alertas h2,
+.card-tempo-alerta h2 {
+    font-size: 27px;
+    line-height: 1.15;
+}
+
+.card-alertas p,
+.card-tempo-alerta p {
+    font-size: 7px;
+}
+
+.card-relatorio h3 {
+    width: 100%;
+    padding: 6px 2px;
+    color: var(--cor-secundária);
+    background: var(--cor-verde-escuro);
+}
+
+.linha-relatorio {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 25px;
+    border-bottom: 1px solid var(--cor-primaria);
+    font-size: 9px;
+    white-space: nowrap;
 }
 
 @media (max-width: 900px) {
-    .lado-direito { width: 100%; margin-left: 0; }
-    .coluna-esquerda, .coluna-direita { width: 100%; }
-    .dashboard-conteudo { flex-direction: column; }
+    .lado-direito {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .coluna-esquerda,
+    .coluna-direita {
+        width: 100%;
+    }
+
+    .dashboard-conteudo {
+        flex-direction: column;
+    }
 }
