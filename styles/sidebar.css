@@ -149,6 +149,13 @@ header {
     font-size: 18px;
     font-weight: 600;
     border: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.itens-botao :hover {
+    transform: scale(1.02);
+    background-color: #dedcdc;
 }
 
 .lado-direito {
