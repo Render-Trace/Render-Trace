@@ -36,7 +36,8 @@
 
 
             <div class="itens-selecao">
-                <div class="img-texto cor-sidebar background-color-gray" onclick="window.location.href='dashboard-geral.html'">
+                <div class="img-texto cor-sidebar background-color-gray"
+                    onclick="window.location.href='dashboard-geral.html'">
                     <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M28.413 5.33001C26.404 6.15001 26.24 7.21601 26.24 20.5C26.24 33.907 26.363 34.604 28.495 35.588C30.832 36.654 33.661 35.916 34.686 33.989C35.588 32.226 35.547 8.69201 34.645 6.92901C33.661 5.08401 30.832 4.34601 28.413 5.33001Z"
@@ -124,14 +125,16 @@
                     <div class="grafico-container">
 
                         <div class="inputs-grafico">
-                            <input class="input-grafico" type="text" placeholder="Insira intervalo de tolvas (VALOR INICIAL)">
-                            <input class="input-grafico" type="text" placeholder="Insira intervalo de tolvas (VALOR FINAL)">
+                            <input class="input-grafico" type="text"
+                                placeholder="Insira intervalo de tolvas (VALOR INICIAL)">
+                            <input class="input-grafico" type="text"
+                                placeholder="Insira intervalo de tolvas (VALOR FINAL)">
                         </div>
-                        
+
 
                         <div class="area-grafico">
 
-                            <div>
+                            <div class="canvas-container">
                                 <canvas id="myChart"></canvas>
                             </div>
 
@@ -139,36 +142,65 @@
 
                     </div>
 
-                    <div class="kpi-alert">
+                    <div class="session-alert">
 
-                        <div class="selecao-tolva">
+                        <div class="kpi-alert">
 
-                            <select id="select_tolva">
-                                <option value="visao_ampla">Últimas 24 horas</option>
-                                <option value="1">Semanal</option>
-                                <option value="2">Mensal</option>
-                                <option value="3">Anual</option>
-                            </select>
-                        </div>
+                            <div class="kpi-alert-esquerdo">
 
-                        <div class="kpi-custo">
+                                <div class="selecao-tolva">
 
-                            <p class="kpi-descricao">Custo Estimado de Ineficiência</p>
-                            <p class="kpi-info">R$ 2400,00</p>
-                            <p class="kpi-descricao">Nas últimas 24 horas</p>
+                                    <select id="select_tolva">
+                                        <option value="visao_ampla">Últimas 24 horas</option>
+                                        <option value="1">Semanal</option>
+                                        <option value="2">Mensal</option>
+                                        <option value="3">Anual</option>
+                                    </select>
+                                </div>
 
-                        </div>
+                                <div class="kpi-custo">
 
-                        <div class="kpi-periodo">
+                                    <p class="kpi-descricao">Custo Estimado de Ineficiência</p>
+                                    <p class="kpi-info">R$ 2400,00</p>
+                                    <p class="kpi-descricao">Nas últimas 24 horas</p>
 
-                            <span class="kpi-periodo-item"><span class="kpi-titulo">Tempo em Alerta</span>
-                                <span class="kpi-info tamanho-reduzido">120min</span>
-                                <span class="kpi-descricao">Downtime operacional acumulado geral</span></span>
+                                </div>
 
-                            <span class="kpi-periodo-item"><span class="kpi-titulo">Mais crítica</span>
-                                <span class="kpi-info tamanho-reduzido">Tolva 1</span>
-                                <span class="kpi-descricao">Maior gargalo do período</span></span>
+                                <div class="kpi-periodo">
 
+                                    <span class="kpi-periodo-item"><span class="kpi-titulo">Tempo em Alerta</span>
+                                        <span class="kpi-info tamanho-reduzido">120min</span>
+                                        <span class="kpi-descricao">Downtime operacional acumulado geral</span></span>
+
+                                    <span class="kpi-periodo-item"><span class="kpi-titulo">Mais crítica</span>
+                                        <span class="kpi-info tamanho-reduzido">Tolva 1</span>
+                                        <span class="kpi-descricao">Maior gargalo do período</span></span>
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="container-grafico-2">
+                                
+                                <div class="inputs-grafico-2">
+                                <input class="input-grafico-2" type="text"
+                                    placeholder="Insira intervalo de tolvas (VALOR INICIAL)">
+                                <input class="input-grafico-2" type="text"
+                                    placeholder="Insira intervalo de tolvas (VALOR FINAL)">
+                            </div>
+
+                            <div class="area-grafico-2">
+
+                                <div class="canvas-container-2">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+
+                            </div>
+
+                            </div>
+
+                            
                         </div>
 
                     </div>
@@ -184,30 +216,65 @@
 </html>
 
 <script>
-  const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
-      datasets: [{
-        label: 'Ocupação atual das tolvas',
-        data: [50, 84, 65, 8],
-        borderWidth: 0,
-        backgroundColor: [
-      '#7ED957',
-      '#8A3335',
-      '#7ED957',
-      '#5D5D5D',
-    ],
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
+            datasets: [{
+                label: 'Ocupação atual das tolvas',
+                data: [50, 84, 65, 8],
+                borderWidth: 0,
+                backgroundColor: [
+                    '#7ED957',
+                    '#8A3335',
+                    '#7ED957',
+                    '#5D5D5D',
+                ],
+            }]
+        },
+        options: {
+
+            responsive: true,
+            maintainAspectRatio: false,
+
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
-    }
-  });
+    });
+
+    new Chart2(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
+            datasets: [{
+                label: 'Ocupação atual das tolvas',
+                data: [50, 84, 65, 8],
+                borderWidth: 0,
+                backgroundColor: [
+                    '#7ED957',
+                    '#8A3335',
+                    '#7ED957',
+                    '#5D5D5D',
+                ],
+            }]
+        },
+        options: {
+
+            responsive: true,
+            maintainAspectRatio: false,
+
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
 </script>
