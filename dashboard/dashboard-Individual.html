@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/dashboard-individual.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
     <title>Render Trace | Dashboard</title>
 </head>
 
@@ -32,7 +35,7 @@
             </div>
 
 
-            <div class="itens-selecao" onclick="window.location.href='dashboard-geral.html'">
+            <div class="itens-selecao">
                 <div class="img-texto">
                     <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -47,11 +50,11 @@
                     </svg>
                     <span>Dashboards</span>
                 </div>
-                <div class="img-texto" onclick="window.location.href='dashboard-tolvas.html'">
+                <div class="img-texto">
                     <img src="../assets/images/Box.svg" alt="">
                     <span>Tolvas</span>
                 </div>
-                <div class="img-texto" onclick="window.location.href='dashboard-usuarios.html'">
+                <div class="img-texto">
                     <img src="../assets/images/User.svg" alt="">
                     <span>Usuários</span>
                 </div>
@@ -70,8 +73,109 @@
 
     <main>
         <section class="container">
+            <div class="lado-direito">
 
-            <div class="lado-direito"></div>
+                <div class="dashboard-cabecalho">
+
+                    <div class="selecao-tolva">
+                        <select id="select_tolva" aria-label="Selecionar tolva">
+                            <option value="1">Tolva 1</option>
+                            <option value="2">Tolva 2</option>
+                            <option value="3">Tolva 3</option>
+                            <option value="4">Tolva 4</option>
+                            <option value="5">Tolva 5</option>
+                        </select>
+                    </div>
+
+                    <div class="status-operacao">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle_operacao" checked>
+                            <span class="slider"></span>
+                        </label>
+
+                        <p id="texto_status">Em operação</p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-conteudo">
+
+                    <div class="coluna-esquerda">
+
+                        <div class="indicadores">
+                            <div class="card">
+                                <h3>Estado Operacional</h3>
+                                <h2>Normal</h2>
+                            </div>
+
+                            <div class="card">
+                                <h3>Carga Estimada</h3>
+                                <h2>30m³/60m³</h2>
+                            </div>
+                        </div>
+
+                        <div class="grafico-cabecalho">
+                            <label class="selecao-periodo" for="select_periodo">
+                                <span class="visualmente-oculto">Período do gráfico</span>
+                                <select id="select_periodo">
+                                    <option value="24h">Últimas 24 horas</option>
+                                    <option value="24h">Última semana</option>
+                                </select>
+                                <input type="date" id="dataAtual">
+                            </label>
+                            <h3>Gráfico da variação de ocupação</h3>
+                        </div>
+
+                        <div class="card-grafico">
+                            <canvas id="graficoOcupacao"></canvas>
+                        </div>
+
+                    </div>
+
+                    <div class="coluna-direita">
+
+                        <div class="card-ocupacao">
+                            <canvas id="grafico-doughnut"></canvas>
+                        </div>
+
+                        <div class="card-custo">
+                            <h3>Custo Estimado de Ineficiência</h3>
+                            <h2>R$ 2.400,00</h2>
+                        </div>
+
+                        <div class="resumo-alertas">
+                            <div class="card-alertas">
+                                <h3>Alertas</h3>
+                                <h2>2</h2>
+                                <p>1 Sobrecargas | 1 Ociosidades</p>
+                            </div>
+
+                            <div class="card-tempo-alerta">
+                                <h3>Tempo em Alerta</h3>
+                                <h2>120min</h2>
+                                <p>Downtime operacional acumulado</p>
+                            </div>
+                        </div>
+
+                        <div class="card-relatorio">
+                            <h3>Relatório de alertas</h3>
+                            <div class="linha-relatorio">
+                                <strong>04:30</strong><span>Sobrecarga</span><strong>60min</strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <strong>11:50</strong><span>Ociosidade</span><strong>60min</strong>
+                            </div>
+                            <div class="linha-relatorio"></div>
+                            <div class="linha-relatorio"></div>
+                            <div class="linha-relatorio"></div>
+                            <div class="linha-relatorio"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
         </section>
     </main>
 
@@ -82,4 +186,189 @@
     function logout() {
         window.location.href='../login.html'
     }
+
+    const hoje = new Date().toISOString().split('T')[0];
+    document.getElementById('dataAtual').value = hoje;
+
+    const toggleOperacao = document.getElementById('toggle_operacao');
+    const textoStatus = document.getElementById('texto_status');
+
+    toggleOperacao.addEventListener('change', function () {
+        textoStatus.textContent = toggleOperacao.checked ? 'Em operação' : 'Fora de operação';
+
+    });
+
+    const legendaPersonalizada = {
+        id: 'legendaPersonalizada',
+
+        afterDraw(chart) {
+            const { ctx, chartArea } = chart;
+
+            const itens = [
+                { texto: '80% Estado Crítico', cor: '#FF0004' },
+                { texto: '75% Estado Alerta', cor: '#FF8000' },
+                { texto: '10% Limite Aceitável', cor: '#7ED957' },
+                { texto: 'Leitura Capturada', cor: '#164636' }
+            ];
+
+            ctx.save();
+
+            ctx.font = '12px Poppins';
+            ctx.textBaseline = 'middle';
+
+            let x = chartArea.left + 10;
+            const y = chartArea.top + 15;
+
+            itens.forEach(item => {
+                ctx.fillStyle = item.cor;
+                ctx.fillRect(x, y - 4, 16, 3);
+
+                x += 22;
+
+                ctx.fillStyle = '#000000';
+                ctx.fillText(item.texto, x, y);
+
+                x += ctx.measureText(item.texto).width + 12;
+            });
+
+            ctx.restore();
+        }
+    };
+
+    const ctxLinha = document.getElementById('graficoOcupacao');
+
+    new Chart(ctxLinha, {
+        type: 'line',
+
+        data: {
+            labels: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+            datasets: [{
+                label: 'Leitura Capturada',
+                data: [30, 29, 28, 25, 22, 23],
+                borderColor: '#164636',
+                backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                borderWidth: 2,
+                pointRadius: 0
+            }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    min: 0,
+                    max: 100,
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        callback: function (value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            },
+
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+                annotation: {
+                    annotations: {
+                        linhaAceitavel: {
+                            type: 'line',
+                            yMin: 10,
+                            yMax: 10,
+                            borderColor: '#7ED957',
+                            borderWidth: 2
+                        },
+
+                        linhaAlerta: {
+                            type: 'line',
+                            yMin: 75,
+                            yMax: 75,
+                            borderColor: '#FF8000',
+                            borderWidth: 1
+                        },
+
+                        linhaCritica: {
+                            type: 'line',
+                            yMin: 80,
+                            yMax: 80,
+                            borderColor: '#FF0004',
+                            borderWidth: 1
+                        }
+                    }
+                }
+            }
+        },
+        plugins: [legendaPersonalizada]
+    });
+
+
+
+
+    const textoCentro = {
+        id: 'textoCentro',
+
+        afterDraw(chart) {
+            const { ctx, chartArea } = chart;
+
+            const centroX = (chartArea.left + chartArea.right) / 2;
+            const centroY = chartArea.bottom - 35;
+
+            ctx.save();
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            ctx.font = 'bold 38px Poppins';
+            ctx.fillStyle = '#7ED957';
+            ctx.fillText('50%', centroX, centroY - 15);
+
+            ctx.font = 'Bold 22px Poppins';
+            ctx.fillStyle = '#164636';
+            ctx.fillText('Ocupação total', centroX, centroY + 20);
+
+            ctx.restore();
+        }
+    };
+
+    const ctxDoughnut = document.getElementById('grafico-doughnut');
+
+    new Chart(ctxDoughnut, {
+        type: 'doughnut',
+
+        data: {
+            labels: ['Ocupado', 'Disponível'],
+            datasets: [{
+                data: [50, 50],
+                backgroundColor: ['#7ED957', '#D9D9D9'],
+                borderWidth: 0
+            }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '75%',
+            rotation: -90,
+            circumference: 180,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        },
+
+        plugins: [textoCentro]
+    });
 </script>
