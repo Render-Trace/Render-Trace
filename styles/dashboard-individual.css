@@ -15,7 +15,7 @@
 }
 
 .selecao-tolva select,
-.selecao-periodo select {
+.selecao-periodo input {
     width: 145px;
     padding: 8px 32px 8px 15px;
     border: none;
@@ -33,8 +33,14 @@
     background-size: 14px 10px;
 }
 
-.selecao-periodo select {
-    width: 167px;
+.selecao-periodo input {
+    width: 150px;
+}
+
+/* apenas deixa o ícone do calendário branco, não faz nada além disso*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(1); 
 }
 
 .visualmente-oculto {
@@ -177,7 +183,7 @@
 .grafico-cabecalho h3 {
     flex: 1;
     text-align: center;
-    font-size: 12px;
+    font-size: 22px;
     color: #444;
 }
 
