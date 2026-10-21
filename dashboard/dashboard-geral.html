@@ -152,9 +152,8 @@
 
                                     <select id="select_tolva">
                                         <option value="visao_ampla">Últimas 24 horas</option>
-                                        <option value="1">Semanal</option>
-                                        <option value="2">Mensal</option>
-                                        <option value="3">Anual</option>
+                                        <option value="1">Última semana</option>
+                                        <option value="2">Último mês</option>
                                     </select>
                                 </div>
 
@@ -182,25 +181,25 @@
                             </div>
 
                             <div class="container-grafico-2">
-                                
+
                                 <div class="inputs-grafico-2">
-                                <input class="input-grafico-2" type="text"
-                                    placeholder="Insira intervalo de tolvas (VALOR INICIAL)">
-                                <input class="input-grafico-2" type="text"
-                                    placeholder="Insira intervalo de tolvas (VALOR FINAL)">
-                            </div>
+                                    <input class="input-grafico-2" type="text"
+                                        placeholder="Insira intervalo de tolvas (VALOR INICIAL)">
+                                    <input class="input-grafico-2" type="text"
+                                        placeholder="Insira intervalo de tolvas (VALOR FINAL)">
+                                </div>
 
-                            <div class="area-grafico-2">
+                                <div class="area-grafico-2">
 
-                                <div class="canvas-container-2">
-                                    <canvas id="myChart2"></canvas>
+                                    <div class="canvas-container-2">
+                                        <canvas id="myChart2"></canvas>
+                                    </div>
+
                                 </div>
 
                             </div>
 
-                            </div>
 
-                            
                         </div>
 
                     </div>
@@ -217,6 +216,7 @@
 
 <script>
     const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
 
     new Chart(ctx, {
         type: 'bar',
@@ -247,19 +247,19 @@
         }
     });
 
-    new Chart2(ctx, {
+    new Chart(ctx2, {
         type: 'bar',
         data: {
             labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
             datasets: [{
-                label: 'Ocupação atual das tolvas',
-                data: [50, 84, 65, 8],
+                label: 'Contagem de alertas no período',
+                data: [7, 3, 1, 2],
                 borderWidth: 0,
                 backgroundColor: [
-                    '#7ED957',
                     '#8A3335',
                     '#7ED957',
-                    '#5D5D5D',
+                    '#7ED957',
+                    '#7ED957',
                 ],
             }]
         },
