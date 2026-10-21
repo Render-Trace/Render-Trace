@@ -138,7 +138,7 @@ header {
 .itens-botao {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 120px;
 }
 
 .itens-botao button {
