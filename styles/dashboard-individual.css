@@ -14,9 +14,13 @@
     gap: 20px;
 }
 
+.selecao-tolva select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='12' viewBox='0 0 18 12'%3E%3Cpath fill='white' d='M0 0h18L9 12z'/%3E%3C/svg%3E");
+}
+
 .selecao-tolva select,
 .selecao-periodo input {
-    width: 145px;
+    width: 120px;
     padding: 8px 32px 8px 15px;
     border: none;
     border-radius: 25px;
@@ -27,7 +31,6 @@
     cursor: pointer;
     outline: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='12' viewBox='0 0 18 12'%3E%3Cpath fill='white' d='M0 0h18L9 12z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 14px 10px;
@@ -39,8 +42,8 @@
 
 /* apenas deixa o ícone do calendário branco, não faz nada além disso*/
 input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(1); 
+    cursor: pointer;
+    filter: invert(1);
 }
 
 .visualmente-oculto {
@@ -128,13 +131,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .coluna-direita {
     display: flex;
+    flex-direction: column;
     width: 40%;
-    align-content: start;
-    align-items: stretch;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 150px auto auto;
+    min-width: 0;
     gap: 12px 18px;
+}
+
+.ultima-atualizacao {
+    margin: 0;
+    color: #444;
+    font-size: 12px;
 }
 
 .indicadores {
@@ -160,6 +166,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 14px;
 }
 
+.card p,
+.card-custo p {
+    margin: 0;
+    font-size: 10px;
+    text-align: center;
+}
+
 .card-grafico {
     display: flex;
     flex-direction: column;
@@ -182,7 +195,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .grafico-cabecalho h3 {
     flex: 1;
-    text-align: center;
+    text-align: right;
     font-size: 22px;
     color: #444;
 }
@@ -212,7 +225,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .card-ocupacao {
-    grid-column: 1 / -1;
     height: 150px;
     padding: 0;
 }
@@ -234,8 +246,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .card-relatorio {
     border: 1px solid var(--cor-primaria);
-    grid-column: 2;
-    grid-row: 3;
     min-height: 200px;
     padding: 0;
     justify-content: flex-start;
@@ -243,7 +253,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .card-custo {
-    grid-column: 1 / -1;
     padding: 10px;
 }
 
@@ -260,15 +269,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .resumo-alertas {
-    grid-column: 1;
-    grid-row: 3;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: wrap;
     gap: 12px;
 }
 
 .card-alertas,
 .card-tempo-alerta {
+    flex: 1 1 130px;
     min-height: 95px;
     padding: 10px 6px;
     border-radius: 12px;

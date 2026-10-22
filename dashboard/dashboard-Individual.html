@@ -102,15 +102,19 @@
 
                     <div class="coluna-esquerda">
 
+                        <p class="ultima-atualizacao"><strong>Última atualização:</strong> 18:10 - 30/09/2026</p>
+
                         <div class="indicadores">
                             <div class="card">
                                 <h3>Estado Operacional</h3>
                                 <h2>Normal</h2>
+                                <p>Monitoramento contínuo em tempo real</p>
                             </div>
 
                             <div class="card">
                                 <h3>Carga Estimada</h3>
                                 <h2>30m³/60m³</h2>
+                                <p>Capacidade Volumétrica utilizada</p>
                             </div>
                         </div>
 
@@ -137,6 +141,7 @@
                         <div class="card-custo">
                             <h3>Custo Estimado de Ineficiência</h3>
                             <h2>R$ 2.400,00</h2>
+                            <p>Baseado em R$ 20,00/min de linha parada</p>
                         </div>
 
                         <div class="resumo-alertas">
@@ -233,14 +238,24 @@
 
     const ctxLinha = document.getElementById('graficoOcupacao');
 
+    const horariosGrafico = Array.from({ length: 24 }, (_, hora) => `${String(hora).padStart(2, '0')}:00`);
+    horariosGrafico.splice(5, 0, '04:30');
+    horariosGrafico.splice(13, 0, '11:50');
+    const leiturasOcupacao = horariosGrafico.map(horario => {
+        if (horario === '04:30') return 90;
+        if (horario === '11:50') return 5;
+        if (horario === '23:00') return 50;
+        return 30;
+    });
+
     new Chart(ctxLinha, {
         type: 'line',
 
         data: {
-            labels: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+            labels: horariosGrafico,
             datasets: [{
                 label: 'Leitura Capturada',
-                data: [30, 29, 28, 25, 22, 23],
+                data: leiturasOcupacao,
                 borderColor: '#164636',
                 backgroundColor: 'rgba(255, 0, 0, 0.2)',
                 borderWidth: 2,
@@ -251,6 +266,10 @@
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            interaction: {
+                mode: 'nearest',
+                intersect: false
+            },
 
             scales: {
                 x: {
@@ -275,6 +294,11 @@
             plugins: {
                 legend: {
                     display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: contexto => `${contexto.parsed.y}%`
+                    }
                 },
 
                 annotation: {
