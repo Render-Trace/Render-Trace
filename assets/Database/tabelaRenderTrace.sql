@@ -2,6 +2,12 @@ CREATE DATABASE rendertrace;
 
 USE rendertrace;
 
+CREATE USER 'user_insert'@'_gateway';
+
+GRANT UPDATE ON rendertrace.leitura TO 'user_insert'@'_gateway';
+
+FLUSH PRIVILEGES;
+
 CREATE TABLE empresa(
 id INT PRIMARY KEY AUTO_INCREMENT,
 cod_acesso_adm CHAR(5) UNIQUE,
@@ -19,7 +25,6 @@ fk_empresa_sede INT, CONSTRAINT fk_empresa_sede
 );
 
 
-
 CREATE TABLE usuario(
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45) NOT NULL,
@@ -34,7 +39,6 @@ CREATE TABLE tolva(
 id INT PRIMARY KEY AUTO_INCREMENT,
 distancia_maxima INT NOT NULL,
 capacidade_maxima INT NOT NULL,
-em_operacao TINYINT NOT NULL, CONSTRAINT chk_operacao CHECK (em_operacao IN(0,1)),
 fk_empresa INT NOT NULL, CONSTRAINT fk_tolva_empresa
 				FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
@@ -54,7 +58,6 @@ CREATE TABLE leitura(
 id INT PRIMARY KEY AUTO_INCREMENT,
 distancia INT NOT NULL,
 dt_leitura DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-tipo VARCHAR(10), CONSTRAINT chk_tipo CHECK (tipo IN('Sobrecarga','Ocioso')),
 alerta TINYINT NOT NULL, CONSTRAINT chk_alerta CHECK(alerta IN(0,1)),
 fk_sensor INT NOT NULL, CONSTRAINT fk_sensor
 			   FOREIGN KEY (fk_sensor) REFERENCES sensor(id)
@@ -75,11 +78,11 @@ insert into usuario(nome, email, senha, user_admin, fk_empresa) values
 ('Kalebe', 'kalebe@gmail.com', 'Kal3b3%', 1, 3),
 ('José', 'jose@gmail.com', 'Jose2039@', 0, 3);
 
-insert into tolva(distancia_maxima, capacidade_maxima, em_operacao, fk_empresa) values
-(300, 5, 1, 1), -- Médio porte
-(400, 10, 0, 1), -- Grande porte
-(600, 14, 1, 2), -- Grande porte
-(150, 1, 1, 3); -- Pequeno porte
+insert into tolva(distancia_maxima, capacidade_maxima, fk_empresa) values
+(300, 5, 1), -- Médio porte
+(400, 10, 1), -- Grande porte
+(600, 14, 2), -- Grande porte
+(150, 1, 3); -- Pequeno porte
 
 
 insert into sensor(codigo, status_sensor, dt_manutencao, dt_instalacao, fk_tolva) values
