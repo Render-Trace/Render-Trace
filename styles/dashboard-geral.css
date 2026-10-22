@@ -56,6 +56,11 @@
     color: var(--cor-secundária);
 }
 
+.destaque-atualizacao {
+    color: rgb(163, 163, 163);
+}
+
+
 .tamanho-reduzido {
     font-size: 30px;
 }
@@ -102,7 +107,7 @@
 .area-grafico {
     border: solid;
     border-color: var(--cor-primaria);
-    border-width: 4px;
+    border-width: 3px;
     background-color: white;
     width: 1170px;
     height: 270px;
@@ -212,7 +217,7 @@
 .area-grafico-2 {
     border: solid;
     border-color: var(--cor-primaria);
-    border-width: 4px;
+    border-width: 3px;
     background-color: white;
     width: 655px;
     height: 100%;
@@ -271,3 +276,43 @@
     color: rgba(121, 2, 2, 0.959);
 }
 
+.selecao-tolva select,
+.selecao-periodo input {
+    width: 145px;
+    padding: 8px 32px 8px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='12' viewBox='0 0 18 12'%3E%3Cpath fill='white' d='M0 0h18L9 12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px 10px;
+}
+
+.selecao-periodo input {
+    width: 150px;
+}
+
+/* apenas deixa o ícone do calendário branco, não faz nada além disso*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(1); 
+}
+
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

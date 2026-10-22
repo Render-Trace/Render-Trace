@@ -92,7 +92,7 @@
                                     <option value="4">Tolva 4</option>
                                 </select>
 
-                                <p><b class="destaque">Última atualização:</b> 18:10 - 30/09/2026</p>
+                                <p><b class="destaque-atualizacao">Última atualização:</b> 18:10 - 30/09/2026</p>
 
                             </div>
 
@@ -170,11 +170,10 @@
 
                                 <div class="selecao-tolva">
 
-                                    <select>
-                                        <option value="visao_ampla">Últimas 24 horas</option>
-                                        <option value="1">Última semana</option>
-                                        <option value="2">Último mês</option>
-                                    </select>
+                                    <label class="selecao-periodo" for="select_periodo">
+                                        <span class="visualmente-oculto">Período do gráfico</span>
+                                        <input type="date" id="dataAtual">
+                                    </label>
                                 </div>
 
                                 <div class="kpi-custo">
@@ -312,5 +311,8 @@
         }
     });
 
+
+    const hoje = new Date().toISOString().split('T')[0];
+    document.getElementById('dataAtual').value = hoje;
 
 </script>
