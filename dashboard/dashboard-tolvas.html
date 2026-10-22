@@ -74,72 +74,75 @@
             <div class="lado-direito">
                 <div class="cadastro-tolva">
                     <div class="informacao-tolva">
-                        <div class="titulo">
-                            <h1>Cadastrar Nova Tolva</h1>
-                        </div>
-
-                        <label for="ipt_tolva">
-                            Descreva os dados da Tolva (Imutável) :
-                        </label>
-                        <input type="text" id="ipt_tolva" value="Tolva 5" disabled>
-
-                        <label for="ipt_sensor">Sensor:</label>
-                        <select id="ipt_sensor">
-                            <option value="" disabled selected>
-                                Selecione o Sensor associado
-                            </option>
-                            <option value="1">Sensor 1</option>
-                            <option value="2">Sensor 2</option>
-                        </select>
-                        <label for="ipt_altura">
-                            Altura da tolva (m):
-                        </label>
-                        <input id="ipt_altura">
-
-                        <label for="ipt_capacidade">
-                            Capacidade máxima de Volume da tolva (m3):
-                        </label>
-                        <input id="ipt_capacidade">
-
-                        <div class="btn-gustavo">
-                            <button>Confirmar Cadastro</button>
-                        </div>
 
                         <details>
                             <summary class="tolvas_cadastradas">Tolvas cadastradas</summary>
 
-                            <div class="lista-tolvas">
 
+                            <label for="ipt_tolva">
+                                Descreva os dados da Tolva (Imutável) :
+                            </label>
+                            <input type="text" id="ipt_tolva" value="Tolva 5" disabled>
 
-                                <div class="card-tolva">
-                                    <div class="info-tolva">
-                                        <p><b>ID: 4</b></p>
-                                        <p><b>Sensor:</b> 2</p>
-                                        <p><b>Altura:</b> 12m</p>
-                                        <p><b>Volume máx:</b> 60m3</p>
-                                    </div>
-                                    <div class="acoes-tolva">
-                                        <button class="btn-editar">Editar</button>
-                                        <button class="btn-excluir">Excluir</button>
-                                    </div>
+                            <label for="ipt_sensor">Sensor:</label>
+                            <select id="ipt_sensor">
+                                <option value="" disabled selected>
+                                    Selecione o Sensor associado
+                                </option>
+                                <option value="1">Sensor 1</option>
+                                <option value="2">Sensor 2</option>
+                            </select>
+                            <label for="ipt_altura">
+                                Altura da tolva (m):
+                            </label>
+                            <input id="ipt_altura">
 
+                            <label for="ipt_capacidade">
+                                Capacidade máxima de Volume da tolva (m3):
+                            </label>
+                            <input id="ipt_capacidade">
 
-                                </div>
-                                <div class="card-tolva">
-                                    <div class="info-tolva">
-                                        <p><b>ID: 3</b></p>
-                                        <p><b>Sensor:</b> 3</p>
-                                        <p><b>Altura:</b> 9m</p>
-                                        <p><b>Volume máx:</b> 53m3</p>
-                                    </div>
-                                    <div class="acoes-tolva">
-                                        <button class="btn-editar">Editar</button>
-                                        <button class="btn-excluir">Excluir</button>
-                                    </div>
-                                </div>
-
+                            <div class="btn-gustavo">
+                                <button>Confirmar Cadastro</button>
                             </div>
                         </details>
+
+                        <div class="lista-tolvas">
+                            <div class="titulo">
+                                <h1>Tolvas cadastradas</h1>
+                            </div>
+
+
+                            <div class="card-tolva">
+                                <div class="info-tolva">
+                                    <p><b>ID: 4</b></p>
+                                    <p><b>Sensor:</b> 2</p>
+                                    <p><b>Altura:</b> 12m</p>
+                                    <p><b>Volume máx:</b> 60m3</p>
+                                </div>
+                                <div class="acoes-tolva">
+                                    <button class="btn-editar" onclick="window.location.href='dashboard-edicao-tolvas.html'">Editar</button>
+                                    <button class="btn-excluir">Excluir</button>
+                                </div>
+
+
+                            </div>
+                            <div class="card-tolva">
+                                <div class="info-tolva">
+                                    <p><b>ID: 3</b></p>
+                                    <p><b>Sensor:</b> 3</p>
+                                    <p><b>Altura:</b> 9m</p>
+                                    <p><b>Volume máx:</b> 53m3</p>
+                                </div>
+                                <div class="acoes-tolva">
+                                    <button class="btn-editar"
+                                        onclick="window.location.href='dashboard-edicao-tolvas.html'">Editar</button>
+                                    <button class="btn-excluir">Excluir</button>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
 
 
@@ -157,6 +160,6 @@
 </html>
 <script>
     function logout() {
-        window.location.href='../login.html'
+        window.location.href = '../login.html'
     }
 </script>
