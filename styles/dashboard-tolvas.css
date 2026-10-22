@@ -16,6 +16,7 @@
     color: var(--cor-primaria);
     font-size: 2rem;
     margin-bottom: 20px;
+    margin: 13.2px;
 }
 
 
@@ -24,6 +25,7 @@
     flex-direction: column;
     padding-top: 40px;
     width: 1043px;
+    margin: 13.2px;
 }
 
 
@@ -34,6 +36,7 @@ select {
     border-radius: 20px;
     border: 1px solid #ccc;
     margin-bottom: 22px;
+    margin: 13.2px;
 
 }
 
@@ -43,6 +46,7 @@ input {
     border-radius: 20px;
     border: 1px solid #ccc;
     margin-bottom: 22px;
+    margin: 13.2px;
 }
 
 .btn-gustavo {
