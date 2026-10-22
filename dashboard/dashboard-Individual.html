@@ -199,8 +199,7 @@
         window.location.href='../login.html'
     }
 
-    const hoje = new Date().toISOString().split('T')[0];
-    document.getElementById('dataAtual').value = hoje;
+    document.getElementById('dataAtual').value = new Date().toISOString().split('T')[0];
 
     const toggleOperacao = document.getElementById('toggle_operacao');
     const textoStatus = document.getElementById('texto_status');
@@ -249,24 +248,24 @@
 
     const ctxLinha = document.getElementById('graficoOcupacao');
 
-    const horariosGrafico = Array.from({ length: 24 }, (_, hora) => `${String(hora).padStart(2, '0')}:00`);
-    horariosGrafico.splice(5, 0, '04:30');
-    horariosGrafico.splice(13, 0, '11:50');
-    const leiturasOcupacao = horariosGrafico.map(horario => {
-        if (horario === '04:30') return 90;
-        if (horario === '11:50') return 5;
-        if (horario === '23:00') return 50;
-        return 30;
-    });
-
     new Chart(ctxLinha, {
         type: 'line',
 
         data: {
-            labels: horariosGrafico,
+            labels: [
+                '00:00', '01:00', '02:00', '03:00', '04:00', '04:30',
+                '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '11:50',
+                '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00',
+                '20:00', '21:00', '22:00', '23:00'
+            ],
             datasets: [{
                 label: 'Leitura Capturada',
-                data: leiturasOcupacao,
+                data: [
+                    30, 30, 30, 30, 30, 90,
+                    90, 90, 30, 30, 30, 30, 30, 5,
+                    5, 5, 30, 30, 30, 30, 30, 30,
+                    30, 30, 30, 50
+                ],
                 borderColor: '#164636',
                 backgroundColor: 'rgba(255, 0, 0, 0.2)',
                 borderWidth: 2,
