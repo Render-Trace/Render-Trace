@@ -327,19 +327,3 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 9px;
     white-space: nowrap;
 }
-
-@media (max-width: 900px) {
-    .lado-direito {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .coluna-esquerda,
-    .coluna-direita {
-        width: 100%;
-    }
-
-    .dashboard-conteudo {
-        flex-direction: column;
-    }
-}
