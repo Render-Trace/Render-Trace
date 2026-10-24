@@ -105,30 +105,66 @@
 
                         <p class="ultima-atualizacao"><strong>Última atualização:</strong> 18:10 - 30/09/2026</p>
 
-                        <div class="indicadores">
-                            <div class="card">
-                                <h3>Estado Operacional</h3>
-                                <h2>Normal</h2>
-                                <p>Monitoramento contínuo em tempo real</p>
+                        <div class="card-kpisuperior">
+                            <div class="cards-esquerda">
+                                <div class="card-estado">
+                                    <p>Estado de Operação Atuaç</p>
+                                    <h3>Normal</h3>
+                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                </div>
+                                <div class="card-estado">
+                                    <p>Alerta Atual</p>
+                                    <h3>Sem Alerta</h3>
+                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                </div>
                             </div>
 
-                            <div class="card">
-                                <h3>Carga Estimada</h3>
-                                <h2>30m³/60m³</h2>
-                                <p>Capacidade Volumétrica utilizada</p>
+                            <div class="cards-direita">
+                                <div class="card-estado">
+                                    <p>Alertas Disparados (hoje)</p>
+                                    <h3>2</h3>
+                                    <h5>1 sobrecarga | 1 Ociosidade</h5>
+                                </div>
+                                <div class="card-estado">
+                                    <p>Alerta Mais Longo (hoje)</p>
+                                    <h3>80 min</h3>
+                                    <h5><span>Sobrecarga</span> às 16:30</h5>
+                                </div>
+
                             </div>
                         </div>
 
-                        <div class="grafico-cabecalho">
-                            <label class="selecao-periodo" for="select_periodo">
-                                <span class="visualmente-oculto">Período do gráfico</span>
-                                <input type="date" id="dataAtual">
-                            </label>
-                            <h3>Gráfico da variação de ocupação</h3>
-                        </div>
+                        <div class="grafico-metrica">
+                            <div class="metricas">
+                                <div class="card-metrica-cinza">
+                                    <p>Ocioso</p>
+                                    <p>< 10%</p>
+                                </div>
+                                 <div class="card-metrica-verde">
+                                    <p>Normal</p>
+                                    <p>>= 10%</p>
+                                </div>
+                                 <div class="card-metrica-laranja">
+                                    <p>Atençaõ</p>
+                                    <p>>= 70%</p>
+                                </div>
+                                 <div class="card-metrica-vermelho">
+                                    <p>Crítico</p>
+                                    <p>>= 85%</p>
+                                </div>
+                            </div>
+                            <div class="grafico-cabecalho">
+                                <label class="selecao-periodo" for="select_periodo">
+                                    <span class="visualmente-oculto">Período do gráfico</span>
+                                    <input type="date" id="dataAtual">
+                                </label>
+                                <h3>Gráfico da variação de ocupação</h3>
+                            </div>
 
-                        <div class="card-grafico">
-                            <canvas id="graficoOcupacao"></canvas>
+                            <div class="card-grafico">
+                                <canvas id="graficoOcupacao"></canvas>
+                            </div>
+
                         </div>
 
                     </div>
@@ -196,7 +232,7 @@
     }
 
     function logout() {
-        window.location.href='../login.html'
+        window.location.href = '../login.html'
     }
 
     document.getElementById('dataAtual').value = new Date().toISOString().split('T')[0];
@@ -213,13 +249,13 @@
         id: 'legendaPersonalizada',
 
         afterDraw(chart) {
-            const { ctx, chartArea } = chart;
+            const {ctx, chartArea} = chart;
 
             const itens = [
-                { texto: '80% Estado Crítico', cor: '#FF0004' },
-                { texto: '75% Estado Alerta', cor: '#FF8000' },
-                { texto: '10% Limite Aceitável', cor: '#7ED957' },
-                { texto: 'Leitura Capturada', cor: '#164636' }
+                {texto: '80% Estado Crítico', cor: '#FF0004'},
+                {texto: '75% Estado Alerta', cor: '#FF8000'},
+                {texto: '10% Limite Aceitável', cor: '#7ED957'},
+                {texto: 'Leitura Capturada', cor: '#164636'}
             ];
 
             ctx.save();
@@ -350,7 +386,7 @@
         id: 'textoCentro',
 
         afterDraw(chart) {
-            const { ctx, chartArea } = chart;
+            const {ctx, chartArea} = chart;
 
             const centroX = (chartArea.left + chartArea.right) / 2;
             const centroY = chartArea.bottom - 35;
