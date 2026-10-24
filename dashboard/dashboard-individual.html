@@ -245,8 +245,8 @@
             const {ctx, chartArea} = chart;
 
             const itens = [
-                {texto: '80% Estado Crítico', cor: '#FF0004'},
-                {texto: '75% Estado Alerta', cor: '#FF8000'},
+                {texto: '85% Estado Crítico', cor: '#FF0004'},
+                {texto: '70% Estado Alerta', cor: '#FF8000'},
                 {texto: '10% Limite Aceitável', cor: '#7ED957'},
                 {texto: 'Leitura Capturada', cor: '#164636'}
             ];
@@ -352,16 +352,16 @@
 
                         linhaAlerta: {
                             type: 'line',
-                            yMin: 75,
-                            yMax: 75,
+                            yMin: 70,
+                            yMax: 70,
                             borderColor: '#FF8000',
                             borderWidth: 1
                         },
 
                         linhaCritica: {
                             type: 'line',
-                            yMin: 80,
-                            yMax: 80,
+                            yMin: 85,
+                            yMax: 85,
                             borderColor: '#FF0004',
                             borderWidth: 1
                         }
