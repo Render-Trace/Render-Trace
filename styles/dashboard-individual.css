@@ -179,6 +179,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .card-grafico {
     height: 320px;
+    width: 100%;
     border-color: var(--cor-primaria);
     padding: 8px;
     background-color: var(--cor-branca);
