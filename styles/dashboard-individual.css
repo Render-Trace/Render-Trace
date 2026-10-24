@@ -435,9 +435,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .grafico-metrica {
     display: flex;
     flex-direction: column;
+    align-self: center;
 
     height: 110px;
-    width: 100%;
+    width: 95%;
     border-radius: 13px;
 
     overflow: hidden;
