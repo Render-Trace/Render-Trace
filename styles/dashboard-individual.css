@@ -207,6 +207,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0;
     justify-content: flex-start;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 
