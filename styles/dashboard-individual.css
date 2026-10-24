@@ -5,7 +5,7 @@
     margin-left: 20%;
     padding: 20px;
     gap: 20px;
-    background-color: var(--cor-branca);
+    background-color: #E3EBE2;
 }
 
 .dashboard-cabecalho {
@@ -195,9 +195,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .grafico-cabecalho h3 {
     flex: 1;
-    text-align: right;
+    text-align: left;
     font-size: 22px;
     color: #444;
+    justify-content: flex-start;
 }
 
 .card-grafico {
@@ -246,7 +247,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .card-relatorio {
     border: 1px solid var(--cor-primaria);
-    min-height: 200px;
     padding: 0;
     justify-content: flex-start;
     overflow: hidden;
@@ -317,6 +317,37 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: var(--cor-verde-escuro);
 }
 
+.card-titulo {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 15px;
+
+    background-color: var(--cor-branca);
+    color: #747474;
+
+    font-weight: bold;
+    font-size: 21px;
+
+    border-radius: 20px;
+    border-bottom: solid 3px var(--cor-verde-escuro);
+}
+
+.linha-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 25px;
+    border-bottom: 1px solid var(--cor-primaria);
+    white-space: nowrap;
+
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 15px;
+    background-color: var(--cor-verde-escuro);
+    color: var(--cor-branca);
+}
+
 .linha-relatorio {
     display: flex;
     align-items: center;
@@ -324,14 +355,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
     min-height: 25px;
     border-bottom: 1px solid var(--cor-primaria);
-    font-size: 9px;
+    font-size: 13px;
     white-space: nowrap;
+
+    padding: 10px 15px;
 }
 
 .card-kpisuperior {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .cards-esquerda {
@@ -355,7 +388,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     border-radius: 12px;
     border-bottom: solid 3px var(--cor-verde-escuro);
-    padding: 20px;
+    padding: 10px 15px;
     width: 261px;
     height: 133px;
     gap: 10px;
@@ -375,6 +408,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: lighter;
     font-size: 10px;
 }
+
 #h3_estado {
     color: #7ED957;
     font-size: 34px;
@@ -385,9 +419,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 34px
 }
 
-#h3_disparados, #h3_maislongo {
+#h3_disparados,
+#h3_maislongo {
     color: #D02A2D;
     font-size: 34px;
+}
+
+.grafico-metrica {
+    display: flex;
+    flex-direction: column;
+
+    height: 110px;
+    width: 450px;
+    border-radius: 13px;
+
+    overflow: hidden;
+    border-bottom: solid 3px var(--cor-verde-escuro);
+
+}
+
+.titulo-metrica {
+    display: flex;
+    align-items: flex-start;
+
+    background-color: var(--cor-verde-escuro);
+    color: var(--cor-branca);
+    font-weight: bold;
+
+    padding: 10px 15px;
 }
 
 .metricas {
@@ -399,7 +458,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 71px;
 
     border-radius: 12px;
-    border-bottom: solid 3px var(--cor-verde-escuro);;
+    border-bottom: solid 3px var(--cor-verde-escuro);
+
 }
 
 .metricas p {
@@ -417,6 +477,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
 .card-metrica-verde {
@@ -425,7 +486,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 133px;
     height: 71px;
 
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -437,7 +498,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 133px;
     height: 71px;
 
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -449,7 +510,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 133px;
     height: 71px;
 
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
