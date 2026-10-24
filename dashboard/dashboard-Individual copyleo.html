@@ -132,53 +132,65 @@
                                 </div>
 
                             </div>
-                        </div>
 
-                        <div class="grafico-metrica">
-                            <div class="metricas">
-                                <div class="card-metrica-cinza">
-                                    <p>Ocioso</p>
-                                    <p>< 10%</p>
-                                </div>
-                                 <div class="card-metrica-verde">
-                                    <p>Normal</p>
-                                    <p>>= 10%</p>
-                                </div>
-                                 <div class="card-metrica-laranja">
-                                    <p>Atençaõ</p>
-                                    <p>>= 70%</p>
-                                </div>
-                                 <div class="card-metrica-vermelho">
-                                    <p>Crítico</p>
-                                    <p>>= 85%</p>
-                                </div>
-                            </div>
                             <div class="grafico-cabecalho">
                                 <label class="selecao-periodo" for="select_periodo">
                                     <span class="visualmente-oculto">Período do gráfico</span>
                                     <input type="date" id="dataAtual">
                                 </label>
-                                <h3>Gráfico da variação de ocupação</h3>
+                                <h3>Gráfico da variação de ocupação atual</h3>
                             </div>
-
                             <div class="card-grafico">
                                 <canvas id="graficoOcupacao"></canvas>
                             </div>
-
                         </div>
+
+
 
                     </div>
 
                     <div class="coluna-direita">
+                        <div class="grafico-metrica">
+                            <div class="metricas">
+                                <div class="card-metrica-cinza">
+                                    <p>Ocioso</p>
+                                    <p>
+                                        < 10%</p>
+                                </div>
+                                <div class="card-metrica-verde">
+                                    <p>Normal</p>
+                                    <p>>= 10%</p>
+                                </div>
+                                <div class="card-metrica-laranja">
+                                    <p>Atençaõ</p>
+                                    <p>>= 70%</p>
+                                </div>
+                                <div class="card-metrica-vermelho">
+                                    <p>Crítico</p>
+                                    <p>>= 85%</p>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="card-ocupacao">
                             <canvas id="grafico-doughnut"></canvas>
                         </div>
 
-                        <div class="card-custo">
-                            <h3>Custo Estimado de Ineficiência</h3>
-                            <h2>R$ 2.400,00</h2>
-                            <p>Baseado em R$ 20,00/min de linha parada</p>
+
+                        <div class="card-titulo">
+                            <h3>Histórico de Alertas (hoje)</h3>
+                        </div>
+
+                        <div class="card-relatorio">
+                            <div class="linha-titulo">
+                                <span>Tipo de Alerta</span><span>Início</span><span>Fim</span><span>Duração</span>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span>Sobrecarga</span><strong>16:30</strong><strong>17:50</strong><strong>80min</strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span>Ociosidade</span><strong>11:50</strong><strong>12:50</strong><strong>60min</strong>
+                            </div>
                         </div>
 
                         <div class="resumo-alertas">
@@ -193,20 +205,6 @@
                                 <h2>120min</h2>
                                 <p>Downtime operacional acumulado</p>
                             </div>
-                        </div>
-
-                        <div class="card-relatorio">
-                            <h3>Relatório de alertas</h3>
-                            <div class="linha-relatorio">
-                                <strong>04:30</strong><span>Sobrecarga</span><strong>60min</strong>
-                            </div>
-                            <div class="linha-relatorio">
-                                <strong>11:50</strong><span>Ociosidade</span><strong>60min</strong>
-                            </div>
-                            <div class="linha-relatorio"></div>
-                            <div class="linha-relatorio"></div>
-                            <div class="linha-relatorio"></div>
-                            <div class="linha-relatorio"></div>
                         </div>
 
                     </div>
