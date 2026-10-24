@@ -135,6 +135,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 50%;
     min-width: 0;
     gap: 12px 18px;
+
+    margin-top: 45px;
 }
 
 .ultima-atualizacao {
