@@ -327,3 +327,130 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 9px;
     white-space: nowrap;
 }
+
+.card-kpisuperior {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.cards-esquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cards-direita {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-estado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background-color: var(--cor-branca);
+
+    border-radius: 12px;
+    border-bottom: solid 3px var(--cor-verde-escuro);
+    padding: 20px;
+    width: 261px;
+    height: 133px;
+    gap: 10px;
+}
+
+.card-estado p {
+    font-weight: bold;
+    color: #747474;
+    font-size: 13px
+}
+
+.card-estado span {
+    font-weight: bold;
+}
+
+.card-estado h5 {
+    font-weight: lighter;
+    font-size: 10px;
+}
+#h3_estado {
+    color: #7ED957;
+    font-size: 34px;
+}
+
+#h3_atual {
+    color: #747474;
+    font-size: 34px
+}
+
+#h3_disparados, #h3_maislongo {
+    color: #D02A2D;
+    font-size: 34px;
+}
+
+.metricas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    height: 71px;
+
+    border-radius: 12px;
+    border-bottom: solid 3px var(--cor-verde-escuro);;
+}
+
+.metricas p {
+    color: var(--cor-branca);
+    font-weight: bold;
+}
+
+.card-metrica-cinza {
+    background-color: #747474;
+    padding: 20px;
+    width: 133px;
+    height: 71px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-metrica-verde {
+    background-color: #7ED957;
+    padding: 20px;
+    width: 133px;
+    height: 71px;
+
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-metrica-laranja {
+    background-color: #FFA246;
+    padding: 20px;
+    width: 133px;
+    height: 71px;
+
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-metrica-vermelho {
+    background-color: #D02A2D;
+    padding: 20px;
+    width: 133px;
+    height: 71px;
+
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

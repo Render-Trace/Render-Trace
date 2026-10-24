@@ -108,13 +108,13 @@
                         <div class="card-kpisuperior">
                             <div class="cards-esquerda">
                                 <div class="card-estado">
-                                    <p>Estado de Operação Atuaç</p>
-                                    <h3>Normal</h3>
+                                    <p>Estado de Operação Atual</p>
+                                    <h3 id="h3_estado">Normal</h3>
                                     <h5>Monitoramento contínuo em tempo real</h5>
                                 </div>
                                 <div class="card-estado">
                                     <p>Alerta Atual</p>
-                                    <h3>Sem Alerta</h3>
+                                    <h3 id="h3_atual">Sem Alerta</h3>
                                     <h5>Monitoramento contínuo em tempo real</h5>
                                 </div>
                             </div>
@@ -122,28 +122,29 @@
                             <div class="cards-direita">
                                 <div class="card-estado">
                                     <p>Alertas Disparados (hoje)</p>
-                                    <h3>2</h3>
+                                    <h3 id="h3_disparados">2</h3>
                                     <h5>1 sobrecarga | 1 Ociosidade</h5>
                                 </div>
                                 <div class="card-estado">
                                     <p>Alerta Mais Longo (hoje)</p>
-                                    <h3>80 min</h3>
+                                    <h3 id="h3_maislongo">80 min</h3>
                                     <h5><span>Sobrecarga</span> às 16:30</h5>
                                 </div>
 
                             </div>
-
-                            <div class="grafico-cabecalho">
-                                <label class="selecao-periodo" for="select_periodo">
-                                    <span class="visualmente-oculto">Período do gráfico</span>
-                                    <input type="date" id="dataAtual">
-                                </label>
-                                <h3>Gráfico da variação de ocupação atual</h3>
-                            </div>
-                            <div class="card-grafico">
-                                <canvas id="graficoOcupacao"></canvas>
-                            </div>
                         </div>
+
+                        <div class="grafico-cabecalho">
+                            <label class="selecao-periodo" for="select_periodo">
+                                <span class="visualmente-oculto">Período do gráfico</span>
+                                <input type="date" id="dataAtual">
+                            </label>
+                            <h3>Gráfico da variação de ocupação atual</h3>
+                        </div>
+                        <div class="card-grafico">
+                            <canvas id="graficoOcupacao"></canvas>
+                        </div>
+
 
 
 
@@ -154,8 +155,7 @@
                             <div class="metricas">
                                 <div class="card-metrica-cinza">
                                     <p>Ocioso</p>
-                                    <p>
-                                        < 10%</p>
+                                    <p> < 10%</p>
                                 </div>
                                 <div class="card-metrica-verde">
                                     <p>Normal</p>
