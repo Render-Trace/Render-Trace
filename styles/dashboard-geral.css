@@ -57,29 +57,7 @@
 }
 
 .destaque-atualizacao {
-    color: rgb(163, 163, 163);
-}
-
-
-.tamanho-reduzido {
-    font-size: 30px;
-}
-
-.selecao-tolva select {
-    width: 230px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: var(--cor-primaria);
-    color: var(--cor-branca);
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-}
-
-.selecao-tolva p{
-    margin-top: 10px;
+    color:#444444;
 }
 
 .visao-ampla {
@@ -121,19 +99,6 @@
     height: 100%;
 }
 
-.kpi-custo {
-    background-color: #B74143;
-    width: 445px;
-    height: 120px;
-    border-radius: 15px;
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8px;
-    align-items: center;
-}
-
 .kpi-periodo {
     width: 100%;
     height: 100%;
@@ -152,26 +117,6 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 15px;
-}
-
-.input-grafico {
-    margin-top: 10px;
-    width: 580px;
-    height: 35px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-}
-
-.input-grafico-2 {
-    width: 340px;
-    height: 35px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-    margin-bottom: 12px;
 }
 
 .grafico-container {
@@ -238,8 +183,8 @@
 }
 
 
-.selecao-tolva select,
-.selecao-periodo input {
+.selecao-tolva select {
+    margin-bottom: 10px;
     width: 145px;
     padding: 8px 32px 8px 15px;
     border: none;
@@ -257,24 +202,3 @@
     background-size: 14px 10px;
 }
 
-.selecao-periodo input {
-    width: 150px;
-}
-
-/* apenas deixa o ícone do calendário branco, não faz nada além disso*/
-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(1); 
-}
-
-.visualmente-oculto {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}

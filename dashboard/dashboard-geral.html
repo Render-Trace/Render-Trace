@@ -114,14 +114,6 @@
                             <span class="kpi-info">4/5</span>
                             <span class="kpi-descricao">Equipamentos ativos no turno</span> </span>
 
-                        <span class="kpi"><span class="kpi-titulo">Tolvas em Alerta</span>
-                            <span class="kpi-info">2</span>
-                            <span class="kpi-descricao">Equipamentos fora da faixa segura</span> </span>
-
-                        <span class="kpi"> <span class="kpi-titulo">Carga Estimada Total</span>
-                            <span class="kpi-info tamanho-reduzido">160m3/240m3</span>
-                            <span class="kpi-descricao">Volume global retido na recepção</span> </span>
-
                     </div>
 
                 </section>
@@ -129,14 +121,6 @@
                 <section class="analise-operacional">
 
                     <div class="grafico-container">
-
-                        <div class="inputs-grafico">
-                            <input class="input-grafico" type="text"
-                                placeholder="Insira intervalo de tolvas (VALOR INICIAL)">
-                            <input class="input-grafico" type="text"
-                                placeholder="Insira intervalo de tolvas (VALOR FINAL)">
-                        </div>
-
 
                         <div class="area-grafico">
 
@@ -148,51 +132,8 @@
 
                     </div>
 
-                    <div class="session-alert">
-
-                        <div class="kpi-alert">
-
-                            <div class="kpi-alert-esquerdo">
-
-                                <div class="selecao-tolva">
-
-                                    <label class="selecao-periodo" for="select_periodo">
-                                        <span class="visualmente-oculto">Período do gráfico</span>
-                                        <input type="date" id="dataAtual">
-                                    </label>
-                                </div>
-
-                                <div class="kpi-custo">
-
-                                    <p class="kpi-descricao">Custo Estimado de Ineficiência</p>
-                                    <p class="kpi-info">R$ 2400,00</p>
-                                    <p class="kpi-descricao">Nas últimas 24 horas</p>
-
-                                </div>
-
-                                <div class="kpi-periodo">
-
-                                    <span class="kpi-periodo-item"><span class="kpi-titulo">Tempo em Alerta</span>
-                                        <span class="kpi-info tamanho-reduzido">120min</span>
-                                        <span class="kpi-descricao">Downtime operacional acumulado geral</span></span>
-
-                                    <span class="kpi-periodo-item"><span class="kpi-titulo">Mais crítica</span>
-                                        <span class="kpi-info tamanho-reduzido">Tolva 1</span>
-                                        <span class="kpi-descricao">Maior gargalo do período</span></span>
-
-
-                                </div>
-
-                            </div>
 
                             <div class="container-grafico-2">
-
-                                <div class="inputs-grafico-2">
-                                    <input class="input-grafico-2" type="text"
-                                        placeholder="Insira intervalo de tolvas (VALOR INICIAL)">
-                                    <input class="input-grafico-2" type="text"
-                                        placeholder="Insira intervalo de tolvas (VALOR FINAL)">
-                                </div>
 
                                 <div class="area-grafico-2">
 
@@ -297,8 +238,5 @@
         }
     });
 
-
-    const hoje = new Date().toISOString().split('T')[0];
-    document.getElementById('dataAtual').value = hoje;
 
 </script>
