@@ -125,14 +125,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .coluna-esquerda {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
     gap: 20px;
 }
 
 .coluna-direita {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     min-width: 0;
     gap: 12px 18px;
 }
@@ -177,8 +177,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    min-width: 0;
-    height: 320px;
+    width: 550px;
+    height: 395px;
 
     border: 2px solid #7ED957;
     border-radius: 16px;
@@ -196,7 +196,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .grafico-cabecalho h3 {
     flex: 1;
     text-align: left;
-    font-size: 22px;
+    font-size: 18px;
     color: #444;
     justify-content: flex-start;
 }
@@ -205,6 +205,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 320px;
     border-color: var(--cor-primaria);
     padding: 8px;
+    background-color: var(--cor-branca);
 }
 
 .card-grafico canvas {
@@ -330,6 +331,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     border-radius: 20px;
     border-bottom: solid 3px var(--cor-verde-escuro);
+
+    margin-top: 10px;
 }
 
 .linha-titulo {
@@ -346,6 +349,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 10px 15px;
     background-color: var(--cor-verde-escuro);
     color: var(--cor-branca);
+
 }
 
 .linha-relatorio {
@@ -359,18 +363,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     white-space: nowrap;
 
     padding: 10px 15px;
+    background-color: var(--cor-branca);
 }
 
 .card-kpisuperior {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
 }
 
 .cards-esquerda {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .cards-direita {
@@ -392,6 +397,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 261px;
     height: 133px;
     gap: 10px;
+
+    margin: 8px;
 }
 
 .card-estado p {
@@ -430,7 +437,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column;
 
     height: 110px;
-    width: 450px;
+    width: 100%;
     border-radius: 13px;
 
     overflow: hidden;
@@ -470,7 +477,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .card-metrica-cinza {
     background-color: #747474;
     padding: 20px;
-    width: 133px;
+    width: 145px;
     height: 71px;
 
     display: flex;
@@ -482,8 +489,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .card-metrica-verde {
     background-color: #7ED957;
-    padding: 20px;
-    width: 133px;
+    padding: 10px 15px;
+    width: 145px;
     height: 71px;
 
     display: flex;
@@ -494,8 +501,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .card-metrica-laranja {
     background-color: #FFA246;
-    padding: 20px;
-    width: 133px;
+    padding: 10px 15px;
+    width: 145px;
     height: 71px;
 
     display: flex;
@@ -506,12 +513,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .card-metrica-vermelho {
     background-color: #D02A2D;
-    padding: 20px;
-    width: 133px;
+    padding: 10px 15px;
+    width: 145px;
     height: 71px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.grafico-borda {
+    background-color: var(--cor-branca);
+
+    margin: 10px;
+
+    border-bottom: solid 3px var(--cor-verde-escuro);
+    padding: 15px 20px;
+    border-radius: 20px;
+    
+
 }
