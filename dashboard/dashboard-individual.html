@@ -133,7 +133,7 @@
 
                             </div>
                         </div>
-                        
+
                         <div class="card-grafico">
                             <h3>Gráfico da variação de ocupação atual</h3>
                             <canvas id="graficoOcupacao"></canvas>
@@ -152,7 +152,8 @@
                             <div class="metricas">
                                 <div class="card-metrica-cinza">
                                     <p>Ocioso</p>
-                                    <p> < 10%</p>
+                                    <p>
+                                        < 10%</p>
                                 </div>
                                 <div class="card-metrica-verde">
                                     <p>Normal</p>
@@ -171,13 +172,13 @@
 
                         <div class="grafico-borda">
                             <div class="grafico-cabecalho">
-                            <h3>Ocupação Atual</h3>
+                                <h3>Ocupação Atual</h3>
+                            </div>
+                            <div class="card-ocupacao">
+                                <canvas id="grafico-doughnut"></canvas>
+                            </div>
                         </div>
-                        <div class="card-ocupacao">
-                            <canvas id="grafico-doughnut"></canvas>
-                        </div>
-                        </div>
-                        
+
 
 
                         <div class="card-titulo">
@@ -196,10 +197,55 @@
                             </div>
                         </div>
 
+
+
                     </div>
 
                 </div>
+                <div class="conteudo-abaixo">
 
+                    <div class="grafico-alerta">
+                        <div class="cabecalho-grafico">
+                        </div>
+
+                        <canvas id="grafico_alerta"></canvas>
+                    </div>
+                    <div class="card-relatorio">
+
+                        <div class="linha-titulo">
+                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span> <span>Alertas atenção</span>
+                            <span>Alertas sobrecarga</span> <span>Alertas totais</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>18/10</span> <span>2</span> <span>1</span> <span>0</span> <span>3</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>19/10</span> <span>0</span> <span>4</span> <span>3</span> <span>7</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>20/10</span> <span>1</span> <span>2</span> <span>0</span> <span>3</span>
+
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>21/10</span> <span>0</span> <span>3</span> <span>2</span> <span>5</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>22/10</span> <span>0</span> <span>1</span> <span>0</span> <span>1</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>23/10</span> <span>1</span> <span>0</span> <span>1</span> <span>2</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span> <span>0</span>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
             </div>
         </section>
     </main>
@@ -235,13 +281,13 @@
         id: 'legendaPersonalizada',
 
         afterDraw(chart) {
-            const {ctx, chartArea} = chart;
+            const { ctx, chartArea } = chart;
 
             const itens = [
-                {texto: '85% Estado Crítico', cor: '#FF0004'},
-                {texto: '70% Estado Alerta', cor: '#FF8000'},
-                {texto: '10% Limite Aceitável', cor: '#7ED957'},
-                {texto: 'Leitura Capturada', cor: '#164636'}
+                { texto: '85% Estado Crítico', cor: '#FF0004' },
+                { texto: '70% Estado Alerta', cor: '#FF8000' },
+                { texto: '10% Limite Aceitável', cor: '#7ED957' },
+                { texto: 'Leitura Capturada', cor: '#164636' }
             ];
 
             ctx.save();
@@ -372,7 +418,7 @@
         id: 'textoCentro',
 
         afterDraw(chart) {
-            const {ctx, chartArea} = chart;
+            const { ctx, chartArea } = chart;
 
             const centroX = (chartArea.left + chartArea.right) / 2;
             const centroY = chartArea.bottom - 35;
@@ -422,5 +468,87 @@
         },
 
         plugins: [textoCentro]
+    });
+
+
+    // grafico alerta de baixo
+
+    const ctx = document.getElementById('grafico_alerta');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['18/10', '19/10', '20/10', '21/10', '22/10', '23/10', '24/10'],
+            datasets: [
+                {
+                    label: 'Manhã (00:00 às 11:59)',
+                    data: [2, 3, 1, 1, 0, 1, 0],
+                    backgroundColor: '#134A56',
+                    borderWidth: 0
+                },
+                {
+                    label: 'Tarde (12:00 às 17:59)',
+                    data: [1, 2, 2, 3, 1, 1, 0],
+                    backgroundColor: '#6AD2E8',
+                    borderWidth: 0
+                },
+                {
+                    label: 'Noite (18:00 à 23:59)',
+                    data: [0, 2, 0, 1, 0, 0, 0],
+                    backgroundColor: '#0EAFD0',
+                    borderWidth: 1
+
+
+
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+
+                    
+                    labels: {
+                        boxWidth: 40,
+                        boxHeight: 15,
+                        font: {
+                            size: 10.45
+                            
+                        }
+                    }
+                },
+
+                title: {
+                    display: true,
+                    text: 'Quantidade de alertas por turno (semana)',
+                    align: 'start',
+                    font: {
+                        size: 24.2,
+                        weight: 'bold'
+                    },
+                    color: '#000'
+                }
+            },
+
+            scales: {
+                x: {
+
+                    grid: {
+                        display: false
+                    }
+                },
+
+                y: {
+                    min: 0,
+                    max: 8,
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
     });
 </script>

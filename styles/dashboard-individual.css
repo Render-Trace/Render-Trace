@@ -120,6 +120,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .dashboard-conteudo {
     display: flex;
     gap: 20px;
+    
 }
 
 .coluna-esquerda {
@@ -464,3 +465,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 20px;
     
 }
+
+
+/* parte do Gustavo */
+
+.grafico-alerta{
+    background-color: var(--cor-branca);
+}
+
+
