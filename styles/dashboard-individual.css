@@ -58,7 +58,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 0;
 }
 
-.status-operacao {
+/* .status-operacao {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -68,7 +68,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: var(--cor-secundária);
     font-size: 14px;
     font-weight: 600;
-}
+} */
 
 .toggle-switch {
     position: relative;
@@ -83,16 +83,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
 
-.slider {
+/* .slider {
     position: absolute;
     cursor: pointer;
     inset: 0;
     background-color: #ccc;
     border-radius: 25px;
     transition: 0.3s;
-}
+} */
 
-.slider::before {
+/* .slider::before {
     content: "";
     position: absolute;
     width: 20px;
@@ -102,7 +102,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: white;
     border-radius: 50%;
     transition: 0.3s;
-}
+} */
 
 .toggle-switch input:checked+.slider {
     background-color: var(--cor-secundária);
@@ -469,7 +469,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* parte do Gustavo */
 
-.grafico-alerta{
+.grafico-alerta {
+    border: 1px solid #D9E1E5;
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom: 25px;
     background-color: var(--cor-branca);
 }
 
