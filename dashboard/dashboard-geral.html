@@ -267,7 +267,13 @@
         if (tolva == 0) {
             window.location = 'dashboard-geral.html'
         } else if (tolva == 1) {
-            window.location = 'dashboard-individual.html'
+            window.location = 'dashboard-individual1.html'
+        } else if (tolva == 2) {
+            window.location = 'dashboard-individual2.html'
+        } else if (tolva == 3) {
+            window.location = 'dashboard-individual3.html'
+        } else if (tolva == 4) {
+            window.location = 'dashboard-individual4.html'
         }
     }
 
@@ -276,6 +282,7 @@
     }
     const ctx = document.getElementById('myChart');
     const ctx2 = document.getElementById('myChart2');
+    
 
     new Chart(ctx, {
         type: 'bar',

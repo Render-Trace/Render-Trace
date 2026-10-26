@@ -81,17 +81,17 @@
                     <div class="selecao-tolva">
                         <select id="select_tolva" aria-label="Selecionar tolva" onchange="mudarDashboard()">
                             <option value="visao_ampla">Visão ampla</option>
-                            <option value="1" selected>Tolva 1</option>
+                            <option value="1">Tolva 1</option>
                             <option value="2">Tolva 2</option>
                             <option value="3">Tolva 3</option>
-                            <option value="4">Tolva 4</option>
+                            <option value="4" selected>Tolva 4</option>
                         </select>
                     </div>
 
                     <div class="status-operacao">
-                        
 
-                        
+
+
                     </div>
 
                 </div>
@@ -253,7 +253,13 @@
         if (tolva == 'visao_ampla') {
             window.location = 'dashboard-geral.html'
         } else if (tolva == 1) {
-            window.location = 'dashboard-individual.html'
+            window.location = 'dashboard-individual1.html'
+        } else if (tolva == 2) {
+            window.location = 'dashboard-individual2.html'
+        } else if (tolva == 3) {
+            window.location = 'dashboard-individual3.html'
+        } else if (tolva == 4) {
+            window.location = 'dashboard-individual4.html'
         }
     }
 
@@ -266,13 +272,13 @@
         id: 'legendaPersonalizada',
 
         afterDraw(chart) {
-            const { ctx, chartArea } = chart;
+            const {ctx, chartArea} = chart;
 
             const itens = [
-                { texto: '85% Estado Crítico', cor: '#FF0004' },
-                { texto: '70% Estado Alerta', cor: '#FF8000' },
-                { texto: '10% Limite Aceitável', cor: '#7ED957' },
-                { texto: 'Leitura Capturada', cor: '#164636' }
+                {texto: '85% Estado Crítico', cor: '#FF0004'},
+                {texto: '70% Estado Alerta', cor: '#FF8000'},
+                {texto: '10% Limite Aceitável', cor: '#7ED957'},
+                {texto: 'Leitura Capturada', cor: '#164636'}
             ];
 
             ctx.save();
@@ -403,7 +409,7 @@
         id: 'textoCentro',
 
         afterDraw(chart) {
-            const { ctx, chartArea } = chart;
+            const {ctx, chartArea} = chart;
 
             const centroX = (chartArea.left + chartArea.right) / 2;
             const centroY = chartArea.bottom - 35;
@@ -494,13 +500,13 @@
             plugins: {
                 legend: {
 
-                    
+
                     labels: {
                         boxWidth: 40,
                         boxHeight: 15,
                         font: {
                             size: 10.45
-                            
+
                         }
                     }
                 },
