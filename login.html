@@ -82,14 +82,14 @@
         let email = input_email.value
         let senha = input_senha.value
 
-        if (email == 'emailteste@sptech.school' && senha == 'Senha123') {
+        if (email == 'leonardodias@email.com' && senha == 'Senha123') {
             div_mensagem2.innerHTML = `Usuário logado com sucesso!<br>Redirecionando para a tela de dashboards...`
 
             setTimeout(() => {
                 window.location.href= 'dashboard/dashboard-geral.html'
             }, 3000)
 
-        } else if (email != 'emailteste@sptech.school' || senha != 'Senha123') {
+        } else if (email != 'leonardodias@email.com' || senha != 'Senha123') {
             div_mensagem2.innerHTML = `Usuário ou senha inválidos, tente novamente!`
         }
     }
