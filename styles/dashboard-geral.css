@@ -302,3 +302,43 @@
     min-width: 0;
     gap: 12px 18px;
 }
+
+.card-relatorio {
+    margin-top: 20px;
+    border: 1px solid var(--cor-primaria);
+    padding: 0;
+    justify-content: flex-start;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.linha-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 25px;
+    border-bottom: 1px solid var(--cor-primaria);
+    white-space: nowrap;
+
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 15px;
+    background-color: var(--cor-verde-escuro);
+    color: var(--cor-branca);
+
+}
+
+.linha-relatorio {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 25px;
+    border-bottom: 1px solid var(--cor-primaria);
+    font-size: 13px;
+    white-space: nowrap;
+
+    padding: 10px 15px;
+    background-color: var(--cor-branca);
+}
