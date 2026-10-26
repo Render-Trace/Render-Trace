@@ -106,18 +106,45 @@
 
                     <div class="kpi-row">
 
-                        <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Tolvas em alerta atualmente</span>
+                        <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Tolvas em alerta
+                                atualmente</span>
                             <span class="kpi-info destaque" style="color: #FF8000;">2/4</span>
-                            <span class="kpi-descricao" style="color: #000000;">Equipamentos fora da faixa segura</span></span>
+                            <span class="kpi-descricao" style="color: #000000;">Equipamentos fora da faixa
+                                segura</span></span>
 
-                        <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Tolva mais crítica atualmente</span>
+                        <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Tolva mais crítica
+                                atualmente</span>
                             <span class="kpi-info" style="color: #FF0004;">Tolva 2</span>
-                            <span class="kpi-descricao" style="color: #000000;">Estado mais grave no momento</span> </span>
+                            <span class="kpi-descricao" style="color: #000000;">Estado mais grave no momento</span>
+                        </span>
 
-                    </div>
+                        <div class="coluna-direita">
+                            <div class="grafico-metrica">
+                                <div class="titulo-metrica">
+                                    <p>Métrica de Estado da Tolva</p>
+                                </div>
+                                <div class="metricas">
+                                    <div class="card-metrica-cinza">
+                                        <p>Ocioso</p>
+                                        <p>
+                                            < 10%</p>
+                                    </div>
+                                    <div class="card-metrica-verde">
+                                        <p>Normal</p>
+                                        <p>>= 10%</p>
+                                    </div>
+                                    <div class="card-metrica-laranja">
+                                        <p>Atenção</p>
+                                        <p>>= 70%</p>
+                                    </div>
+                                    <div class="card-metrica-vermelho">
+                                        <p>Crítico</p>
+                                        <p>>= 85%</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div></div>
-                    
+                        </div>
 
                 </section>
 
@@ -136,28 +163,93 @@
                     </div>
 
 
-                            <div class="container-grafico-2">
+                    <div class="container-grafico-2">
 
-                                <div class="area-grafico-2">
+                        <div class="area-grafico-2">
 
-                                    <div class="canvas-container-2">
-                                        <canvas id="myChart2"></canvas>
-                                    </div>
-
-                                </div>
-
+                            <div class="canvas-container-2">
+                                <canvas id="myChart2"></canvas>
                             </div>
 
+                        </div>
 
+                        <div class="container-ranking-tolvas">
+
+                            <div class="card-titulo">
+                                <h3>Ranking das tolvas sobre o tempo em alerta (hoje)</h3>
+                            </div>
+
+                            <div class="card-relatorio">
+                                <div class="linha-titulo">
+                                    <span>Ranking</span><span>Tolva</span><span>Tempo em Alerta</span>
+                                </div>
+                                <div class="linha-relatorio">
+                                    <span>1</span><strong>Tolva 1</strong><strong>140min</strong>
+                                </div>
+                                <div class="linha-relatorio">
+                                    <span>2</span><strong>Tolva 2</strong><strong>100min</strong>
+                                </div>
+                                <div class="linha-relatorio">
+                                    <span>3</span><strong>Tolva 3</strong><strong>80min</strong>
+                                </div>
+                                <div class="linha-relatorio">
+                                    <span>4</span><strong>Tolva 4</strong><strong>24min</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="grafico-alerta">
+                        <div class="cabecalho-grafico">
+                        </div>
+
+                        <canvas id="grafico_alerta"></canvas>
+                    </div>
+
+                    <div class="card-relatorio">
+
+                        <div class="linha-titulo">
+                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span> <span>Alertas atenção</span>
+                            <span>Alertas sobrecarga</span> <span>Alertas totais</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>18/10</span> <span>3</span> <span>1</span> <span>2</span> <span>6</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>19/10</span> <span>5</span> <span>4</span> <span>3</span> <span>12</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>20/10</span> <span>3</span> <span>1</span> <span>4</span> <span>8</span>
+
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>21/10</span> <span>1</span> <span>3</span> <span>4</span> <span>8</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>22/10</span> <span>2</span> <span>1</span> <span>1</span> <span>4</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>23/10</span> <span>2</span> <span>3</span> <span>4</span> <span>9</span>
+                        </div>
+                        <div class="linha-relatorio">
+                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span> <span>0</span>
                         </div>
 
                     </div>
 
-                </section>
+            </div>
 
             </div>
-             
-            
+
+        </section>
+
+        </div>
+
+
         </section>
     </main>
 
@@ -243,5 +335,83 @@
         }
     });
 
+    const ctx3 = document.getElementById('grafico_alerta');
+
+    new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: ['18/10', '19/10', '20/10', '21/10', '22/10', '23/10', '24/10'],
+            datasets: [
+                {
+                    label: 'Manhã (00:00 às 11:59)',
+                    data: [2, 4, 2, 3, 0, 3, 0],
+                    backgroundColor: '#134A56',
+                    borderWidth: 0
+                },
+                {
+                    label: 'Tarde (12:00 às 17:59)',
+                    data: [3, 4, 4, 3, 4, 2, 0],
+                    backgroundColor: '#6AD2E8',
+                    borderWidth: 0
+                },
+                {
+                    label: 'Noite (18:00 à 23:59)',
+                    data: [1, 4, 2, 2, 0, 4, 0],
+                    backgroundColor: '#0EAFD0',
+                    borderWidth: 1
+
+
+
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+
+
+                    labels: {
+                        boxWidth: 40,
+                        boxHeight: 15,
+                        font: {
+                            size: 10.45
+
+                        }
+                    }
+                },
+
+                title: {
+                    display: true,
+                    text: 'Quantidade de alertas por turno (semana)',
+                    align: 'start',
+                    font: {
+                        size: 24.2,
+                        weight: 'bold'
+                    },
+                    color: '#000'
+                }
+            },
+
+            scales: {
+                x: {
+
+                    grid: {
+                        display: false
+                    }
+                },
+
+                y: {
+                    min: 0,
+                    max: 8,
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
 
 </script>
