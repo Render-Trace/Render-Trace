@@ -36,11 +36,12 @@ fk_empresa INT NOT NULL, CONSTRAINT fk_usuario_empresa
 );
 
 CREATE TABLE tolva(
-id INT PRIMARY KEY AUTO_INCREMENT,
+id INT AUTO_INCREMENT,
 distancia_maxima INT NOT NULL,
 capacidade_maxima INT NOT NULL,
 fk_empresa INT NOT NULL, CONSTRAINT fk_tolva_empresa
-				FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+				FOREIGN KEY (fk_empresa) REFERENCES empresa(id),
+PRIMARY KEY (id, fk_empresa)
 );
 
 CREATE TABLE sensor(
@@ -78,11 +79,15 @@ insert into usuario(nome, email, senha, user_admin, fk_empresa) values
 ('Kalebe', 'kalebe@gmail.com', 'Kal3b3%', 1, 3),
 ('José', 'jose@gmail.com', 'Jose2039@', 0, 3);
 
-insert into tolva(distancia_maxima, capacidade_maxima, fk_empresa) values
-(300, 5, 1), -- Médio porte
-(400, 10, 1), -- Grande porte
-(600, 14, 2), -- Grande porte
-(150, 1, 3); -- Pequeno porte
+insert into tolva values
+(1, 300, 5, 1), -- Médio porte
+(2, 400, 10, 1), -- Grande porte
+(3, 600, 14, 1), -- Grande porte
+(4, 150, 1, 1),
+(1, 300, 5, 2), -- Médio porte
+(2, 400, 10, 2), -- Grande porte
+(1, 600, 14, 3), -- Grande porte
+(1, 150, 1, 4); -- Pequeno porte; 
 
 
 insert into sensor(codigo, status_sensor, dt_manutencao, dt_instalacao, fk_tolva) values
