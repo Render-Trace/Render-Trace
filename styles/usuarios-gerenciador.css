@@ -14,7 +14,7 @@
 .lado-direito {
     margin-left: 20%;
     display: flex;
-    background-color: var(--cor-terciária);
+    background-color: #E3EBE2;
     width: 80%;
     justify-content: center;
 }
@@ -70,7 +70,7 @@
     font-size: 15px;
     color: var(--cor-branca);
     font-weight: bold;
-    
+
     width: 175px;
     padding: 10px 20px;
 
@@ -86,7 +86,7 @@
     font-size: 15px;
     color: var(--cor-primaria);
     font-weight: bold;
-    
+
     width: 175px;
     padding: 10px 20px;
 
@@ -94,7 +94,7 @@
     transition: 0.2s;
 }
 
-.user-btn button:hover{
+.user-btn button:hover {
     transform: scale(1.02);
     background-color: #174235;
 }
