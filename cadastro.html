@@ -49,22 +49,22 @@
 
                 <div class="campo">
                     <label for="input_nome">Cód da Empresa</label>
-                    <input type="text" id="input_cod">
+                    <input type="text" id="input_cod" value="B9II0">
                 </div>
 
                 <div class="campo">
                     <label for="input_nome">Nome completo</label>
-                    <input type="text" id="input_nome">
+                    <input type="text" id="input_nome" value="Leonardo Dias">
                 </div>
 
                 <div class="campo">
                     <label for="input_email">E-mail</label>
-                    <input type="email" id="input_email">
+                    <input type="email" id="input_email" value="leonardodias@email.com">
                 </div>
 
                 <div class="campo">
                     <label for="input_senha">Senha</label>
-                    <input type="password" oninput="verificar()" id="input_senha">
+                    <input type="password" onkeyup="verificar()" id="input_senha">
                     <div class="mensagem-senha" id="div_mensagem_senha"></div>
                 </div>
 
@@ -154,22 +154,22 @@
                             }, 3000)
 
                         } else {
-                            div_mensagem2.innerHTML = 'As senhas não são iguais!';
+                            div_mensagem2.innerHTML = '<span style="color: brown;">As senhas não são iguais!</span>';
                         }
 
                     } else {
-                        div_mensagem2.innerHTML = 'A senha precisa ser forte!';
+                        div_mensagem2.innerHTML = '<span style="color: brown;">A senha precisa ser forte!</span>';
                     }
 
                 } else {
-                    div_mensagem2.innerHTML = 'Digite um email válido!';
+                    div_mensagem2.innerHTML = '<span style="color: brown;">Digite um e-mail válido!</span>';
                 }
 
             } else {
-                div_mensagem2.innerHTML = 'Digite o nome do usuário!';
+                div_mensagem2.innerHTML = '<span style="color: brown;">Digite o nome de usuário</span>';
             }
         } else {
-            div_mensagem2.innerHTML = 'Digite um código válido!';
+            div_mensagem2.innerHTML = '<span style="color: brown;">Digite um código válido!</span>';
         }
     }
 
