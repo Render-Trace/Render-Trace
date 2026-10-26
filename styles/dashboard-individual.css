@@ -255,7 +255,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 10px 15px;
 
     background-color: var(--cor-branca);
-    color: #747474;
+    color: var(--cor-verde-escuro);
 
     font-weight: bold;
     font-size: 21px;
