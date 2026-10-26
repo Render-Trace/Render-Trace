@@ -89,10 +89,7 @@
                     </div>
 
                     <div class="status-operacao">
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle_operacao" checked>
-                            <span class="slider"></span>
-                        </label>
+                        
 
                         
                     </div>
@@ -268,14 +265,6 @@
         window.location.href = '../login.html'
     }
 
-
-    const toggleOperacao = document.getElementById('toggle_operacao');
-    const textoStatus = document.getElementById('texto_status');
-
-    toggleOperacao.addEventListener('change', function () {
-        textoStatus.textContent = toggleOperacao.checked ? 'Em operação' : 'Fora de operação';
-
-    });
 
     const legendaPersonalizada = {
         id: 'legendaPersonalizada',
