@@ -197,6 +197,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: flex-start;
     overflow: hidden;
     border-radius: 20px;
+    border-bottom: solid 3px var(--cor-verde-escuro);
 }
 
 
@@ -475,6 +476,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 20px;
     margin-bottom: 25px;
     background-color: var(--cor-branca);
+    border-bottom: solid 3px var(--cor-verde-escuro);
 }
 
 
