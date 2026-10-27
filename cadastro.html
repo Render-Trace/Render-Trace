@@ -90,6 +90,9 @@
 
 <script>
 
+    let codigos = ['28TSA', 'ZUI09', 'M60CA', 'HE7DN',
+        'B9II0', 'CQAJ4', '058AA', '1MP83'];
+
     let criterios = 0;
     function verificar() {
         let senha = input_senha.value;
@@ -116,62 +119,65 @@
 
     }
 
-    function cadastrarUsuario() {
-        let cod = input_cod.value
-        let nome = input_nome.value;
-        let email = input_email.value;
-        let senha = input_senha.value;
-        let confirmarSenha = input_confirmarSenha.value;
+function cadastrarUsuario() {
+    let cod = input_cod.value;
+    let nome = input_nome.value;
+    let email = input_email.value;
+    let senha = input_senha.value;
+    let confirmarSenha = input_confirmarSenha.value;
 
-        if (cod == '28TSA' ||
-            cod == 'ZUI09' ||
-            cod == 'M60CA' ||
-            cod == 'HE7DN' ||
-            cod == 'B9II0' ||
-            cod == 'CQAJ4' ||
-            cod == '058AA' ||
-            cod == '1MP83') {
+    let codigoValido = false;
 
-            if (nome != '') {
+    for (let i = 0; i < codigos.length; i++) {
+        if (cod == codigos[i]) {
+            codigoValido = true;
+        }
+    }
 
-                if (email.includes('@')) {
+    if (codigoValido) {
 
-                    if (criterios == 3) {
+        if (nome != '') {
 
-                        if (confirmarSenha == senha) {
+            if (email.includes('@')) {
 
-                            div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
-                            div_mensagem_senha.innerHTML = ''
+                if (criterios == 3) {
 
-                            input_cod.value = ''
-                            input_nome.value = ''
-                            input_email.value = ''
-                            input_senha.value = ''
-                            input_confirmarSenha.value = ''
+                    if (confirmarSenha == senha) {
 
-                            setTimeout(() => {
-                                window.location.href = 'login.html'
-                            }, 3000)
+                        div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+                        div_mensagem_senha.innerHTML = '';
 
-                        } else {
-                            div_mensagem2.innerHTML = '<span style="color: brown;">As senhas não são iguais!</span>';
-                        }
+                        input_cod.value = '';
+                        input_nome.value = '';
+                        input_email.value = '';
+                        input_senha.value = '';
+                        input_confirmarSenha.value = '';
+
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 3000);
 
                     } else {
-                        div_mensagem2.innerHTML = '<span style="color: brown;">A senha precisa ser forte!</span>';
+                        div_mensagem2.innerHTML = '<span style="color: brown;">As senhas não são iguais!</span>';
                     }
 
                 } else {
-                    div_mensagem2.innerHTML = '<span style="color: brown;">Digite um e-mail válido!</span>';
+                    div_mensagem2.innerHTML = '<span style="color: brown;">A senha precisa ser forte!</span>';
                 }
 
             } else {
-                div_mensagem2.innerHTML = '<span style="color: brown;">Digite o nome de usuário</span>';
+                div_mensagem2.innerHTML = '<span style="color: brown;">Digite um e-mail válido!</span>';
             }
+
         } else {
-            div_mensagem2.innerHTML = '<span style="color: brown;">Digite um código válido!</span>';
+            div_mensagem2.innerHTML = '<span style="color: brown;">Digite o nome de usuário</span>';
         }
+
+    } else {
+        div_mensagem2.innerHTML = '<span style="color: brown;">Digite um código válido!</span>';
     }
+}
+
 
 
 </script>

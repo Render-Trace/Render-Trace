@@ -106,12 +106,12 @@
                             <div class="cards-esquerda">
                                 <div class="card-estado">
                                     <p>Estado de Operação Atual</p>
-                                    <h3 id="h3_estado" style="color: #D02A2D;">Atenção</h3>
+                                    <h3 id="h3_estado" style="color: #D02A2D;">Sobrecarga</h3>
                                     <h5>Monitoramento contínuo em tempo real</h5>
                                 </div>
                                 <div class="card-estado">
-                                    <p>Alerta Atual</p>
-                                    <h3 id="h3_atual">Sobrecarga</h3>
+                                    <p>Tempo em Alerta Atual</p>
+                                    <h3 id="h3_atual" style="color: #D02A2D;">75min</h3>
                                     <h5>Monitoramento contínuo em tempo real</h5>
                                 </div>
                             </div>
@@ -120,12 +120,12 @@
                                 <div class="card-estado">
                                     <p>Alertas Disparados (hoje)</p>
                                     <h3 id="h3_disparados">2</h3>
-                                    <h5>1 sobrecarga | 1 Ociosidade</h5>
+                                    <h5>2 sobrecarga | 0 Ociosidade</h5>
                                 </div>
                                 <div class="card-estado">
                                     <p>Alerta Mais Longo (hoje)</p>
-                                    <h3 id="h3_maislongo">80 min</h3>
-                                    <h5><span>Sobrecarga</span> às 16:30</h5>
+                                    <h3 id="h3_maislongo">75 min</h3>
+                                    <h5><span>Sobrecarga</span> às 17:35</h5>
                                 </div>
 
                             </div>
@@ -161,7 +161,7 @@
                                     <p>>= 70%</p>
                                 </div>
                                 <div class="card-metrica-vermelho">
-                                    <p>Crítico</p>
+                                    <p>Sobrecarga</p>
                                     <p>>= 85%</p>
                                 </div>
                             </div>
@@ -187,10 +187,10 @@
                                 <span>Tipo de Alerta</span><span>Início</span><span>Fim</span><span>Duração</span>
                             </div>
                             <div class="linha-relatorio">
-                                <span>Sobrecarga</span><strong>16:30</strong><strong>17:50</strong><strong>80min</strong>
+                                <span>Sobrecarga</span><strong>17:35</strong><strong>--:--</strong><strong>75min</strong>
                             </div>
                             <div class="linha-relatorio">
-                                <span>Ociosidade</span><strong>11:50</strong><strong>12:50</strong><strong>60min</strong>
+                                <span>Sobrecarga</span><strong>12:25</strong><strong>12:50</strong><strong>25min</strong>
                             </div>
                         </div>
 
@@ -320,10 +320,10 @@
             datasets: [{
                 label: 'Leitura Capturada',
                 data: [
-                    30, 30, 30, 30, 30, 90,
-                    90, 90, 30, 30, 30, 30, 30, 5,
-                    5, 5, 30, 30, 30, 30, 30, 30,
-                    30, 30, 30, 50
+                    30, 30, 30, 30, 67, 60,
+                    60, 57, 54, 40, 30, 30, 48, 57,
+                    90, 68, 69, 69, 75, 87, 86, ,
+                    , , , 
                 ],
                 borderColor: '#164636',
                 backgroundColor: 'rgba(255, 0, 0, 0.2)',
@@ -425,7 +425,7 @@
 
             ctx.font = 'Bold 15px Poppins';
             ctx.fillStyle = '#164636';
-            ctx.fillText('4.3 m³/ 5 m³', centroX, centroY + 20);
+            ctx.fillText('8.6 m³/ 10 m³', centroX, centroY + 20);
 
             ctx.restore();
         }

@@ -164,6 +164,20 @@ input {
     justify-content: center;
     align-items: center;
     margin-bottom: 13.4px;
+    transition: 0.2s;
+}
+.informacao-tolva summary:hover {
+    transform: scale(1.02);
+}
+.informacao-tolva summary::after {
+    
+    content: "▼";
+    margin-left: 10px;
+    font-size: 24px;
+   
+}
+.informacao-tolva details[open] summary::after {
+    transform: rotate(270deg);
 }
 
 .lado-direito {
