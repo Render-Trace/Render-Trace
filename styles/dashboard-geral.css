@@ -334,6 +334,7 @@
     padding: 20px;
     margin-top: 20px;
     background-color: var(--cor-branca);
+    border-bottom: 3px solid var(--cor-primaria);
 }
 
 .card-titulo {
@@ -351,7 +352,7 @@
     border-radius: 20px;
     border-bottom: solid 3px var(--cor-verde-escuro);
 
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .container-ranking-tolvas{
@@ -411,17 +412,19 @@
 .area-grafico-2 {
     box-sizing: border-box;
     width: 545px;
-    height: 398px;
+    height: 350px;
     border-radius: 34px;
     padding: 18px 24px;
-    box-shadow: 0 5px 0 var(--cor-primaria);
     background-color: white;
+    margin-top: 20px;
+    border-bottom: solid 3px var(--cor-verde-escuro);
 }
 
 .grafico-cabecalho h3 {
     font-size: 23px;
-    line-height: 1.25;
+    line-height: 0.75;
     color: #080808;
+    height: 40px;
 }
 .conteudo-grafico-2 {
     height: 300px;
