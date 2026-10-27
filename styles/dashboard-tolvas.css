@@ -174,7 +174,7 @@ input {
     content: "▼";
     margin-left: 10px;
     font-size: 24px;
-    transition: transform 0.2s;
+   
 }
 .informacao-tolva details[open] summary::after {
     transform: rotate(270deg);
