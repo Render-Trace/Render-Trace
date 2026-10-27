@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../styles/dashboard-individual.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo-cadastro.png">
+
     <title>Render Trace | Dashboard</title>
 </head>
 
@@ -120,11 +122,11 @@
                                 <div class="card-estado">
                                     <p>Alertas Disparados (hoje)</p>
                                     <h3 id="h3_disparados">2</h3>
-                                    <h5>1 sobrecarga | 1 Ociosidade</h5>
+                                    <h5>1 sobrecarga | 0 Ociosidade | 1 Atenção</h5>
                                 </div>
                                 <div class="card-estado">
-                                    <p>Alerta Mais Longo (hoje)</p>
-                                    <h3 id="h3_maislongo"  style="color: #FFA246;">55 min</h3>
+                                    <p>Alerta Mais Crítico (hoje)</p>
+                                    <h3 id="h3_maislongo"  style="color: #D02A2D;">55 min</h3>
                                     <h5><span>Sobrecarga</span> às 14:45</h5>
                                 </div>
 
@@ -141,7 +143,7 @@
 
                     </div>
 
-                    <div class="coluna-direita">
+                    <div class="coluna-direita">   
                         <div class="grafico-metrica">
                             <div class="titulo-metrica">
                                 <p>Métrica de Estado da Tolva</p>
@@ -187,10 +189,10 @@
                                 <span>Tipo de Alerta</span><span>Início</span><span>Fim</span><span>Duração</span>
                             </div>
                             <div class="linha-relatorio">
-                                <span>Sobrecarga</span><strong>14:45</strong><strong>15:40</strong><strong>55min</strong>
+                                <span>Altenção</span><strong>13:00</strong><strong>17:00</strong><strong>240min</strong>
                             </div>
                             <div class="linha-relatorio">
-                                <span>Ociosidade</span><strong>16:50</strong><strong>17:15</strong><strong>25min</strong>
+                                <span>Sobrecarga</span><strong>14:45</strong><strong>15:40</strong><strong>55min</strong>
                             </div>
                         </div>
 
@@ -275,15 +277,16 @@
             const {ctx, chartArea} = chart;
 
             const itens = [
-                {texto: '85% Estado Crítico', cor: '#FF0004'},
-                {texto: '70% Estado Alerta', cor: '#FF8000'},
-                {texto: '10% Limite Aceitável', cor: '#7ED957'},
-                {texto: 'Leitura Capturada', cor: '#164636'}
+                {texto: '>= 85% Sobrecarga', cor: '#FF0004'},
+                {texto: ' >= 70% Atenção', cor: '#FF8000'},
+                {texto: ' >= 10% Normal', cor: '#7ED957'},
+                {texto: ' < 10% Ociosidade', cor: '#747474'},
+                {texto: 'Leitura', cor: '#164636'}
             ];
 
             ctx.save();
 
-            ctx.font = '9px Poppins';
+            ctx.font = '8px Poppins';
             ctx.textBaseline = 'middle';
 
             let x = chartArea.left + 10;
