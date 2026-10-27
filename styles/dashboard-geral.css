@@ -159,32 +159,6 @@
     height: 100%;
 }
 
-.area-grafico-2 {
-    border-color: var(--cor-primaria);
-    border-bottom: solid 3px;
-    background-color: white;
-    width: 685px;
-    height: 350px;
-    border-radius: 20px;
-    padding: 10px;
-    margin-top: 10px;
-}
-.conteudo-grafico-2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.container-grafico-2 {
-    display: flex;
-    flex-direction: row;
-}
-
-.legendas-grafico-2 {
-    display: flex;
-    align-items: end;
-    justify-content: space-around;
-}
-
 .selecao-tolva{
     display: flex;
     flex-direction: row;
@@ -432,3 +406,86 @@
     outline: 2px solid var(--cor-primaria);
     outline-offset: 3px;
 }
+
+.area-grafico-2 {
+    box-sizing: border-box;
+    width: 545px;
+    height: 398px;
+    border-radius: 34px;
+    padding: 18px 24px;
+    box-shadow: 0 5px 0 var(--cor-primaria);
+    background-color: white;
+}
+
+.grafico-cabecalho h3 {
+    font-size: 23px;
+    line-height: 1.25;
+    color: #080808;
+}
+.conteudo-grafico-2 {
+    height: 300px;
+    gap: 28px;
+}
+.container-grafico-2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudo-grafico-rosquinha {
+    height: 300px;
+    gap: 28px;
+    display: flex;
+    flex-direction: row;
+}
+
+.canvas-container-2{
+    flex: 0 0 270px;
+    width: 270px;
+    height: 270px;
+}
+
+.legendas-grafico-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.linha-legenda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.linha-legenda h4 {
+    font-size: 17px;
+    color: #080808;
+}
+
+.dados-legenda {
+    width: 69px;
+    flex: 0 0 69px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.dados-legenda span {
+    width: 100%;
+    padding: 6px 0;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+}
+
+.alerta-ociosidade .dados-legenda { color: #666; }
+.alerta-ociosidade .dados-legenda span {background: #666;}
+.alerta-atencao .dados-legenda { color: #ffa22e; }
+.alerta-atencao .dados-legenda span {background:#ffa22e ;}
+.alerta-sobrecarga .dados-legenda { color: #D02A2D; }
+.alerta-sobrecarga .dados-legenda span {background:#D02A2D ;}
