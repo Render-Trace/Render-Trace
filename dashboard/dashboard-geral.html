@@ -92,13 +92,22 @@
                                     <option value="4">Tolva 4</option>
                                 </select>
 
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggle_operacao" checked>
+                                    <span class="slider"></span>
+                                </label>
+
                                 <p><b class="destaque-atualizacao">Última atualização:</b> 18:10 - 30/09/2026</p>
 
                             </div>
 
                         </div>
 
+
+
                     </section>
+
+
 
                 </div>
 
@@ -463,6 +472,14 @@
         },
 
         plugins: [textoCentro]
+    });
+
+    const toggleOperacao = document.getElementById('toggle_operacao');
+    const textoStatus = document.getElementById('texto_status');
+
+    toggleOperacao.addEventListener('change', function () {
+        textoStatus.textContent = toggleOperacao.checked ? 'Em operação' : 'Fora de operação';
+
     });
 
 </script>

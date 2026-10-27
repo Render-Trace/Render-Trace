@@ -385,3 +385,50 @@
     margin-left: 20px;
     width: 50%;
 }
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle-switch input:checked+.slider {
+    background-color: var(--cor-secundária);
+}
+
+.toggle-switch input:checked+.slider::before {
+    transform: translateX(24px);
+}
+
+.toggle-switch input:focus-visible+.slider {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 3px;
+}
