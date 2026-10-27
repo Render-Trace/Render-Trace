@@ -141,6 +141,7 @@
                                         <p>Crítico</p>
                                         <p>>= 85%</p>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -165,13 +166,29 @@
 
                     <div class="container-grafico-2">
 
+
                         <div class="area-grafico-2">
 
-                            <div class="canvas-container-2">
-                                <canvas id="myChart2"></canvas>
+                            <div class="grafico-cabecalho">
+                                <h3>Tempo total em alerta das tolvas (hoje)</h3>
+                            </div>
+
+                            <div class="conteudo-grafico-2">
+
+                                <div class="canvas-container-2">
+                                    <canvas id="grafico-doughnut"></canvas>
+                                </div>
+
+                                <div class="legendas-grafico-2">
+                                    <h4>Ociosidade</h4>
+                                    <h4>Atenção</h4>
+                                    <h4>Sobrecarga</h4>
+                                </div>
+
                             </div>
 
                         </div>
+
 
                         <div class="container-ranking-tolvas">
 
@@ -280,9 +297,36 @@
     function logout() {
         window.location.href = '../login.html'
     }
+
+    const textoCentro = {
+        id: 'textoCentro',
+
+        afterDraw(chart) {
+            const { ctx, chartArea } = chart;
+
+            const centroX = (chartArea.left + chartArea.right) / 2;
+            const centroY = chartArea.bottom - 45;
+
+            ctx.save();
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            ctx.font = 'bold 38px Poppins';
+            ctx.fillStyle = '#000000';
+            ctx.fillText('324min', centroX, centroY - 95);
+
+            ctx.font = 'Bold 20px Poppins';
+            ctx.fillStyle = '#000000';
+            ctx.fillText('Total', centroX, centroY - 65);
+
+            ctx.restore();
+        }
+    };
+
     const ctx = document.getElementById('myChart');
-    const ctx2 = document.getElementById('myChart2');
-    
+    const ctx2 = document.getElementById('grafico-doughnut');
+
 
     new Chart(ctx, {
         type: 'bar',
@@ -313,34 +357,6 @@
         }
     });
 
-    new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
-            datasets: [{
-                label: 'Contagem de alertas no período',
-                data: [7, 3, 1, 2],
-                borderWidth: 0,
-                backgroundColor: [
-                    '#8A3335',
-                    '#7ED957',
-                    '#7ED957',
-                    '#7ED957',
-                ],
-            }]
-        },
-        options: {
-
-            responsive: true,
-            maintainAspectRatio: false,
-
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
 
     const ctx3 = document.getElementById('grafico_alerta');
 
@@ -419,6 +435,34 @@
                 }
             }
         }
+    });
+
+    new Chart(ctx2, {
+        type: 'doughnut',
+
+        data: {
+            labels: ['Ocupado', 'Disponível'],
+            datasets: [{
+                data: [60, 20, 20],
+                backgroundColor: ['#D02A2D', '#D9D9D9', '#FFA246'],
+                borderWidth: 0
+            }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '75%',
+            rotation: -250,
+            circumference: 360,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        },
+
+        plugins: [textoCentro]
     });
 
 </script>
