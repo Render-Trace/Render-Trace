@@ -532,3 +532,9 @@
 .alerta-ociosidade .dados-legenda span {background: #666;}
 .alerta-sobrecarga .dados-legenda { color: #D02A2D; }
 .alerta-sobrecarga .dados-legenda span {background:#D02A2D ;}
+
+.opcoes-tolvas p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
