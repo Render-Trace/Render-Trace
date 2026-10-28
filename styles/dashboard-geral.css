@@ -36,6 +36,18 @@
     padding: 15px;
     border-bottom: solid 3px;
 }
+.kpi1 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 130px;
+    border-radius: 15px;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 15px;
+    border-bottom: solid 3px;
+}
 
 .kpi-titulo {
     color: var(--cor-secundária);
@@ -43,15 +55,44 @@
     font-size: 15px;
 }
 
+
+.kpi-titulo1 {
+   
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 15px;
+    width: 140px;
+    
+}
+
 .kpi-info {
     font-size: 40px;
     color: white;
     font-weight: bold;
+    
 }
+.kpi-info1 {
+   
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.0;
+    align-self: center;
+
+}
+
 
 .kpi-descricao {
     font-size: 12px;
     color: white;
+    
+}
+
+.kpi-descricao1 {
+    display: block;
+    font-size: 12px;
+    line-height: 15px;
+    width: 130px;
+
 }
 
 .destaque {
