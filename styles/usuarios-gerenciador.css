@@ -11,6 +11,10 @@
     scroll-behavior: smooth;
 }
 
+body{
+    background-color: #E3EBE2;
+}
+
 .lado-direito {
     margin-left: 20%;
     display: flex;
