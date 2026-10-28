@@ -77,7 +77,41 @@
                 <div class="cadastro-tolva">
                     <div class="informacao-tolva">
 
-                        
+                         <details>
+                                <summary class="tolvas_cadastradas">Cadastrar Nova Tolva</summary>
+
+
+                                <label for="ipt_tolva">
+                                    Descreva os dados da Tolva (Imutável) :
+                                </label>
+                                <input type="text" id="ipt_tolva" value="Tolva 5" disabled>
+
+                                <label for="ipt_sensor">Sensor:</label>
+                                <select id="ipt_sensor">
+                                    <option value="" disabled selected>
+                                        Selecione o Sensor associado
+                                    </option>
+                                    <option value="1" selected>Sensor - EW919VM</option>
+                                    <option value="2">Sensor - 34RXGHJ</option>
+                                    <option value="2">Sensor - VJCLBJ3</option>
+                                    <option value="2">Sensor - FD56LC0</option>
+                                </select>
+                                <label for="ipt_altura">
+                                    Altura da tolva (m):
+                                </label>
+                                <input id="ipt_altura">
+
+                                <label for="ipt_capacidade">
+                                    Capacidade máxima de Volume da tolva (m3):
+                                </label>
+                                <input id="ipt_capacidade">
+
+                                <div class="btn-gustavo">
+                                    <button>Confirmar Cadastro</button>
+                                </div>
+                            </details>
+
+
 
                         <div class="lista-tolvas">
                             <div class="titulo">
@@ -88,14 +122,15 @@
                             <div class="card-tolva">
                                 <div class="info-tolva">
                                     <p><b>ID: 1</b></p>
-                                  
+
                                     <p><b>Altura:</b> 3m</p>
                                     <p><b>Volume máx:</b> 5m3</p>
                                     <p><b>Código sensor:</b> EW919VM</p>
 
                                 </div>
                                 <div class="acoes-tolva">
-                                    <button class="btn-editar" onclick="window.location.href='dashboard-edicao-tolvas.html'">Editar</button>
+                                    <button class="btn-editar"
+                                        onclick="window.location.href='dashboard-edicao-tolvas.html'">Editar</button>
                                     <button class="btn-excluir">Excluir</button>
                                 </div>
 
@@ -104,7 +139,7 @@
                             <div class="card-tolva">
                                 <div class="info-tolva">
                                     <p><b>ID: 2</b></p>
-                                   
+
                                     <p><b>Altura:</b> 4m</p>
                                     <p><b>Volume máx:</b> 10m3</p>
                                     <p><b>Código sensor:</b> 34RXGHJ</p>
@@ -118,7 +153,7 @@
                             <div class="card-tolva">
                                 <div class="info-tolva">
                                     <p><b>ID: 3</b></p>
-                                  
+
                                     <p><b>Altura:</b> 6m</p>
                                     <p><b>Volume máx:</b> 14m3</p>
                                     <p><b>Código sensor:</b> VJCLBJ3</p>
@@ -129,10 +164,10 @@
                                     <button class="btn-excluir">Excluir</button>
                                 </div>
                             </div>
-                             <div class="card-tolva">
+                            <div class="card-tolva">
                                 <div class="info-tolva">
                                     <p><b>ID: 4</b></p>
-                                  
+
                                     <p><b>Altura:</b> 1.50m</p>
                                     <p><b>Volume máx:</b> 1m3</p>
                                     <p><b>Código sensor:</b> FD56LC0</p>
@@ -143,40 +178,7 @@
                                     <button class="btn-excluir">Excluir</button>
                                 </div>
                             </div>
-                            
-<details>
-                            <summary class="tolvas_cadastradas">Cadastrar Nova Tolva</summary>
 
-
-                            <label for="ipt_tolva">
-                                Descreva os dados da Tolva (Imutável) :
-                            </label>
-                            <input type="text" id="ipt_tolva" value="Tolva 5" disabled>
-
-                            <label for="ipt_sensor">Sensor:</label>
-                            <select id="ipt_sensor">
-                                <option value="" disabled selected>
-                                    Selecione o Sensor associado
-                                </option>
-                                <option value="1" selected>Sensor - EW919VM</option>
-                                 <option value="2">Sensor - 34RXGHJ</option>
-                                 <option value="2">Sensor - VJCLBJ3</option>
-                                <option value="2">Sensor - FD56LC0</option>
-                            </select>
-                            <label for="ipt_altura">
-                                Altura da tolva (m):
-                            </label>
-                            <input id="ipt_altura">
-
-                            <label for="ipt_capacidade">
-                                Capacidade máxima de Volume da tolva (m3):
-                            </label>
-                            <input id="ipt_capacidade">
-
-                            <div class="btn-gustavo">
-                                <button>Confirmar Cadastro</button>
-                            </div>
-                        </details>
                         </div>
 
                     </div>
