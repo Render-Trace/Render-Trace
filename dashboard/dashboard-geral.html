@@ -192,13 +192,8 @@
 
                                 <div class="legendas-grafico-2">
                                     <div class="linha-legenda alerta-ociosidade">
-                                        <div class="dados-legenda"><strong>65min</strong><span>20%</span></div>
+                                        <div class="dados-legenda"><strong>130min</strong><span>40%</span></div>
                                         <h4>Ociosidade</h4>
-                                    </div>
-                                   
-                                    <div class="linha-legenda alerta-atencao">
-                                        <div class="dados-legenda"><strong>65min</strong><span>20%</span></div>
-                                        <h4>Atenção</h4>
                                     </div>
                                    
                                     <div class="linha-legenda alerta-sobrecarga">
@@ -253,30 +248,30 @@
                     <div class="card-relatorio">
 
                         <div class="linha-titulo">
-                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span> <span>Alertas atenção</span>
-                            <span>Alertas sobrecarga</span> <span>Alertas totais</span>
+                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span>
+                            <span>Alertas de Sobrecarga</span> <span>Alertas totais</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>18/10</span> <span>3</span> <span>1</span> <span>2</span> <span>6</span>
+                            <span>18/10</span> <span>4</span>  <span>2</span> <span>6</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>19/10</span> <span>5</span> <span>4</span> <span>3</span> <span>12</span>
+                            <span>19/10</span> <span>5</span>  <span>7</span> <span>12</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>20/10</span> <span>3</span> <span>1</span> <span>4</span> <span>8</span>
+                            <span>20/10</span> <span>3</span><span>5</span> <span>8</span>
 
                         </div>
                         <div class="linha-relatorio">
-                            <span>21/10</span> <span>1</span> <span>3</span> <span>4</span> <span>8</span>
+                            <span>21/10</span> <span>4</span><span>4</span> <span>8</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>22/10</span> <span>2</span> <span>1</span> <span>1</span> <span>4</span>
+                            <span>22/10</span> <span>2</span> <span>2</span> <span>4</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>23/10</span> <span>2</span> <span>3</span> <span>4</span> <span>9</span>
+                            <span>23/10</span> <span>2</span> <span>4</span> <span>6</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span> <span>0</span>
+                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span>
                         </div>
 
                     </div>
@@ -392,19 +387,19 @@
             datasets: [
                 {
                     label: 'Manhã (00:00 às 11:59)',
-                    data: [2, 4, 2, 3, 0, 3, 0],
+                    data: [2, 4, 2, 3, 0, 2, 0],
                     backgroundColor: '#134A56',
                     borderWidth: 0
                 },
                 {
                     label: 'Tarde (12:00 às 17:59)',
-                    data: [3, 4, 4, 3, 4, 2, 0],
+                    data: [3, 4, 4, 3, 4, 4, 0],
                     backgroundColor: '#6AD2E8',
                     borderWidth: 0
                 },
                 {
                     label: 'Noite (18:00 à 23:59)',
-                    data: [1, 4, 2, 2, 0, 4, 0],
+                    data: [1, 4, 2, 2, 0, 0, 0],
                     backgroundColor: '#0EAFD0',
                     borderWidth: 1
 
@@ -468,8 +463,8 @@
         data: {
             labels: ['Ocupado', 'Disponível'],
             datasets: [{
-                data: [60, 20, 20],
-                backgroundColor: ['#D02A2D', '#666', '#FFA246'],
+                data: [194, 130],
+                backgroundColor: ['#D02A2D', '#666'],
                 borderWidth: 0
             }]
         },

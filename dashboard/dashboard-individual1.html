@@ -209,33 +209,33 @@
 
                         <canvas id="grafico_alerta"></canvas>
                     </div>
-                    <div class="card-relatorio">
+                   <div class="card-relatorio">
 
                         <div class="linha-titulo">
-                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span> <span>Alertas atenção</span>
-                            <span>Alertas sobrecarga</span> <span>Alertas totais</span>
+                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span> 
+                            <span>Alertas de Sobrecarga</span> <span>Alertas totais</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>18/10</span> <span>2</span> <span>1</span> <span>0</span> <span>3</span>
+                            <span>18/10</span> <span>1</span>  <span>0</span> <span>1</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>19/10</span> <span>0</span> <span>4</span> <span>3</span> <span>7</span>
+                            <span>19/10</span> <span>0</span>  <span>2</span> <span>2</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>20/10</span> <span>1</span> <span>2</span> <span>0</span> <span>3</span>
+                            <span>20/10</span> <span>0</span> <span>1</span> <span>1</span>
 
                         </div>
                         <div class="linha-relatorio">
-                            <span>21/10</span> <span>0</span> <span>3</span> <span>2</span> <span>5</span>
+                            <span>21/10</span> <span>0</span>  <span>0</span> <span>0</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>22/10</span> <span>0</span> <span>1</span> <span>0</span> <span>1</span>
+                            <span>22/10</span> <span>1</span> <span>0</span> <span>1</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>23/10</span> <span>1</span> <span>0</span> <span>1</span> <span>2</span>
+                            <span>23/10</span> <span>1</span> <span>1</span> <span>2</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span> <span>0</span>
+                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span>
                         </div>
 
                     </div>
@@ -277,10 +277,11 @@
             const { ctx, chartArea } = chart;
 
             const itens = [
-                { texto: '85% Estado Crítico', cor: '#FF0004' },
-                { texto: '70% Estado Alerta', cor: '#FF8000' },
-                { texto: '10% Limite Aceitável', cor: '#7ED957' },
-                { texto: 'Leitura Capturada', cor: '#164636' }
+               {texto: '>= 85% Sobrecarga', cor: '#FF0004'},
+                {texto: ' >= 70% Atenção', cor: '#FF8000'},
+                {texto: ' >= 10% Normal', cor: '#7ED957'},
+                {texto: ' < 10% Ociosidade', cor: '#747474'},
+                {texto: 'Leitura', cor: '#164636'}
             ];
 
             ctx.save();
@@ -475,19 +476,19 @@
             datasets: [
                 {
                     label: 'Manhã (00:00 às 11:59)',
-                    data: [2, 3, 1, 1, 0, 1, 0],
+                    data: [1, 0, 0, 0, 0, 1, 0],
                     backgroundColor: '#134A56',
                     borderWidth: 0
                 },
                 {
                     label: 'Tarde (12:00 às 17:59)',
-                    data: [1, 2, 2, 3, 1, 1, 0],
+                    data: [0, 0, 1, 0, 1, 1, 0],
                     backgroundColor: '#6AD2E8',
                     borderWidth: 0
                 },
                 {
                     label: 'Noite (18:00 à 23:59)',
-                    data: [0, 2, 0, 1, 0, 0, 0],
+                    data: [0, 2, 0, 0, 0, 0, 0],
                     backgroundColor: '#0EAFD0',
                     borderWidth: 1
 
@@ -535,7 +536,7 @@
 
                 y: {
                     min: 0,
-                    max: 8,
+                    max: 4,
                     beginAtZero: true,
                     ticks: {
                         stepSize: 1

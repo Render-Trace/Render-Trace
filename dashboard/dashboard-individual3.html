@@ -122,10 +122,10 @@
                                 <div class="card-estado">
                                     <p>Alertas Disparados (hoje)</p>
                                     <h3 id="h3_disparados">2</h3>
-                                    <h5>1 sobrecarga | 0 Ociosidade | 1 Atenção</h5>
+                                    <h5>1 sobrecarga | 0 Ociosidade</h5>
                                 </div>
                                 <div class="card-estado">
-                                    <p>Alerta Mais Crítico (hoje)</p>
+                                    <p>Alerta Mais Longa (hoje)</p>
                                     <h3 id="h3_maislongo"  style="color: #D02A2D;">55 min</h3>
                                     <h5><span>Sobrecarga</span> às 14:45</h5>
                                 </div>
@@ -188,9 +188,7 @@
                             <div class="linha-titulo">
                                 <span>Tipo de Alerta</span><span>Início</span><span>Fim</span><span>Duração</span>
                             </div>
-                            <div class="linha-relatorio">
-                                <span>Atenção</span><strong>13:00</strong><strong>17:00</strong><strong>240min</strong>
-                            </div>
+                            
                             <div class="linha-relatorio">
                                 <span>Sobrecarga</span><strong>14:45</strong><strong>15:40</strong><strong>55min</strong>
                             </div>
@@ -212,30 +210,30 @@
                     <div class="card-relatorio">
 
                         <div class="linha-titulo">
-                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span> <span>Alertas atenção</span>
+                            <span>Dia da semana</span> <span>Alertas de Ociosidade</span> 
                             <span>Alertas sobrecarga</span> <span>Alertas totais</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>18/10</span> <span>2</span> <span>1</span> <span>0</span> <span>3</span>
+                            <span>18/10</span> <span>1</span>  <span>2</span> <span>3</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>19/10</span> <span>0</span> <span>4</span> <span>3</span> <span>7</span>
+                            <span>19/10</span> <span>0</span>  <span>2</span> <span>2</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>20/10</span> <span>1</span> <span>2</span> <span>0</span> <span>3</span>
+                            <span>20/10</span> <span>2</span><span>1</span> <span>3</span>
 
                         </div>
                         <div class="linha-relatorio">
-                            <span>21/10</span> <span>0</span> <span>3</span> <span>2</span> <span>5</span>
+                            <span>21/10</span> <span>3</span>  <span>2</span> <span>5</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>22/10</span> <span>0</span> <span>1</span> <span>0</span> <span>1</span>
+                            <span>22/10</span> <span>1</span> <span>0</span> <span>1</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>23/10</span> <span>1</span> <span>0</span> <span>1</span> <span>2</span>
+                            <span>23/10</span> <span>0</span> <span>1</span> <span>1</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span> <span>0</span>
+                            <span>24/10</span> <span>0</span> <span>0</span> <span>0</span>
                         </div>
 
                     </div>
@@ -476,19 +474,19 @@
             datasets: [
                 {
                     label: 'Manhã (00:00 às 11:59)',
-                    data: [2, 3, 1, 1, 0, 1, 0],
+                    data: [1, 2, 0, 2, 0, 0, 0],
                     backgroundColor: '#134A56',
                     borderWidth: 0
                 },
                 {
                     label: 'Tarde (12:00 às 17:59)',
-                    data: [1, 2, 2, 3, 1, 1, 0],
+                    data: [1, 0, 2, 2, 1, 1, 0],
                     backgroundColor: '#6AD2E8',
                     borderWidth: 0
                 },
                 {
                     label: 'Noite (18:00 à 23:59)',
-                    data: [0, 2, 0, 1, 0, 0, 0],
+                    data: [1, 0, 1, 1, 0, 0, 0],
                     backgroundColor: '#0EAFD0',
                     borderWidth: 1
 
