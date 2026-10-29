@@ -109,12 +109,12 @@
                                 <div class="card-estado">
                                     <p>Estado de Operação Atual</p>
                                     <h3 id="h3_estado" style="color: #747474;">Ocioso</h3>
-                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                    <h5>Condição atual de operação</h5>
                                 </div>
                                 <div class="card-estado">
                                     <p>Tempo em Alerta Atual</p>
                                     <h3 id="h3_atual">24min</h3>
-                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                    <h5>Minutos acumulados em alerta</h5>
                                 </div>
                             </div>
 
@@ -190,6 +190,18 @@
                             </div>
                             <div class="linha-relatorio">
                                 <span>Ociosidade</span><strong>17:46</strong><strong>--:--</strong><strong>24min</strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
                             </div>
                         </div>
 
@@ -287,7 +299,7 @@
             ctx.textBaseline = 'middle';
 
             let x = chartArea.left + 10;
-            const y = chartArea.top + 15;
+            const y = chartArea.top;
 
             itens.forEach(item => {
                 ctx.fillStyle = item.cor;
@@ -314,7 +326,7 @@
             labels: [
                 '00:00', '01:00', '02:00', '03:00', '04:00', '04:30',
                 '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '11:50',
-                '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00',
+                '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '17:46', '18:10', '19:00',
                 '20:00', '21:00', '22:00', '23:00'
             ],
             datasets: [{
@@ -322,7 +334,7 @@
                 data: [
                     30, 30, 30, 67, 54, 56,
                     60, 60, 65, 63, 50, 40, 43, 39,
-                    34, 20, 17, 13, 10, 6, 8, ,
+                    34, 20, 56, 43, 39, 20, 9, 8,
                     , , , 
                 ],
                 borderColor: '#164636',

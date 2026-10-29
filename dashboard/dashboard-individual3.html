@@ -109,19 +109,19 @@
                                 <div class="card-estado">
                                     <p>Estado de Operação Atual</p>
                                     <h3 id="h3_estado">Normal</h3>
-                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                    <h5>Condição atual de operação</h5>
                                 </div>
                                 <div class="card-estado">
                                     <p>Tempo em Alerta Atual</p>
                                     <h3 id="h3_atual" style="color: #7ED957;;">Sem Alerta</h3>
-                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                    <h5>Minutos acumulados em alerta</h5>
                                 </div>
                             </div>
 
                             <div class="cards-direita">
                                 <div class="card-estado">
                                     <p>Alertas Disparados (hoje)</p>
-                                    <h3 id="h3_disparados">2</h3>
+                                    <h3 id="h3_disparados">1</h3>
                                     <h5>1 sobrecarga | 0 Ociosidade</h5>
                                 </div>
                                 <div class="card-estado">
@@ -191,6 +191,19 @@
                             
                             <div class="linha-relatorio">
                                 <span>Sobrecarga</span><strong>14:45</strong><strong>15:40</strong><strong>55min</strong>
+                            </div>
+
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
                             </div>
                         </div>
 
@@ -288,7 +301,7 @@
             ctx.textBaseline = 'middle';
 
             let x = chartArea.left + 10;
-            const y = chartArea.top + 15;
+            const y = chartArea.top;
 
             itens.forEach(item => {
                 ctx.fillStyle = item.cor;
@@ -315,7 +328,7 @@
             labels: [
                 '00:00', '01:00', '02:00', '03:00', '04:00', '04:30',
                 '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '11:50',
-                '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00',
+                '12:00', '13:00', '14:00', '14:45', '15:10', '15:40', '18:10', '19:00',
                 '20:00', '21:00', '22:00', '23:00'
             ],
             datasets: [{
@@ -323,7 +336,7 @@
                 data: [
                     30, 30, 30,40, 50, 59,
                     67, 63, 60, 54, 51, 50, 64, 66,
-                    60, 69, 80, 92, 80, 72, 65, ,
+                    60, 69, 80, 86, 89, 84, 65, ,
                     , , , 
                 ],
                 borderColor: '#164636',

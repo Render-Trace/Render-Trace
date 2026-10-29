@@ -205,12 +205,12 @@
 
                                 <div class="legendas-grafico-2">
                                     <div class="linha-legenda alerta-ociosidade">
-                                        <div class="dados-legenda"><strong>130min</strong><span>40%</span></div>
+                                        <div class="dados-legenda"><strong>128min</strong><span>40%</span></div>
                                         <h4>Ociosidade</h4>
                                     </div>
 
                                     <div class="linha-legenda alerta-sobrecarga">
-                                        <div class="dados-legenda"><strong>194min</strong><span>60%</span></div>
+                                        <div class="dados-legenda"><strong>191min</strong><span>60%</span></div>
                                         <h4>Sobrecarga</h4>
                                     </div>
 
@@ -238,10 +238,13 @@
                                     <span>2</span><strong>Tolva 2</strong><strong>100min</strong>
                                 </div>
                                 <div class="linha-relatorio">
-                                    <span>3</span><strong>Tolva 3</strong><strong>80min</strong>
+                                    <span>3</span><strong>Tolva 3</strong><strong>55min</strong>
                                 </div>
                                 <div class="linha-relatorio">
                                     <span>4</span><strong>Tolva 4</strong><strong>24min</strong>
+                                </div>
+                                <div class="linha-relatorio">
+                                    <span> </span><strong> </strong><strong> </strong>
                                 </div>
                             </div>
 
@@ -345,7 +348,7 @@
 
             ctx.font = 'bold 38px Poppins';
             ctx.fillStyle = '#000000';
-            ctx.fillText('324min', centroX, centroY - 95);
+            ctx.fillText('319min', centroX, centroY - 95);
 
             ctx.font = 'Bold 20px Poppins';
             ctx.fillStyle = '#000000';
@@ -476,7 +479,7 @@
         data: {
             labels: ['Sobrecarga', 'Ociosidade'],
             datasets: [{
-                data: [194, 130],
+                data: [191, 128],
                 backgroundColor: ['#D02A2D', '#666'],
                 borderWidth: 0
             }]

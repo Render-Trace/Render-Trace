@@ -289,7 +289,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    min-height: 25px;
+    height: 40px;
     border-bottom: 1px solid var(--cor-primaria);
     font-size: 13px;
     white-space: nowrap;

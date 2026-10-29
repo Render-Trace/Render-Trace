@@ -109,12 +109,12 @@
                                 <div class="card-estado">
                                     <p>Estado de Operação Atual</p>
                                     <h3 id="h3_estado">Normal</h3>
-                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                    <h5>Condição atual de operação</h5>
                                 </div>
                                 <div class="card-estado">
                                     <p>Tempo em Alerta Atual</p>
                                     <h3 id="h3_atual" style="color: #7ED957;;">Sem Alerta</h3>
-                                    <h5>Monitoramento contínuo em tempo real</h5>
+                                    <h5>Minutos acumulados em alerta</h5>
                                 </div>
                             </div>
 
@@ -193,6 +193,15 @@
                             </div>
                             <div class="linha-relatorio">
                                 <span>Ociosidade</span><strong>11:50</strong><strong>12:50</strong><strong>60min</strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
+                            </div>
+                            <div class="linha-relatorio">
+                                <span> </span><strong> </strong><strong> </strong><strong> </strong>
                             </div>
                         </div>
 
@@ -290,7 +299,7 @@
             ctx.textBaseline = 'middle';
 
             let x = chartArea.left + 10;
-            const y = chartArea.top + 15;
+            const y = chartArea.top;
 
             itens.forEach(item => {
                 ctx.fillStyle = item.cor;
@@ -317,15 +326,15 @@
             labels: [
                 '00:00', '01:00', '02:00', '03:00', '04:00',
                 '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '11:50',
-                '12:50', '13:00', '14:00', '15:00', '16:30', '17:00', '17:50', '18:00', '19:00',
+                '12:00', '12:50', '14:00', '15:00', '16:30', '17:00', '17:50', '18:10', '19:00',
                 '20:00', '21:00', '22:00', '23:00'
             ],
             datasets: [{
                 label: 'Leitura Capturada',
                 data: [
                     30, 30, 30, 30, 30, 45,
-                    60, 65, 60, 30, 30, 30, 5, 10,
-                    15, 59, 84, 90, 89, 85, 50, ,
+                    60, 65, 60, 30, 30, 30, 9, 5,
+                    10, 59, 70, 86, 89, 85, 50, ,
                     , , , 
                 ],
                 borderColor: '#164636',
@@ -536,7 +545,7 @@
 
                 y: {
                     min: 0,
-                    max: 4,
+                    max: 8,
                     beginAtZero: true,
                     ticks: {
                         stepSize: 1
