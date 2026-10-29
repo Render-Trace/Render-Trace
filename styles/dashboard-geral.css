@@ -25,18 +25,18 @@
 
 .kpi-row {
     display: flex;
-    justify-content: flex-start;
-    column-gap: 20px;
+    justify-content: space-around;
     margin-bottom: 16px;
     width: 100%;
+    column-gap: 10px;
 }
 
 .kpi {
     background-color: #FFFFFF;
-    width: 33%px;
+    width: 30%;
     height: 130px;
     border-radius: 15px;
-    text-align: start;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -508,7 +508,7 @@
     align-self: flex-start;
     
     height: -40px;
-    width: 45%;
+    width: 100%;
     border-radius: 13px;
     margin-top: 12px;
     border-bottom: solid 3px var(--cor-verde-escuro);
