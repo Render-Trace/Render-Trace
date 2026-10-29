@@ -17,16 +17,23 @@
     background-color: #E3EBE2;
 }
 
+.indicadores-gerais {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
 .kpi-row {
     display: flex;
     justify-content: flex-start;
     column-gap: 20px;
     margin-bottom: 16px;
+    width: 100%;
 }
 
 .kpi {
     background-color: #FFFFFF;
-    width: 280px;
+    width: 33%px;
     height: 130px;
     border-radius: 15px;
     text-align: start;
@@ -36,33 +43,12 @@
     padding: 15px;
     border-bottom: solid 3px;
 }
-.kpi1 {
-    background-color: #FFFFFF;
-    width: 140px;
-    height: 130px;
-    border-radius: 15px;
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 15px;
-    border-bottom: solid 3px;
-}
+
 
 .kpi-titulo {
     color: var(--cor-secundária);
     font-weight: bold;
-    font-size: 15px;
-}
-
-
-.kpi-titulo1 {
-   
     font-size: 14px;
-    font-weight: bold;
-    line-height: 15px;
-    width: 140px;
-    
 }
 
 .kpi-info {
@@ -70,14 +56,6 @@
     color: white;
     font-weight: bold;
     
-}
-.kpi-info1 {
-   
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 1.0;
-    align-self: center;
-
 }
 
 
@@ -231,6 +209,7 @@
  .titulo-metrica {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
 
     background-color: var(--cor-verde-escuro);
     color: var(--cor-branca);
@@ -242,7 +221,7 @@
 .card-metrica-cinza {
     background-color: #747474;
     padding: 20px;
-    width: 145px;
+    width: 25%;
     height: 71px;
 
     display: flex;
@@ -255,7 +234,7 @@
 .card-metrica-verde {
     background-color: #7ED957;
     padding: 10px 15px;
-    width: 145px;
+    width: 25%;
     height: 71px;
 
     display: flex;
@@ -267,7 +246,7 @@
 .card-metrica-laranja {
     background-color: #FFA246;
     padding: 10px 15px;
-    width: 145px;
+    width: 25%;
     height: 71px;
 
     display: flex;
@@ -279,27 +258,13 @@
 .card-metrica-vermelho {
     background-color: #D02A2D;
     padding: 10px 15px;
-    width: 145px;
+    width: 25%;
     height: 71px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.grafico-metrica {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-
-    height: 110px;
-    width: 95%;
-    border-radius: 13px;
-
-    overflow: hidden;
-    border-bottom: solid 3px var(--cor-verde-escuro);
-
 }
 
 .metricas {
@@ -324,7 +289,7 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    width: 50%;
+    width: 100%;
     min-width: 0;
     gap: 12px 18px;
 }
@@ -452,7 +417,7 @@
 
 .area-grafico-2 {
     box-sizing: border-box;
-    width: 545px;
+    width: 50%;
     height: 350px;
     border-radius: 34px;
     padding: 18px 24px;
@@ -462,7 +427,7 @@
 }
 
 .grafico-cabecalho h3 {
-    font-size: 23px;
+    font-size: 20px;
     line-height: 0.75;
     color: #080808;
     height: 40px;
@@ -537,4 +502,28 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 12px;
+}
+
+.grafico-metrica {
+    align-self: flex-start;
+    
+    height: -40px;
+    width: 45%;
+    border-radius: 13px;
+    margin-top: 12px;
+    border-bottom: solid 3px var(--cor-verde-escuro);
+    overflow: hidden;
+    margin-bottom: 12px;
+
+}
+
+.botao-metrica {
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-metrica:hover {
+    transform: scale(1.1);
 }
