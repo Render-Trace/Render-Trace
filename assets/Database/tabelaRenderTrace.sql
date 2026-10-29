@@ -2,9 +2,9 @@ CREATE DATABASE rendertrace;
 
 USE rendertrace;
 
-CREATE USER 'user_insert'@'_gateway';
+CREATE USER 'user_insert'@'%';
 
-GRANT UPDATE ON rendertrace.leitura TO 'user_insert'@'_gateway';
+GRANT UPDATE ON rendertrace.leitura TO 'user_insert'@'%';
 
 FLUSH PRIVILEGES;
 
@@ -53,10 +53,10 @@ CREATE TABLE sensor (
     dt_manutencao DATE NOT NULL,
     dt_instalacao DATE NOT NULL,
     fk_tolva INT NOT NULL,
-    fk_empresa INT NOT NULL,
-    CONSTRAINT fk_tolva_sensor FOREIGN KEY (fk_tolva , fk_empresa)
+    fk_tolva_empresa INT NOT NULL,
+    CONSTRAINT fk_tolva_sensor FOREIGN KEY (fk_tolva , fk_tolva_empresa)
         REFERENCES tolva (id , fk_empresa),
-    CONSTRAINT uk_sensor_tolva UNIQUE (fk_tolva , fk_empresa)
+    CONSTRAINT uk_sensor_tolva UNIQUE (fk_tolva , fk_tolva_empresa)
 );
 
 CREATE TABLE leitura (
@@ -94,8 +94,14 @@ insert into tolva values
 (1, 600, 14, 3), -- Grande porte
 (1, 150, 1, 4); -- Pequeno porte;
 
-insert into sensor(codigo, status_sensor, dt_manutencao, dt_instalacao, fk_tolva, fk_empresa) values
+insert into sensor(codigo, status_sensor, dt_manutencao, dt_instalacao, fk_tolva, fk_tolva_empresa) values
 ('EW919VM', 1, '2026-09-22', '2026-09-22', 1, 1),
-('34RXGHJ', 0, '2026-03-12', '2026-03-12', 2, 1),
+('34RXGHJ', 1, '2026-03-12', '2026-03-12', 2, 1),
 ('VJCLBJ3', 1, '2026-09-10', '2026-09-10', 3, 1),
 ('FD56LC0', 1, '2026-11-02', '2026-11-02', 4, 1);
+
+insert into sensor(codigo, status_sensor, dt_manutencao, dt_instalacao, fk_tolva, fk_tolva_empresa) values
+('AV619VH', 1, '2026-09-22', '2026-09-22', 1, 2),
+('CH3XGHI', 0, '2026-03-12', '2026-03-12', 2, 2),
+('89LLBJP', 1, '2026-09-10', '2026-09-10', 1, 3),
+('IO56H74', 1, '2026-11-02', '2026-11-02', 1, 4);
