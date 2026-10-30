@@ -4,7 +4,7 @@ USE rendertrace;
 
 CREATE USER 'user_insert'@'%';
 
-GRANT UPDATE ON rendertrace.leitura TO 'user_insert'@'%';
+GRANT INSERT ON rendertrace.leitura TO 'user_insert'@'%';
 
 FLUSH PRIVILEGES;
 
@@ -105,3 +105,23 @@ insert into sensor(codigo, status_sensor, dt_manutencao, dt_instalacao, fk_tolva
 ('CH3XGHI', 0, '2026-03-12', '2026-03-12', 2, 2),
 ('89LLBJP', 1, '2026-09-10', '2026-09-10', 1, 3),
 ('IO56H74', 1, '2026-11-02', '2026-11-02', 1, 4);
+
+SHOW TABLES;
+
+SELECT * FROM leitura ORDER BY dt_leitura DESC LIMIT 10;
+
+SELECT s.codigo, t.id id_tolva, e.nome FROM sensor s 
+INNER JOIN tolva t ON s.fk_tolva = t.id AND s.fk_tolva_empresa = t.fk_empresa
+INNER JOIN empresa e ON t.fk_empresa = e.id
+ORDER BY e.nome;
+
+SELECT 
+    u.nome 'usuário',
+    u.email,
+    CASE
+        WHEN u.user_admin = 1 THEN 'Administrador'
+        ELSE 'Operário'
+    END AS cargo,
+    e.nome
+FROM usuario u INNER JOIN
+empresa e ON u.fk_empresa = e.id
