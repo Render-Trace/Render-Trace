@@ -78,6 +78,8 @@
 </html>
 
 <script>
+    let tentativasRestantes = 3;
+
     function login() {
         let email = input_email.value
         let senha = input_senha.value
@@ -87,10 +89,16 @@
 
             setTimeout(() => {
                 window.location.href= 'dashboard/dashboard-geral.html'
-            }, 3000)
+            }, 2000)
 
-        } else if (email != 'leonardodias@email.com' || senha != 'Senha123') {
-            div_mensagem2.innerHTML = `<span style="color: brown;">Usuário ou senha inválidos, tente novamente!</span>`
+        } else {
+            tentativasRestantes--;
+            div_mensagem2.innerHTML = `<span style="color: brown;">Usuário ou senha inválidos. Restam ${tentativasRestantes} tentativa(s).</span>`
+
+            if (tentativasRestantes == 0) {
+                alert('Você atingiu o limite de 3 tentativas. Você será redirecionado para a página inicial.');
+                window.location.href = 'home.html';
+            }
         }
     }
 </script>
