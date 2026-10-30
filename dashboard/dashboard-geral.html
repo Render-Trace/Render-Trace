@@ -362,26 +362,52 @@
         data: {
             labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
             datasets: [{
-
-                data: [50, 86, 65, 8],
+             
+                
+                label: 'Normal',
+                data: [50, 0, 65, 0],
+                grouped: false,
                 borderWidth: 0,
                 borderRadius: 10,
                 backgroundColor: [
                     '#7ED957',
+
+                ],
+            },
+            {
+                label: 'Sobrecarga',
+                data: [0, 86, 0, 0],
+                grouped: false,
+                borderWidth: 0,
+                borderRadius: 10,
+                backgroundColor: [
+
                     '#D02A2D',
-                    '#7ED957',
+
+                ],
+            },
+            {
+                label: 'Ocioso',
+                data: [0, 0, 0, 8],
+                grouped: false,
+                borderWidth: 0,
+                borderRadius: 10,
+                backgroundColor: [
+
                     '#5D5D5D',
                 ],
-            }]
+            },
+            ]
         },
         options: {
 
-
             responsive: true,
             maintainAspectRatio: false,
+
             plugins: {
                 legend: {
-                    display: false
+                    display: true
+
                 },
                 title: {
                     display: true,
@@ -399,6 +425,9 @@
                 y: {
                     beginAtZero: true,
                     max: 100
+                },
+                x: {
+                    offset: true
                 }
             }
         }
