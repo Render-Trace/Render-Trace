@@ -362,7 +362,7 @@
         data: {
             labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
             datasets: [{
-                label: 'Ocupação atual das tolvas',
+
                 data: [50, 86, 65, 8],
                 borderWidth: 0,
                 borderRadius: 10,
@@ -376,16 +376,20 @@
         },
         options: {
 
+
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
+                legend: {
+                    display: false
+                },
                 title: {
                     display: true,
                     text: 'Ocupação atual das tolvas',
                     align: 'start',
                     font: {
                         size: '24.2',
-                        weight: 'bold'
+                        weight: '900'
                     },
                     color: '#000'
                 }
