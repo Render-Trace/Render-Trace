@@ -14,7 +14,7 @@ CREATE TABLE empresa (
     cod_acesso_op CHAR(5) NOT NULL UNIQUE,
     nome VARCHAR(45) NOT NULL,
     cnpj CHAR(14) NOT NULL UNIQUE,
-    telefone VARCHAR(10) NOT NULL,
+    telefone VARCHAR(11) NOT NULL,
     email VARCHAR(60) NOT NULL UNIQUE,
     numero INT NOT NULL,
     logradouro VARCHAR(60) NOT NULL,
