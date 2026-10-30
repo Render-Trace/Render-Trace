@@ -104,9 +104,10 @@
                         <div class="grafico-metrica">
                             <div class="titulo-metrica">
                                 <p>Métrica de Estado da Tolva</p>
-                                <button class="botao-metrica" title="Ordem de criticidade: Sobrecarga - Ocioso - Atenção">
-                                          ?  
-                                    </button>
+                                <button class="botao-metrica"
+                                    title="Ordem de criticidade: Sobrecarga - Ocioso - Atenção">
+                                      ?  
+                                </button>
                             </div>
                             <div class="metricas">
                                 <div class="card-metrica-cinza">
@@ -142,11 +143,11 @@
 
                     <div class="kpi-row">
 
-                         <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Total de tolvas</span>
+                        <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Total de tolvas</span>
                             <span class="kpi-info" style="color: #000000;">4</span>
                             <span class="kpi-descricao" style="color: #000000;">Quantidade de tolvas da planta</span>
                         </span>
-                        
+
                         <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Tolvas em alerta
                                 atualmente</span>
                             <span class="kpi-info" style="color: #ff0004;">2</span>
@@ -159,7 +160,7 @@
                             <span class="kpi-descricao" style="color: #000000;">Estado mais grave no momento</span>
                         </span>
 
-                       
+
                     </div>
 
 
@@ -377,6 +378,18 @@
 
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Ocupação atual das tolvas',
+                    align: 'start',
+                    font: {
+                        size: '24.2',
+                        weight: 'bold'
+                    },
+                    color: '#000'
+                }
+            },
 
             scales: {
                 y: {
