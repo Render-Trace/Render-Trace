@@ -384,6 +384,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .titulo-metrica {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
 
     background-color: var(--cor-verde-escuro);
     color: var(--cor-branca);
@@ -468,6 +469,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 15px 20px;
     border-radius: 20px;
     
+}
+
+.botao-metrica {
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-metrica:hover {
+    transform: scale(1.1);
 }
 
 
