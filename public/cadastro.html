@@ -1,0 +1,183 @@
+    <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo-cadastro.png">
+    <title>Render Trace | Cadastro</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="lado-esquerdo">
+
+            <div class="logo-esquerda">
+                <a href="home.html"><img src="assets/images/logo-branca-cad.png" alt="Render Trace Logo"></a>
+            </div>
+
+            <div class="container-imagem-destaque">
+
+                <img src="assets/images/home.png" alt="imagem home" class="imagem-fundo-destaque">
+
+                <div class="tag-desconto">
+                    <p>Redução de prejuízos até</p>
+                    <div class="img-texto">
+                        <img src="assets/images/money.png" alt="">
+                        <span>25%</span>
+                    </div>
+                </div>
+                <div class="texto-login">
+                    <p>Já possui uma conta? <a href="login.html"><span>Fazer login</span></p></a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="lado-direito">
+
+            <div class="formulario">
+
+                <h1>Cadastro</h1>
+
+                <div class="campo">
+                    <label for="input_nome">Cód da Empresa</label>
+                    <input type="text" id="input_cod" value="B9II0">
+                </div>
+
+                <div class="campo">
+                    <label for="input_nome">Nome completo</label>
+                    <input type="text" id="input_nome" value="Leonardo Dias">
+                </div>
+
+                <div class="campo">
+                    <label for="input_email">E-mail</label>
+                    <input type="email" id="input_email" value="leonardodias@email.com">
+                </div>
+
+                <div class="campo">
+                    <label for="input_senha">Senha</label>
+                    <input type="password" onkeyup="verificar()" id="input_senha">
+                    <div class="mensagem-senha" id="div_mensagem_senha"></div>
+                </div>
+
+
+
+                <div class="campo">
+                    <label for="input_confirmarSenha">Confirmar senha</label>
+                    <input type="password" id="input_confirmarSenha">
+                </div>
+
+                <button onclick="cadastrarUsuario()">Cadastrar</button>
+                <div id="div_mensagem2"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    let codigos = ['28TSA', 'ZUI09', 'M60CA', 'HE7DN',
+        'B9II0', 'CQAJ4', '058AA', '1MP83'];
+
+    let criterios = 0;
+    function verificar() {
+        let senha = input_senha.value;
+        let tamanho = senha.length >= 8;
+        let maiusculas = senha != senha.toLowerCase();
+        let minusculas = senha != senha.toUpperCase();
+        criterios = 0;
+
+        if (tamanho) criterios++;
+        if (maiusculas) criterios++;
+        if (minusculas) criterios++;
+
+        if (criterios == 3) {
+            div_mensagem_senha.innerHTML = `Senha Forte!`
+        } else if (criterios == 2 && senha.length > 4) {
+            div_mensagem_senha.innerHTML = `Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+        } else if (criterios == 2) {
+            div_mensagem_senha.innerHTML = `Senha Fraca. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+        } else if (criterios == 1) {
+            div_mensagem_senha.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 1 critério de segurança
+        } else {
+            div_mensagem_senha.innerHTML = `Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // não atingiu nenhum critério de segurança  
+        }
+
+    }
+
+function cadastrarUsuario() {
+    let cod = input_cod.value;
+    let nome = input_nome.value;
+    let email = input_email.value;
+    let senha = input_senha.value;
+    let confirmarSenha = input_confirmarSenha.value;
+
+    let codigoValido = false;
+
+    for (let i = 0; i < codigos.length; i++) {
+        if (cod == codigos[i]) {
+            codigoValido = true;
+        }
+    }
+
+    if (codigoValido) {
+
+        if (nome != '') {
+
+            if (email.includes('@')) {
+
+                if (criterios == 3) {
+
+                    if (confirmarSenha == senha) {
+
+                        div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+                        div_mensagem_senha.innerHTML = '';
+
+                        input_cod.value = '';
+                        input_nome.value = '';
+                        input_email.value = '';
+                        input_senha.value = '';
+                        input_confirmarSenha.value = '';
+
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 3000);
+
+                    } else {
+                        div_mensagem2.innerHTML = '<span style="color: brown;">As senhas não são iguais!</span>';
+                    }
+
+                } else {
+                    div_mensagem2.innerHTML = '<span style="color: brown;">A senha precisa ser forte!</span>';
+                }
+
+            } else {
+                div_mensagem2.innerHTML = '<span style="color: brown;">Digite um e-mail válido!</span>';
+            }
+
+        } else {
+            div_mensagem2.innerHTML = '<span style="color: brown;">Digite o nome de usuário</span>';
+        }
+
+    } else {
+        div_mensagem2.innerHTML = '<span style="color: brown;">Digite um código válido!</span>';
+    }
+}
+
+
+
+</script>

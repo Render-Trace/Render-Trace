@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+    --cor-primaria: #1B4D3E;
+    --cor-secundária: #7ED957;
+    --cor-terciária: #F8FAFC;
+    --cor-verde-escuro: #164636;
+    --cor-branca: #fff;
+    scroll-behavior: smooth;
+}
+
+.lado-direito {
+    display: flex;
+    background-color: var(--cor-terciária);
+    width: 80%;
+    margin-left: 20%;
+    justify-content: center;
+}
+
+.informacao-usuario h1 {
+    align-self: center;
+    color: var(--cor-primaria);
+    margin: 40px;
+
+}
+
+.informacao-usuario {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.informacao-usuario label {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    color: #ccc;
+    margin: 13.2px;
+}
+
+.informacao-usuario input, select{
+    width: 1043px;
+    height: 38px;
+
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+
+    outline: none;
+    background-color: #f9f9f9;
+    color: #333;
+
+    color: #777;
+}
+
+#input_email, #select_cargo, #input_altura, #select_sensor, #input_capacidade {
+    color: black;
+}
+
+select {
+    appearance: none;
+    background-image: url("../assets/images/Sort-Down.svg");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 30px;
+
+    padding: 10px 40px 10px 15px;
+}
+
+
+.btn-info {
+    display: flex;
+    flex: row;
+    justify-content: space-between;
+}
+
+.informacao-usuario button {
+    color: white;
+
+    display: flex;
+    align-self: center;
+
+    border-radius: 20px;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.informacao-usuario button:hover{
+    transform: scale(1.02);
+    background-color: #174235;
+}
+
+#btn_cancelar {
+   background-color: #ccc; 
+}
+
+
+#btn_confirmar {
+    background-color: var(--cor-primaria);
+    font-size: 15px;
+}
+
