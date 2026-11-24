@@ -492,6 +492,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-bottom: 25px;
     background-color: var(--cor-branca);
     border-bottom: solid 3px var(--cor-verde-escuro);
+    height: 300px;
 }
 
 
