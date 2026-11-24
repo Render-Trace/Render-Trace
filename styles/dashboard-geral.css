@@ -343,6 +343,7 @@
     margin-top: 20px;
     background-color: var(--cor-branca);
     border-bottom: 3px solid var(--cor-primaria);
+    height: 300px;
 }
 
 .card-titulo {
