@@ -120,12 +120,12 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     div_mensagem2.innerHTML = `<span style="color: #164636;">Usuário logado com sucesso!<br>Redirecionando para a tela de dashboards...</span>`
 
                     setTimeout(function () {
-                        window.location = "/dashboard/geral.html";
+                        window.location = "/dashboard/dashboard-geral.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

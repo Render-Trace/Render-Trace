@@ -30,7 +30,7 @@
             <div class="itens-usuario">
                 <img src="../assets/images/pessoa.svg" alt="ícone pessoa">
                 <div class="itens-informacao">
-                    <h1>Leonardo Dias</h1>
+                    <h1 id="user-name">Leonardo Dias</h1>
                     <h2>Administrador</h2>
                     <h3>leonardodias@email.com</h3>
                 </div>
@@ -157,7 +157,8 @@
                         <span class="kpi"><span class="kpi-titulo" style="color: #00000099;">Tolva mais crítica
                                 atualmente</span>
                             <span class="kpi-info" style="color: #FF0004;">Tolva 2</span>
-                            <span class="kpi-descricao" style="color: #000000;">Sobrecarga agora | 86% de ocupação</span>
+                            <span class="kpi-descricao" style="color: #000000;">Sobrecarga agora | 86% de
+                                ocupação</span>
                         </span>
 
 
@@ -248,7 +249,7 @@
 
 
                     </div>
-                    
+
                     <div class="grafico-alerta">
                         <h3>Quantidade de alertas por turno (semana)</h3>
                         <div class="cabecalho-grafico">
@@ -305,6 +306,12 @@
 </html>
 
 <script>
+
+    let username = document.getElementById('user-name');
+
+    username.innerHTML = sessionStorage.NOME_USUARIO;
+
+    
 
     function mudarDashboard() {
         let tolva = select_tolva.value
@@ -363,8 +370,8 @@
         data: {
             labels: ['Tolva 1', 'Tolva 2', 'Tolva 3', 'Tolva 4'],
             datasets: [{
-             
-                
+
+
                 label: 'Normal',
                 data: [50, 0, 65, 0],
                 grouped: false,
@@ -457,7 +464,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false, 
+            maintainAspectRatio: false,
 
             plugins: {
                 legend: {
