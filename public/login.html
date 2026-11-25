@@ -46,7 +46,7 @@
                     <p>Esqueceu a senha?</p>
                 </div>
 
-                <button onclick="login()">Entrar</button>
+                <button onclick="entrar()">Entrar</button>
                 <div id="div_mensagem2"></div>
 
             </div>
@@ -80,18 +80,12 @@
 <script>
     let tentativasRestantes = 3;
 
-    function login() {
-        let email = input_email.value
-        let senha = input_senha.value
+    function entrar() {
 
-        if (email == 'leonardodias@email.com' && senha == 'Senha123') {
-            div_mensagem2.innerHTML = `<span style="color: #164636;">Usuário logado com sucesso!<br>Redirecionando para a tela de dashboards...</span>`
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
-            setTimeout(() => {
-                window.location.href= 'dashboard/dashboard-geral.html'
-            }, 1000)
-
-        } else {
+        if (emailVar == "" || senhaVar == "") {
             tentativasRestantes--;
             div_mensagem2.innerHTML = `<span style="color: brown;">Usuário ou senha inválidos. Restam ${tentativasRestantes} tentativa(s).</span>`
 
@@ -99,6 +93,56 @@
                 alert('Você atingiu o limite de 3 tentativas. Você será redirecionado para a página inicial.');
                 window.location.href = 'home.html';
             }
+            return false;
         }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    div_mensagem2.innerHTML = `<span style="color: #164636;">Usuário logado com sucesso!<br>Redirecionando para a tela de dashboards...</span>`
+
+                    setTimeout(function () {
+                        window.location = "/dashboard/geral.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 </script>
