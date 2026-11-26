@@ -89,10 +89,6 @@
 </html>
 
 <script>
-
-    // let codigos = ['28TSA', 'ZUI09', 'M60CA', 'HE7DN',
-    //     'B9II0', 'CQAJ4', '058AA', '1MP83'];
-
     let criterios = 0;
 
 
@@ -103,7 +99,6 @@
     let adm;
 
     function cadastrar() {
-        // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -118,26 +113,6 @@
         if (!verificacao) {
             return
         }
-
-        // Verificando se há algum campo em branco
-        // if (
-        //     nomeVar == "" ||
-        //     emailVar == "" ||
-        //     senhaVar == "" ||
-        //     confirmacaoSenhaVar == "" ||
-        //     codigoVar == ""
-        // ) {
-        //     cardErro.style.display = "block";
-        //     mensagem_erro.innerHTML =
-        //         "(Mensagem de erro para todos os campos em branco)";
-
-        //     finalizarAguardar();
-        //     return false;
-        // } else {
-        //     setInterval(sumirMensagem, 5000);
-        // }
-
-        // Verificando se o código de ativação é de alguma empresa cadastrada
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -168,15 +143,12 @@
                         window.location = "login.html";
                     }, "2000");
 
-                    // limparFormulario();
-                    // finalizarAguardar();
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
             });
 
         return false;
@@ -201,10 +173,6 @@
                 console.log(`#ERRO: ${resposta}`);
             });
     }
-
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none";
-    // }
 
     function verificarSenha() {
         let senha = input_senha.value;
@@ -262,10 +230,8 @@
                                 adm = 1
                                 break;
                             }else{
-                                // cardErro.style.display = "block";
-                                mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+                                div_mensagem2.innerHTML = "(Mensagem de erro para código inválido)";
                                 verificacao = false
-                                // finalizarAguardar();
                             }
                         }
 
@@ -293,62 +259,4 @@
 
     }
 
-    // function cadastrarUsuario() {
-    //     let cod = input_cod.value;
-    //     let nome = input_nome.value;
-    //     let email = input_email.value;
-    //     let senha = input_senha.value;
-    //     let confirmarSenha = input_confirmarSenha.value;
-
-    //     let codigoValido = false;
-
-    //     for (let i = 0; i < codigos.length; i++) {
-    //         if (cod == codigos[i]) {
-    //             codigoValido = true;
-    //         }
-    //     }
-
-    //     if (codigoValido) {
-
-    //         if (nome != '') {
-
-    //             if (email.includes('@')) {
-
-    //                 if (criterios == 3) {
-
-    //                     if (confirmarSenha == senha) {
-
-    //                         div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
-    //                         div_mensagem_senha.innerHTML = '';
-
-    //                         input_cod.value = '';
-    //                         input_nome.value = '';
-    //                         input_email.value = '';
-    //                         input_senha.value = '';
-    //                         input_confirmarSenha.value = '';
-
-    //                         setTimeout(() => {
-    //                             window.location.href = 'login.html';
-    //                         }, 3000);
-
-    //                     } else {
-    //                         div_mensagem2.innerHTML = '<span style="color: brown;">As senhas não são iguais!</span>';
-    //                     }
-
-    //                 } else {
-    //                     div_mensagem2.innerHTML = '<span style="color: brown;">A senha precisa ser forte!</span>';
-    //                 }
-
-    //             } else {
-    //                 div_mensagem2.innerHTML = '<span style="color: brown;">Digite um e-mail válido!</span>';
-    //             }
-
-    //         } else {
-    //             div_mensagem2.innerHTML = '<span style="color: brown;">Digite o nome de usuário</span>';
-    //         }
-
-    //     } else {
-    //         div_mensagem2.innerHTML = '<span style="color: brown;">Digite um código válido!</span>';
-    //     }
-    // }
 </script>
