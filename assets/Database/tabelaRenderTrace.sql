@@ -96,6 +96,7 @@ JOIN leitura l
     ON l.id = ult.ultimo_id
 ORDER BY t.fk_empresa, t.id;
 
+-- INFORMAÇÃO ATUAL SOBRE CADA TOLVA INDIVIDUALMENTE
 SELECT * FROM vw_infos_tolvas_individuais;
 
 CREATE VIEW vw_tolvas_geral AS
@@ -111,6 +112,7 @@ LEFT JOIN vw_infos_tolvas_individuais vit
     ON vit.fk_empresa = e.id
 GROUP BY e.id, e.nome;
 
+-- KPIs DASHBOARD GERAL
 SELECT * FROM vw_tolvas_geral;
 
 CREATE VIEW vw_alertas AS
@@ -169,6 +171,7 @@ GROUP BY empresa, id_tolva, codigo_sensor, estado_atual, id_episodio
 HAVING TIMESTAMPDIFF(MINUTE, MIN(dt_leitura), MAX(dt_leitura)) > 10
 ORDER BY inicio_alerta;
 
+-- ALERTAS POR TOLVA
 SELECT * FROM vw_alertas;
 
 CREATE VIEW vw_tempo_alerta_geral AS
@@ -178,6 +181,7 @@ SUM(CASE WHEN tipo_alerta = 'Ociosidade' THEN duracao_minutos ELSE 0 END) tempo_
 FROM vw_alertas
 GROUP BY id_empresa, empresa;
 
+-- GRÁFICO ROSQUINHA
 SELECT * FROM vw_tempo_alerta_geral;
 
 -- inserts
@@ -217,9 +221,10 @@ insert into sensor(codigo, status_sensor, dt_manutencao, dt_instalacao, fk_tolva
 ('89LLBJP', 1, '2026-09-10', '2026-09-10', 1, 3),
 ('IO56H74', 1, '2026-11-02', '2026-11-02', 1, 4);
 
-USE rendertrace;
-
-USE rendertrace;
+INSERT INTO leitura (distancia, fk_sensor) VALUES
+-- 1) Sensor 1 (Tolva 1, Empresa 1 | max 300):
+-- Episódio de Sobrecarga de 20 min (20:00 -> 20:20): dist 30 (90%) e dist 24 (92%)
+(30, 1);
 
 INSERT INTO leitura (distancia, dt_leitura, fk_sensor) VALUES
 -- 1) Sensor 1 (Tolva 1, Empresa 1 | max 300):
