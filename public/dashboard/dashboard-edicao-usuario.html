@@ -64,7 +64,7 @@
 
 
             <div class="itens-botao">
-                <button onclick="logout()">Desconectar</button>
+                <button onclick="limparSessao()">Desconectar</button>
             </div>
 
         </div>
@@ -83,13 +83,13 @@
                         <h1>Editar Usuário</h1>
 
                         <label for="input_nome">Nome:</label>
-                        <input type="text" id="input_nome" value="Leonardo Dias" disabled>
+                        <input type="text" id="input_nome" value="-" disabled>
 
                         <label for="input_email">Email:</label>
-                        <input type="text" id="input_email" value="leonardodias@email.com">
+                        <input type="text" id="input_email" value="-">
 
                         <label for="input_senha">Senha</label>
-                        <input type="text" id="input_senha" value="●●●●●●●●●●●" disabled>
+                        <input type="password" id="input_senha" value="-" disabled>
 
                         <label for="select_cargo">Cargo no Sistema</label>
                         <select id="select_cargo">
@@ -120,11 +120,18 @@
         input_nome.value = sessionStorage.EDITANDO_USUARIO_NOME
         input_email.value = sessionStorage.EDITANDO_USUARIO_EMAIL
         input_senha.value = sessionStorage.EDITANDO_USUARIO_SENHA
-        select_cargo.value = sessionStorage.EDITANDO_USUARIO_CARGO
 
-    }
+        if (sessionStorage.EDITANDO_USUARIO_CARGO != 1) {
+            select_cargo.value = 'Operador'
+        } else {
+            select_cargo.disabled = true
+        }
 
-    function logout() {
-        window.location.href = '../login.html'
+        if (sessionStorage.ID_USUARIO == sessionStorage.EDITANDO_USUARIO_ID) {
+            input_nome.disabled = false
+            input_senha.type = 'text'
+            input_senha.disabled = false
+        }
+
     }
 </script>

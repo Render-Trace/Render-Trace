@@ -16,7 +16,7 @@
     <title>Render Trace | Dashboard</title>
 </head>
 
-<body onload="atualizarFeed(); validarSessao(); zerandoInfosEdicao();">
+<body onload="atualizarFeed(); validarSessao();">
     <header>
         <div class="header-container">
             <a href="../index.html"><img src="../assets/images/logo-branca.svg" alt="Logo RenderTrace"></a>
@@ -64,7 +64,7 @@
 
 
             <div class="itens-botao">
-                <button onclick="logout()">Desconectar</button>
+                <button onclick="limparSessao()">Desconectar</button>
             </div>
 
         </div>
@@ -92,13 +92,6 @@
 
 </html>
 <script>
-    function logout() {
-        window.location.href='../login.html'
-    }
-
-    function excluir() {
-
-    }
 
     function atualizarFeed() {
         let idEmpresa = 1
@@ -157,23 +150,12 @@
         });
     }
 
-    function zerandoInfosEdicao() {
-        sessionStorage.EDITANDO_USUARIO_ID = null;
-        sessionStorage.EDITANDO_USUARIO_NOME = null;
-        sessionStorage.EDITANDO_USUARIO_EMAIL = null;
-        sessionStorage.EDITANDO_USUARIO_CARGO = null;
-        sessionStorage.EDITANDO_USUARIO_SENHA = null;
-    }
-
     function editarUsuario(idUsuario, nomeUsuario, emailUsuario, cargoUsuario, senhaUsuario) {
         sessionStorage.EDITANDO_USUARIO_ID = idUsuario;
         sessionStorage.EDITANDO_USUARIO_NOME = nomeUsuario;
         sessionStorage.EDITANDO_USUARIO_EMAIL = emailUsuario;
         sessionStorage.EDITANDO_USUARIO_CARGO = cargoUsuario;
-
-        if (cargoUsuario == 1) {
-            sessionStorage.EDITANDO_USUARIO_SENHA = senhaUsuario;
-        }
+        sessionStorage.EDITANDO_USUARIO_SENHA = senhaUsuario;
 
         window.location.href='dashboard-edicao-usuario.html';
     }

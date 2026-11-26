@@ -37,27 +37,24 @@
     font-weight: bold;
     text-align: left;
     color: #ccc;
-    margin: 13.2px;
+    margin-bottom: 6px;
 }
 
 .informacao-usuario input, select{
     width: 1043px;
-    height: 38px;
-
-    padding: 0 15px;
+    padding: 10px 15px;
     border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 16px;
 
     outline: none;
     background-color: #f9f9f9;
-    color: #333;
-
-    color: #777;
+    color: #1d1d1d;
+    margin-bottom: 18px;
 }
 
-#input_email, #select_cargo, #input_altura, #select_sensor, #input_capacidade {
-    color: black;
+.informacao-usuario input:disabled, select:disabled{
+    color: #1d1d1d85;
 }
 
 select {
