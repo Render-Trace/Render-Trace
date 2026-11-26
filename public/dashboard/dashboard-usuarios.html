@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="../css/usuarios-gerenciador.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo-cadastro.png">
 
+    <script src="../js/sessao.js"></script>
+
     <title>Render Trace | Dashboard</title>
 </head>
 
-<body>
-
+<body onload="atualizarFeed(); validarSessao(); zerandoInfosEdicao();">
     <header>
         <div class="header-container">
             <a href="../index.html"><img src="../assets/images/logo-branca.svg" alt="Logo RenderTrace"></a>
@@ -28,9 +29,9 @@
             <div class="itens-usuario">
                 <img src="../assets/images/pessoa.svg" alt="ícone pessoa">
                 <div class="itens-informacao">
-                    <h1>Leonardo Dias</h1>
-                    <h2>Administrador</h2>
-                    <h3>leonardodias@email.com</h3>
+                    <h1 id="b_usuario">-</h1>
+                    <h2 id="b_cargo">-</h2>
+                    <h3 id="b_email">-</h3>
                 </div>
             </div>
 
@@ -77,40 +78,9 @@
             <div class="lado-direito">
 
                 <div class="conteudo-direita">
-                    <div class="lista-usuarios">
+                    <div class="lista-usuarios" id="div_lista_usuarios">
                         <h1>Gerenciar Usuários</h1>
 
-                        <div class="usuario-card">
-                            <div class="user-sobre">
-                                <h3>Leonardo Dias (você)</h3>
-                                <p>Administrador</p>
-                            </div>
-                            <div class="user-btn">
-                                <button onclick="window.location.href='dashboard-edicao-usuario1.html'" id="btn_editar">Editar</button>
-                            </div>
-                        </div>
-
-                        <div class="usuario-card">
-                            <div class="user-sobre">
-                                <h3>Dayvid Cardoso</h3>
-                                <p>Operador</p>
-                            </div>
-                            <div class="user-btn">
-                                <button onclick="window.location.href='dashboard-edicao-usuario2.html'" id="btn_editar">Editar</button>
-                                <button onclick="excluir()" id="btn_excluir">Excluir</button>
-                            </div>
-                        </div>
-
-                        <div class="usuario-card">
-                            <div class="user-sobre">
-                                <h3>Luigi Santana</h3>
-                                <p>Administrador</p>
-                            </div>
-                            <div class="user-btn">
-                                <button onclick="window.location.href='dashboard-edicao-usuario3.html'" id="btn_editar">Editar</button>
-                                <button onclick="excluir()" id="btn_excluir">Excluir</button>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -128,5 +98,83 @@
 
     function excluir() {
 
+    }
+
+    function atualizarFeed() {
+        let idEmpresa = 1
+
+        fetch(`/usuarios/listar/${idEmpresa}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        let usuarioAtual = resposta[i]
+                        let cargo = ''
+
+                        if (usuarioAtual.user_admin == 1) {
+                            cargo = 'Administrador'
+                        } else {
+                            cargo = 'Operador'
+                        }
+
+                       div_lista_usuarios.innerHTML += `
+                        <div class="usuario-card" id='card_user_${usuarioAtual.id}'>
+                            <div class="user-sobre">
+                                <h3>${usuarioAtual.nome}</h3>
+                                <p>${cargo}</p>
+                            </div>
+                        </div>
+                        `
+
+                        let cardDoUsuario = document.getElementById(`card_user_${usuarioAtual.id}`)
+
+                        if (usuarioAtual.id == sessionStorage.ID_USUARIO) {
+                            cardDoUsuario.innerHTML += ` 
+                            <div class="user-btn">
+                                <button onclick="editarUsuario(${usuarioAtual.id}, '${usuarioAtual.nome}', '${usuarioAtual.email}', ${usuarioAtual.user_admin}, '${usuarioAtual.senha}' )" id="btn_editar">Editar</button>
+                            </div>
+                        `
+                        } else if (sessionStorage.CARGO_USUARIO == 1) {
+                            cardDoUsuario.innerHTML += ` 
+                            <div class="user-btn">
+                                <button onclick="editarUsuario(${usuarioAtual.id}, '${usuarioAtual.nome}', '${usuarioAtual.email}', ${usuarioAtual.user_admin}, '${usuarioAtual.senha}' )" id="btn_editar">Editar</button>
+                                <button onclick="excluir()" id="btn_excluir">Excluir</button>
+                            </div>
+                        `
+                        }    
+                    }
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function zerandoInfosEdicao() {
+        sessionStorage.EDITANDO_USUARIO_ID = null;
+        sessionStorage.EDITANDO_USUARIO_NOME = null;
+        sessionStorage.EDITANDO_USUARIO_EMAIL = null;
+        sessionStorage.EDITANDO_USUARIO_CARGO = null;
+        sessionStorage.EDITANDO_USUARIO_SENHA = null;
+    }
+
+    function editarUsuario(idUsuario, nomeUsuario, emailUsuario, cargoUsuario, senhaUsuario) {
+        sessionStorage.EDITANDO_USUARIO_ID = idUsuario;
+        sessionStorage.EDITANDO_USUARIO_NOME = nomeUsuario;
+        sessionStorage.EDITANDO_USUARIO_EMAIL = emailUsuario;
+        sessionStorage.EDITANDO_USUARIO_CARGO = cargoUsuario;
+
+        if (cargoUsuario == 1) {
+            sessionStorage.EDITANDO_USUARIO_SENHA = senhaUsuario;
+        }
+
+        window.location.href='dashboard-edicao-usuario.html';
     }
 </script>

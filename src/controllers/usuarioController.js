@@ -21,6 +21,8 @@ function autenticar(req, res) {
                         id: resultadoAutenticar[0].id,
                         email: resultadoAutenticar[0].email,
                         nome: resultadoAutenticar[0].nome,
+                        fk_empresa: resultadoAutenticar[0].fk_empresa,
+                        user_admin: resultadoAutenticar[0].user_admin,
                     });
                 } else if (resultadoAutenticar.length == 0) {
                     res.status(403).send("Email e/ou senha inválido(s)");
@@ -76,7 +78,42 @@ function cadastrar(req, res) {
     }
 }
 
+function listar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idEmpresa = req.params.idEmpresa;
+
+    // Faça as validações dos valores
+    if (idEmpresa == undefined) {
+        res.status(400).send("Você não está vinculado a uma empresa!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.listar(idEmpresa)
+            .then(
+                function (resultado) {
+
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum usuário encontrado!");
+                    }
+
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao listar os usuários! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    listar
 }

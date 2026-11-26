@@ -47,6 +47,7 @@ header {
     background-color: var(--cor-primaria);
     width: 20%;
     flex-direction: column;
+    align-items: center;
     top: 74px;
     bottom: 0px;
     position: fixed;
@@ -60,8 +61,9 @@ header {
     align-items: center;
     color: var(--cor-branca);
     padding: 24px 0px;
-    width: 100%;
-    gap: 10px;
+    width: 80%;
+    height: 100%;
+    row-gap: 24px;
 }
 
 .itens-usuario {
@@ -69,17 +71,20 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .itens-informacao {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 0 24px;
+    width: 100%;
 }
 
 .itens-usuario img {
     width: 120px;
+    align-self: center;
 }
 
 .itens-usuario h1 {
@@ -115,6 +120,7 @@ header {
     align-items: center;
     padding: 8px 25px;
     gap: 5px;
+    border-radius: 16px;
     cursor: pointer;
     color: var(--cor-branca);
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -138,7 +144,7 @@ header {
 .itens-botao {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: auto;
 }
 
 .itens-botao button {

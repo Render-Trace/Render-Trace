@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="../css/dashboard-tolvas.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo-cadastro.png">
 
+    <script src="../js/sessao.js"></script>
+
     <title>Render Trace | Dashboard</title>
 </head>
 
-<body>
+<body onload="validarSessao();">
     <header>
         <div class="header-container">
             <a href="../index.html"><img src="../assets/images/logo-branca.svg" alt="Logo RenderTrace"></a>
@@ -27,9 +29,9 @@
             <div class="itens-usuario">
                 <img src="../assets/images/pessoa.svg" alt="ícone pessoa">
                 <div class="itens-informacao">
-                    <h1>Leonardo Dias</h1>
-                    <h2>Administrador</h2>
-                    <h3>leonardodias@email.com</h3>
+                    <h1 id="b_usuario">-</h1>
+                    <h2 id="b_cargo">-</h2>
+                    <h3 id="b_email">-</h3>
                 </div>
             </div>
 

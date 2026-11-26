@@ -4,7 +4,7 @@ function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     // Busca também o rank para a Home mostrar os dados do usuário autenticado.
     var instrucaoSql = `
-        SELECT id, nome, email FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT id, nome, email, fk_empresa, user_admin FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -23,7 +23,17 @@ function cadastrar(nome, email, senha, fkEmpresa, adm) {
     return database.executar(instrucaoSql);
 }
 
+function listar(idEmpresa) {
+    var instrucaoSql =
+    `
+    SELECT * FROM usuario WHERE fk_empresa = ${idEmpresa}
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    listar
 };
