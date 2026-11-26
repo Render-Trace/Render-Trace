@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -11,7 +11,7 @@
     <title>Render Trace | Cadastro</title>
 </head>
 
-<body>
+<body onload="listar()">
 
     <div class="container">
 
@@ -64,7 +64,7 @@
 
                 <div class="campo">
                     <label for="input_senha">Senha</label>
-                    <input type="password" onkeyup="verificar()" id="input_senha">
+                    <input type="password" onkeyup="verificarSenha()" id="input_senha">
                     <div class="mensagem-senha" id="div_mensagem_senha"></div>
                 </div>
 
@@ -75,7 +75,7 @@
                     <input type="password" id="input_confirmarSenha">
                 </div>
 
-                <button onclick="cadastrarUsuario()">Cadastrar</button>
+                <button onclick="cadastrar()">Cadastrar</button>
                 <div id="div_mensagem2"></div>
 
             </div>
@@ -84,17 +84,129 @@
 
     </div>
 
-</body>
+    </body>
 
 </html>
 
 <script>
 
-    let codigos = ['28TSA', 'ZUI09', 'M60CA', 'HE7DN',
-        'B9II0', 'CQAJ4', '058AA', '1MP83'];
+    // let codigos = ['28TSA', 'ZUI09', 'M60CA', 'HE7DN',
+    //     'B9II0', 'CQAJ4', '058AA', '1MP83'];
 
     let criterios = 0;
-    function verificar() {
+
+
+    // Array para armazenar empresas cadastradas para validação de código de ativação 
+    let listaEmpresasCadastradas = [];
+    let verificacao;
+    var idEmpresaVincular;
+    let adm;
+
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_nome.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmarSenha.value;
+        var codigoVar = input_cod.value;
+        
+
+        verificarDados()
+        if (!verificacao) {
+            return
+        }
+
+        // Verificando se há algum campo em branco
+        // if (
+        //     nomeVar == "" ||
+        //     emailVar == "" ||
+        //     senhaVar == "" ||
+        //     confirmacaoSenhaVar == "" ||
+        //     codigoVar == ""
+        // ) {
+        //     cardErro.style.display = "block";
+        //     mensagem_erro.innerHTML =
+        //         "(Mensagem de erro para todos os campos em branco)";
+
+        //     finalizarAguardar();
+        //     return false;
+        // } else {
+        //     setInterval(sumirMensagem, 5000);
+        // }
+
+        // Verificando se o código de ativação é de alguma empresa cadastrada
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                idEmpresaVincularServer: idEmpresaVincular,
+                admServer: adm
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    // cardErro.style.display = "block";
+
+                    div_mensagem2.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    // Listando empresas cadastradas 
+    function listar() {
+        fetch("/empresas/listar", {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((empresas) => {
+                    empresas.forEach((empresa) => {
+                        listaEmpresasCadastradas.push(empresa);
+
+                        console.log("listaEmpresasCadastradas")
+                        console.log(listaEmpresasCadastradas[0])
+                    });
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none";
+    // }
+
+    function verificarSenha() {
         let senha = input_senha.value;
         let tamanho = senha.length >= 8;
         let maiusculas = senha != senha.toLowerCase();
@@ -119,22 +231,13 @@
 
     }
 
-function cadastrarUsuario() {
-    let cod = input_cod.value;
-    let nome = input_nome.value;
-    let email = input_email.value;
-    let senha = input_senha.value;
-    let confirmarSenha = input_confirmarSenha.value;
-
-    let codigoValido = false;
-
-    for (let i = 0; i < codigos.length; i++) {
-        if (cod == codigos[i]) {
-            codigoValido = true;
-        }
-    }
-
-    if (codigoValido) {
+    function verificarDados() {
+        let cod = input_cod.value;
+        let nome = input_nome.value;
+        let email = input_email.value;
+        let senha = input_senha.value;
+        let confirmarSenha = input_confirmarSenha.value;
+        var codigoVar = input_cod.value;
 
         if (nome != '') {
 
@@ -144,40 +247,108 @@ function cadastrarUsuario() {
 
                     if (confirmarSenha == senha) {
 
-                        div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
-                        div_mensagem_senha.innerHTML = '';
+                        for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
 
-                        input_cod.value = '';
-                        input_nome.value = '';
-                        input_email.value = '';
-                        input_senha.value = '';
-                        input_confirmarSenha.value = '';
-
-                        setTimeout(() => {
-                            window.location.href = 'login.html';
-                        }, 3000);
+                            if (listaEmpresasCadastradas[i].cod_acesso_op == codigoVar ) {
+                                idEmpresaVincular = listaEmpresasCadastradas[i].id
+                                console.log("Código de ativação válido.");
+                                verificacao = true
+                                adm = 0
+                                break;
+                            } else if(listaEmpresasCadastradas[i].cod_acesso_adm == codigoVar){
+                                idEmpresaVincular = listaEmpresasCadastradas[i].id
+                                console.log("Código de ativação válido.");
+                                verificacao = true
+                                adm = 1
+                                break;
+                            }else{
+                                // cardErro.style.display = "block";
+                                mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+                                verificacao = false
+                                // finalizarAguardar();
+                            }
+                        }
 
                     } else {
+                        verificacao = false
                         div_mensagem2.innerHTML = '<span style="color: brown;">As senhas não são iguais!</span>';
                     }
 
                 } else {
+                    verificacao = false
                     div_mensagem2.innerHTML = '<span style="color: brown;">A senha precisa ser forte!</span>';
                 }
 
             } else {
+                verificacao = false
                 div_mensagem2.innerHTML = '<span style="color: brown;">Digite um e-mail válido!</span>';
             }
 
         } else {
+            verificacao = false
             div_mensagem2.innerHTML = '<span style="color: brown;">Digite o nome de usuário</span>';
         }
 
-    } else {
-        div_mensagem2.innerHTML = '<span style="color: brown;">Digite um código válido!</span>';
+
+
     }
-}
 
+    // function cadastrarUsuario() {
+    //     let cod = input_cod.value;
+    //     let nome = input_nome.value;
+    //     let email = input_email.value;
+    //     let senha = input_senha.value;
+    //     let confirmarSenha = input_confirmarSenha.value;
 
+    //     let codigoValido = false;
 
+    //     for (let i = 0; i < codigos.length; i++) {
+    //         if (cod == codigos[i]) {
+    //             codigoValido = true;
+    //         }
+    //     }
+
+    //     if (codigoValido) {
+
+    //         if (nome != '') {
+
+    //             if (email.includes('@')) {
+
+    //                 if (criterios == 3) {
+
+    //                     if (confirmarSenha == senha) {
+
+    //                         div_mensagem2.innerHTML = '<span class="acerto">Cadastro realizado com sucesso!';
+    //                         div_mensagem_senha.innerHTML = '';
+
+    //                         input_cod.value = '';
+    //                         input_nome.value = '';
+    //                         input_email.value = '';
+    //                         input_senha.value = '';
+    //                         input_confirmarSenha.value = '';
+
+    //                         setTimeout(() => {
+    //                             window.location.href = 'login.html';
+    //                         }, 3000);
+
+    //                     } else {
+    //                         div_mensagem2.innerHTML = '<span style="color: brown;">As senhas não são iguais!</span>';
+    //                     }
+
+    //                 } else {
+    //                     div_mensagem2.innerHTML = '<span style="color: brown;">A senha precisa ser forte!</span>';
+    //                 }
+
+    //             } else {
+    //                 div_mensagem2.innerHTML = '<span style="color: brown;">Digite um e-mail válido!</span>';
+    //             }
+
+    //         } else {
+    //             div_mensagem2.innerHTML = '<span style="color: brown;">Digite o nome de usuário</span>';
+    //         }
+
+    //     } else {
+    //         div_mensagem2.innerHTML = '<span style="color: brown;">Digite um código válido!</span>';
+    //     }
+    // }
 </script>
