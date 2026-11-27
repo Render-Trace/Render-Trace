@@ -94,7 +94,7 @@
 <script>
 
     function atualizarFeed() {
-        let idEmpresa = 1
+        let idEmpresa = sessionStorage.ID_EMPRESA
 
         fetch(`/usuarios/listar/${idEmpresa}`).then(function (resposta) {
             if (resposta.ok) {
