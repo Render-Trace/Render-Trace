@@ -4,7 +4,7 @@ function validarSessao() {
     var nome = sessionStorage.NOME_USUARIO;
     var cargo = 'Operador'
 
-    if (sessionStorage.CARGO_USUARIO) {
+    if (sessionStorage.CARGO_USUARIO == 1) {
         cargo = 'Administrador'
     }
 
