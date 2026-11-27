@@ -12,13 +12,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
     <link rel="icon" type="image/x-icon" href="../assets/images/logo-cadastro.png">
-    
+
     <script src="../js/sessao.js"></script>
 
     <title>Render Trace | Dashboard</title>
 </head>
 
-<body onload="validarSessao();">
+<body onload="validarSessao(); carregarKpisTolva();">
 
     <header>
         <div class="header-container">
@@ -93,9 +93,9 @@
                     </div>
 
                     <div class="status-operacao">
-                        
 
-                        
+
+
                     </div>
 
                 </div>
@@ -104,7 +104,8 @@
 
                     <div class="coluna-esquerda">
 
-                        <p class="ultima-atualizacao"><strong>Última atualização:</strong> 18:10 - 23/10/2026</p>
+                        <p class="ultima-atualizacao" id="p_ultima_atualizacao"><strong>Última atualização:</strong> --
+                        </p>
 
                         <div class="card-kpisuperior">
                             <div class="cards-esquerda">
@@ -123,13 +124,13 @@
                             <div class="cards-direita">
                                 <div class="card-estado">
                                     <p>Alertas Disparados (hoje)</p>
-                                    <h3 id="h3_disparados">2</h3>
-                                    <h5>1 Sobrecarga | 1 Ociosidade</h5>
+                                    <h3 id="h3_disparados"></h3>
+                                    <h5 id="h5_disparados">0 Sobrecarga | 0 Ociosidade</h5>
                                 </div>
                                 <div class="card-estado">
                                     <p>Alerta Mais Longo (hoje)</p>
                                     <h3 id="h3_maislongo">80min</h3>
-                                    <h5><span>Sobrecarga</span> às 16:30</h5>
+                                    <h5 id="h5_maislongo"><span>--</span></h5>
                                 </div>
 
                             </div>
@@ -149,9 +150,10 @@
                         <div class="grafico-metrica">
                             <div class="titulo-metrica">
                                 <p>Métrica de Estado da Tolva</p>
-                                <button class="botao-metrica" title="Ordem de criticidade: Sobrecarga - Ocioso - Atenção">
-                                          ?  
-                                    </button>
+                                <button class="botao-metrica"
+                                    title="Ordem de criticidade: Sobrecarga - Ocioso - Atenção">
+                                      ?  
+                                </button>
                             </div>
                             <div class="metricas">
                                 <div class="card-metrica-cinza">
@@ -223,24 +225,24 @@
 
                         <canvas id="grafico_alerta"></canvas>
                     </div>
-                   <div class="card-relatorio">
+                    <div class="card-relatorio">
 
                         <div class="linha-titulo">
-                            <span>Data Analisada</span> <span>Alertas de Ociosidade</span> 
+                            <span>Data Analisada</span> <span>Alertas de Ociosidade</span>
                             <span>Alertas de Sobrecarga</span> <span>Alertas totais</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>18/10</span> <span>1</span>  <span>0</span> <span>1</span>
+                            <span>18/10</span> <span>1</span> <span>0</span> <span>1</span>
                         </div>
                         <div class="linha-relatorio">
-                            <span>19/10</span> <span>0</span>  <span>2</span> <span>2</span>
+                            <span>19/10</span> <span>0</span> <span>2</span> <span>2</span>
                         </div>
                         <div class="linha-relatorio">
                             <span>20/10</span> <span>0</span> <span>1</span> <span>1</span>
 
                         </div>
                         <div class="linha-relatorio">
-                            <span>21/10</span> <span>0</span>  <span>0</span> <span>0</span>
+                            <span>21/10</span> <span>0</span> <span>0</span> <span>0</span>
                         </div>
                         <div class="linha-relatorio">
                             <span>22/10</span> <span>1</span> <span>0</span> <span>1</span>
@@ -263,6 +265,75 @@
 
 </html>
 <script>
+   function carregarKpisTolva() {
+    var idEmpresa = sessionStorage.ID_EMPRESA;
+    var idTolva = document.getElementById("select_tolva").value;
+
+    if (idTolva == "visao_ampla") return;
+
+    fetch(`/tolvas/kpis/${idEmpresa}/${idTolva}`)
+        .then(function (resposta) {
+            if (resposta.ok) {
+                return resposta.json();
+            }
+            throw new Error("Sem dados para a tolva");
+        })
+        .then(function (dados) {
+            var infos = dados.infos;
+            var alertasHoje = dados.alertasHoje || {};
+            var alertaMaisLongo = dados.alertaMaisLongo;
+
+            // Última atualização
+            var data = new Date(infos.ultima_leitura);
+            var dataFmt = data.toLocaleString("pt-BR");
+            document.getElementById("p_ultima_atualizacao").innerHTML =
+                `<strong>Última atualização:</strong> ${dataFmt}`;
+
+            // Estado de Operação Atual
+            var perc = Number(infos.perc_cheia);
+            var estado = "Normal";
+            var cor = "#7ED957";
+            if (perc > 85) { estado = "Sobrecarga"; cor = "#FF0004"; }
+            else if (perc < 10) { estado = "Ociosidade"; cor = "#747474"; }
+
+            var h3Estado = document.getElementById("h3_estado");
+            h3Estado.innerHTML = estado;
+            h3Estado.style.color = cor;
+
+            // Tempo em Alerta Atual
+            var h3Atual = document.getElementById("h3_atual");
+            if (estado === "Normal") {
+                h3Atual.innerHTML = "Sem Alerta";
+                h3Atual.style.color = "#7ED957";
+            } else {
+                h3Atual.innerHTML = "Em alerta";
+                h3Atual.style.color = cor;
+            }
+
+            // Alertas Disparados (hoje/24h)
+            var total = alertasHoje.alertas_total ;
+            var sobrecarga = alertasHoje.alertas_sobrecarga ;
+            var ociosidade = alertasHoje.alertas_ociosidade ;
+            document.getElementById("h3_disparados").innerHTML = total;
+            document.getElementById("h5_disparados").innerHTML =
+                `${sobrecarga} Sobrecarga | ${ociosidade} Ociosidade`;
+
+            // Alerta Mais Longo (hoje/24h)
+            if (alertaMaisLongo) {
+                document.getElementById("h3_maislongo").innerHTML =
+                    `${alertaMaisLongo.duracao_minutos}min`;
+                document.getElementById("h5_maislongo").innerHTML =
+                    `${alertaMaisLongo.tipo_alerta} às ${alertaMaisLongo.inicio}`;
+            } else {
+                document.getElementById("h3_maislongo").innerHTML = "0min";
+                document.getElementById("h5_maislongo").innerHTML = "Sem alertas";
+            }
+        })
+        .catch(function (erro) {
+            console.log("Erro ao carregar KPIs:", erro);
+        });
+}
+
     function mudarDashboard() {
         let tolva = select_tolva.value
 
@@ -286,11 +357,11 @@
             const { ctx, chartArea } = chart;
 
             const itens = [
-               {texto: '>= 85% Sobrecarga', cor: '#FF0004'},
-                {texto: ' >= 70% Atenção', cor: '#FF8000'},
-                {texto: ' >= 10% Normal', cor: '#7ED957'},
-                {texto: ' < 10% Ociosidade', cor: '#747474'},
-                {texto: 'Leitura', cor: '#164636'}
+                { texto: '>= 85% Sobrecarga', cor: '#FF0004' },
+                { texto: ' >= 70% Atenção', cor: '#FF8000' },
+                { texto: ' >= 10% Normal', cor: '#7ED957' },
+                { texto: ' < 10% Ociosidade', cor: '#747474' },
+                { texto: 'Leitura', cor: '#164636' }
             ];
 
             ctx.save();
@@ -335,7 +406,7 @@
                     30, 30, 30, 30, 30, 45,
                     60, 65, 60, 30, 30, 30, 9, 5,
                     10, 59, 70, 86, 89, 85, 50, ,
-                    , , , 
+                    , , ,
                 ],
                 borderColor: '#164636',
                 backgroundColor: 'rgba(255, 0, 0, 0.2)',
@@ -508,18 +579,18 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false, 
+            maintainAspectRatio: false,
 
             plugins: {
                 legend: {
 
-                    
+
                     labels: {
                         boxWidth: 40,
                         boxHeight: 15,
                         font: {
                             size: 10.45
-                            
+
                         }
                     }
                 },

@@ -46,7 +46,8 @@ GROUP BY e.id, e.nome;
 SELECT * FROM vw_tolvas_geral;
 
 
--- // Tabela Histórico de Alertas, KPI Tempo em Alerta Atual (DASHBOARD INDIVIDUAL) - FIltrar pelo id_tolva e id_empresa // --
+-- -- // Tabela Histórico de Alertas, KPI Tempo em Alerta Atual (DASHBOARD INDIVIDUAL) - FIltrar pelo id_tolva e id_empresa // 
+--      esse não e o estado de operação atual --
 CREATE OR REPLACE VIEW vw_alertas AS
 WITH leituras_com_estado AS (
     SELECT 
