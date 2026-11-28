@@ -111,25 +111,25 @@
                             <div class="cards-esquerda">
                                 <div class="card-estado">
                                     <p>Estado de Operação Atual</p>
-                                    <h3 id="h3_estado">Normal</h3>
+                                    <h3 id="h3_estado">--</h3>
                                     <h5>Condição atual de operação</h5>
                                 </div>
                                 <div class="card-estado">
-                                    <p>Tempo em Alerta Atual</p>
-                                    <h3 id="h3_atual" style="color: #7ED957;;">Sem Alerta</h3>
-                                    <h5>Minutos acumulados em alerta</h5>
+                                    <p>Tempo Acumulado em Alerta</p>
+                                    <h3 id="h3_atual" style="color: #7ED957;;"></h3>
+                                    <h5 id="h5_atual">Minutos acumulados em alerta</h5>
                                 </div>
                             </div>
 
                             <div class="cards-direita">
                                 <div class="card-estado">
-                                    <p>Alertas Disparados (hoje)</p>
+                                    <p>Alertas Disparados (histórico)</p>
                                     <h3 id="h3_disparados"></h3>
                                     <h5 id="h5_disparados">0 Sobrecarga | 0 Ociosidade</h5>
                                 </div>
                                 <div class="card-estado">
-                                    <p>Alerta Mais Longo (hoje)</p>
-                                    <h3 id="h3_maislongo">80min</h3>
+                                    <p>Alerta Mais Longo (histórico)</p>
+                                    <h3 id="h3_maislongo"></h3>
                                     <h5 id="h5_maislongo"><span>--</span></h5>
                                 </div>
 
@@ -265,74 +265,125 @@
 
 </html>
 <script>
-   function carregarKpisTolva() {
-    var idEmpresa = sessionStorage.ID_EMPRESA;
-    var idTolva = document.getElementById("select_tolva").value;
+    function carregarKpisTolva() {
+        var idEmpresa = sessionStorage.ID_EMPRESA;
+        var idTolva = document.getElementById("select_tolva").value;
 
-    if (idTolva == "visao_ampla") return;
+        if (idTolva == "visao_ampla") return;
 
-    fetch(`/tolvas/kpis/${idEmpresa}/${idTolva}`)
-        .then(function (resposta) {
-            if (resposta.ok) {
-                return resposta.json();
-            }
-            throw new Error("Sem dados para a tolva");
-        })
-        .then(function (dados) {
-            var infos = dados.infos;
-            var alertasHoje = dados.alertasHoje || {};
-            var alertaMaisLongo = dados.alertaMaisLongo;
+        carregarUltimaLeitura(idEmpresa, idTolva);
+        carregarEstadoAtual(idEmpresa, idTolva);
+        carregarTempoAlerta(idEmpresa, idTolva);
+        carregarQuantidadeAlertas(idEmpresa, idTolva);
+        carregarAlertaMaisLongo(idEmpresa, idTolva);
+    }
 
-            // Última atualização
-            var data = new Date(infos.ultima_leitura);
-            var dataFmt = data.toLocaleString("pt-BR");
-            document.getElementById("p_ultima_atualizacao").innerHTML =
-                `<strong>Última atualização:</strong> ${dataFmt}`;
+    function lerRespostaKpi(resposta) {
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar KPI: HTTP " + resposta.status);
+        }
+        return resposta.json();
+    }
 
-            // Estado de Operação Atual
-            var perc = Number(infos.perc_cheia);
-            var estado = "Normal";
-            var cor = "#7ED957";
-            if (perc > 85) { estado = "Sobrecarga"; cor = "#FF0004"; }
-            else if (perc < 10) { estado = "Ociosidade"; cor = "#747474"; }
+    function carregarUltimaLeitura(idEmpresa, idTolva) {
+        return fetch(`/tolvas/ultima-leitura/${idEmpresa}/${idTolva}`)
+            .then(lerRespostaKpi)
+            .then(function (dados) {
+                var dataFmt = dados && dados.ultima_leitura
+                    ? new Date(dados.ultima_leitura).toLocaleString("pt-BR")
+                    : "--";
+                document.getElementById("p_ultima_atualizacao").innerHTML =
+                    `<strong>Última atualização:</strong> ${dataFmt}`;
+            })
+            .catch(function (erro) {
+                console.log("Erro ao carregar última leitura:", erro);
+            });
+    }
 
-            var h3Estado = document.getElementById("h3_estado");
-            h3Estado.innerHTML = estado;
-            h3Estado.style.color = cor;
+    function carregarEstadoAtual(idEmpresa, idTolva) {
+        return fetch(`/tolvas/estado-atual/${idEmpresa}/${idTolva}`)
+            .then(lerRespostaKpi)
+            .then(function (dados) {
+                var h3Estado = document.getElementById("h3_estado");
+                if (!dados || dados.perc_cheia == null) {
+                    h3Estado.textContent = "Sem leitura";
+                    h3Estado.style.color = "#747474";
+                    return;
+                }
 
-            // Tempo em Alerta Atual
-            var h3Atual = document.getElementById("h3_atual");
-            if (estado === "Normal") {
-                h3Atual.innerHTML = "Sem Alerta";
-                h3Atual.style.color = "#7ED957";
-            } else {
-                h3Atual.innerHTML = "Em alerta";
-                h3Atual.style.color = cor;
-            }
+                var perc = Number(dados.perc_cheia);
+                var estado = "Normal";
+                var cor = "#7ED957";
+                if (perc > 85) {
+                    estado = "Sobrecarga";
+                    cor = "#FF0004";
+                } else if (perc < 10) {
+                    estado = "Ociosidade";
+                    cor = "#747474";
+                }
+                h3Estado.textContent = estado;
+                h3Estado.style.color = cor;
+            })
+            .catch(function (erro) {
+                console.log("Erro ao carregar estado atual:", erro);
+            });
+    }
 
-            // Alertas Disparados (hoje/24h)
-            var total = alertasHoje.alertas_total ;
-            var sobrecarga = alertasHoje.alertas_sobrecarga ;
-            var ociosidade = alertasHoje.alertas_ociosidade ;
-            document.getElementById("h3_disparados").innerHTML = total;
-            document.getElementById("h5_disparados").innerHTML =
-                `${sobrecarga} Sobrecarga | ${ociosidade} Ociosidade`;
+    function carregarTempoAlerta(idEmpresa, idTolva) {
+        return fetch(`/tolvas/tempo-alerta/${idEmpresa}/${idTolva}`)
+            .then(lerRespostaKpi)
+            .then(function (dados) {
+                var tempo = dados || {};
+                var total = Number(tempo.tempo_alerta_total || 0);
+                var sobrecarga = Number(tempo.tempo_sobrecarga_total || 0);
+                var ociosidade = Number(tempo.tempo_ociosidade_total || 0);
+                var h3Atual = document.getElementById("h3_atual");
+                h3Atual.textContent = `${total}min`;
+                h3Atual.style.color = total > 0 ? "#D02A2D" : "#7ED957";
+                document.getElementById("h5_atual").textContent =
+                    `${sobrecarga}min Sobrecarga | ${ociosidade}min Ociosidade`;
+            })
+            .catch(function (erro) {
+                console.log("Erro ao carregar tempo em alerta:", erro);
+            });
+    }
 
-            // Alerta Mais Longo (hoje/24h)
-            if (alertaMaisLongo) {
-                document.getElementById("h3_maislongo").innerHTML =
-                    `${alertaMaisLongo.duracao_minutos}min`;
-                document.getElementById("h5_maislongo").innerHTML =
-                    `${alertaMaisLongo.tipo_alerta} às ${alertaMaisLongo.inicio}`;
-            } else {
-                document.getElementById("h3_maislongo").innerHTML = "0min";
-                document.getElementById("h5_maislongo").innerHTML = "Sem alertas";
-            }
-        })
-        .catch(function (erro) {
-            console.log("Erro ao carregar KPIs:", erro);
-        });
-}
+    function carregarQuantidadeAlertas(idEmpresa, idTolva) {
+        return fetch(`/tolvas/quantidade-alertas/${idEmpresa}/${idTolva}`)
+            .then(lerRespostaKpi)
+            .then(function (dados) {
+                var alertas = dados || {};
+                var total = Number(alertas.alertas_total || 0);
+                var sobrecarga = Number(alertas.alertas_sobrecarga || 0);
+                var ociosidade = Number(alertas.alertas_ociosidade || 0);
+                document.getElementById("h3_disparados").textContent = total;
+                document.getElementById("h5_disparados").textContent =
+                    `${sobrecarga} Sobrecarga | ${ociosidade} Ociosidade`;
+            })
+            .catch(function (erro) {
+                console.log("Erro ao carregar quantidade de alertas:", erro);
+            });
+    }
+
+    function carregarAlertaMaisLongo(idEmpresa, idTolva) {
+        return fetch(`/tolvas/alerta-mais-longo/${idEmpresa}/${idTolva}`)
+            .then(lerRespostaKpi)
+            .then(function (dados) {
+                if (dados) {
+                    var inicio = new Date(dados.inicio_alerta).toLocaleString("pt-BR");
+                    document.getElementById("h3_maislongo").textContent =
+                        `${Number(dados.duracao_minutos)}min`;
+                    document.getElementById("h5_maislongo").textContent =
+                        `${dados.tipo_alerta} em ${inicio}`;
+                } else {
+                    document.getElementById("h3_maislongo").textContent = "0min";
+                    document.getElementById("h5_maislongo").textContent = "Sem alertas";
+                }
+            })
+            .catch(function (erro) {
+                console.log("Erro ao carregar alerta mais longo:", erro);
+            });
+    }
 
     function mudarDashboard() {
         let tolva = select_tolva.value
